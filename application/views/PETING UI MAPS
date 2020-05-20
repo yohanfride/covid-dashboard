@@ -1,0 +1,15 @@
+
+<link rel="stylesheet" href="/wp-content/themes/news-portal/api_gis/dist/css/leaflet-search.css" />
+<link rel="stylesheet" href="/wp-content/themes/news-portal/api_gis/dist/css/leaflet.css">
+
+<script src="/wp-content/themes/news-portal/covid-19/charts/Chart.min.js"></script>
+<script src="/wp-content/themes/news-portal/covid-19/charts/utils.js"></script>
+	
+<script src="/wp-content/themes/news-portal/api_gis/dist/js/leaflet.js"></script>
+<script src="/wp-content/themes/news-portal/api_gis/dist/js/leaflet.rotatedMarker.js"></script>
+<script src="/wp-content/themes/news-portal/api_gis/dist/js/leaflet.pattern.js"></script>
+<script src="/wp-content/themes/news-portal/api_gis/dist/js/leaflet-hash.js"></script>
+<script src="/wp-content/themes/news-portal/api_gis/dist/js/Autolinker.min.js"></script>
+<script src="/wp-content/themes/news-portal/api_gis/dist/js/rbush.min.js"></script>
+<script src="/wp-content/themes/news-portal/api_gis/dist/js/labelgun.min.js"></script>
+<script src="/wp-content/themes/news-portal/api_gis/dist/js/leaflet-search.js"></script>

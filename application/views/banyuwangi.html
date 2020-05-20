@@ -1,0 +1,2828 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+		<title>Situs Informasi dan Pantauan COVID-19 Banyuwangi</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="Author" content="" />
+
+		<!-- mobile settings -->
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+		<!-- CORE CSS -->
+		<link href="https://corona.banyuwangikab.go.id/templates/bwi/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+		<!-- THEME CSS -->
+		<link href="https://corona.banyuwangikab.go.id/templates/bwi/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="https://corona.banyuwangikab.go.id/templates/bwi/assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="https://corona.banyuwangikab.go.id/templates/bwi/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="https://corona.banyuwangikab.go.id/templates/bwi/assets/css/color_scheme/green.css" rel="stylesheet" type="text/css" id="color_scheme" />
+		<link href="https://corona.banyuwangikab.go.id/templates/bwi/assets/css/style.css" rel="stylesheet" type="text/css" />
+		<link href="https://corona.banyuwangikab.go.id/templates/bwi/assets/css/animate.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+		<link href="https://corona.banyuwangikab.go.id/templates/bwi/owl/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" type="text/css" />
+		<link href="https://corona.banyuwangikab.go.id/templates/bwi/owl/owlcarousel/assets/owl.theme.default.min.css" rel="stylesheet" type="text/css" />
+
+
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162174002-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-162174002-1');
+		</script>
+		<script type="text/javascript" src="https://corona.banyuwangikab.go.id/templates/bwi/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+		<!--MAPS HU-->
+		<link rel="stylesheet" href="https://corona.banyuwangikab.go.id/templates/bwi/assets/plugins/leaflet/leaflet.css" />
+		<script type="text/javascript" src="https://corona.banyuwangikab.go.id/templates/bwi/assets/plugins/leaflet/leaflet-src.js"></script>
+		<script src='https://corona.banyuwangikab.go.id/templates/bwi/assets/plugins/leaflet/Leaflet.GoogleMutant.js'></script>
+		<script src="https://corona.banyuwangikab.go.id/templates/bwi/owl/owlcarousel/owl.carousel.js"></script>
+	<script>
+		var site='https://corona.banyuwangikab.go.id/';
+	</script>
+	</head>
+
+<body class="smoothscroll">
+	<!-- wrapper -->
+	<div id="wrapper">
+
+		<div id="header" class="sticky dark header-md translucent noborder clearfix">
+
+			<!-- TOP NAV -->
+			<header id="topNav">
+				<div class="container"><!-- add .full-container for fullwidth -->
+
+					<!-- Mobile Menu Button -->
+					<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+						<i class="fa fa-bars"></i>
+					</button>
+
+					<a class="logo pull-left" style="color:white; margin-top:1rem;" href="/">
+						<!-- <img style="height:4rem; width:4rem; margin:auto;" src="https://corona.banyuwangikab.go.id/public/b-asset/img/logo_gugus_tugas_covid19.png"> -->
+						<!-- <img src="https://corona.banyuwangikab.go.id/public/bwi.png" alt="" /> -->
+						<div  style="display: flex; flex-direction:row;">
+							<img src="https://corona.banyuwangikab.go.id/public/b-asset/img/logo_gugus_tugas_covid19.png" style="height:4rem; width:4rem; float:left;">
+								<div id="title-teks" style="display: flex; flex-direction:column; padding-left: 10px;font-weight: bold;font-family: calibri;line-height:1em;margin-top:1rem;">
+								<span>
+									<span id="title-teks-sub-ax" style="font-size: 22px">BANYUWANGIKAB</span><br>
+									<span id="title-teks-sub-bx" style="font-weight: normal;font-size: 15.8px;" >Gugus Tugas COVID19</span>
+								</span>
+							</div>
+						</div>
+					</a>
+
+					<div class="navbar-collapse pull-right nav-main-collapse collapse submenu-dark">
+						<nav class="nav-main">
+							<ul id="topMain" class="nav nav-pills nav-main">
+								<li><!-- HOME -->
+									<a href="https://corona.banyuwangikab.go.id/">
+										Beranda
+									</a>
+								</li>
+								<li>
+							    <!-- <li ><a href="https://corona.banyuwangikab.go.id/#data-terkini"> Data Terkini </a></li> -->
+								<!-- <li ><a href="https://corona.banyuwangikab.go.id/data"> Data Pemantauan </a></li> -->
+							    <!-- <li ><a href="https://corona.banyuwangikab.go.id/#peta-sebaran"> Peta Sebaran </a></li> -->
+							    <!-- <li ><a href="https://corona.banyuwangikab.go.id/#info-covid"> Informasi Covid-19 </a></li> -->
+							    <li class="dropdown"><a class="dropdown-toggle" href="#">Peta Sebaran</a>
+										<ul class="dropdown-menu">
+							    			<li ><a href="https://corona.banyuwangikab.go.id/#peta-sebaran">Peta Sebaran Covid-19</a></li>
+							          		<li><a href="https://corona.banyuwangikab.go.id/#kesehatan">Fasilitas Kesehatan</a></li>
+							          		<li><a href="https://corona.banyuwangikab.go.id/#rumah_isolasi">Rumah Isolasi</a></li>
+							          	</ul>
+							        </li>
+									<li class="dropdown"><a class="dropdown-toggle" href="#"> Data</a>
+										<ul class="dropdown-menu">
+							    			<li ><a href="https://corona.banyuwangikab.go.id/#data-terkini"> Data Terkini </a></li>
+							    			<li ><a href="https://corona.banyuwangikab.go.id/#data_pemantauan"> Data Pemantauan </a></li>
+							          		<li><a href="https://corona.banyuwangikab.go.id/#bantuan">Bantuan JPS</a></li>
+							          	</ul>
+							        </li>
+							        <li class="dropdown"><a class="dropdown-toggle" href="#">Publikasi</a>
+										<ul class="dropdown-menu">
+							          		<li><a href="https://corona.banyuwangikab.go.id/#infografis">Infografis</a></li>
+							          		<li><a href="https://corona.banyuwangikab.go.id/#info-covid">Informasi Covid-19</a></li>
+														<!-- <li><a href="https://corona.banyuwangikab.go.id/galeri_aktivitas">Aktivitas Gugus Tugas Covid-19</a></li> -->
+							          	</ul>
+							        </li>
+											<li>
+												<a href="https://corona.banyuwangikab.go.id/galeri_aktivitas">Aktivitas</a>
+											</li>
+											<li>
+												<a href="https://corona.banyuwangikab.go.id/berita">Berita</a>
+											</li>
+
+											<li>
+												<a href="https://corona.banyuwangikab.go.id/checkpoint">Checkpoint</a>
+											</li>
+
+
+															</ul>
+
+						</nav>
+					</div>
+
+				</div>
+			</header>
+		</div>
+
+
+<style>
+#owl-demo .item {
+  display: block;
+  margin-top:100px;
+  /* width: 100%;
+  height: auto; */
+}
+.owl-back{
+  /* background: #5b8; */
+  height: 770px;
+  /* background-color: rgba(140, 92, 226,0.8); */
+  background: rgb(236,69,250);
+  background: linear-gradient(94deg, rgba(236,69,250,1) 3%, rgba(194,69,250,1) 29%, rgba(100,84,218,1) 83%);
+}
+.over-bold {
+  font-weight: bold;
+}
+#owl-demo h2 {
+  font-weight: bold !important;
+}
+#owl-demo h3 {
+  font-weight: bold !important;
+}
+#owl-demo h4 {
+  font-weight: bold !important;
+}
+.owl-carousel .owl-item img {
+  display: inline-block;
+  width: 100%;
+}
+
+.font-small{
+  font-size:12px;
+}
+
+.owl-controls
+{
+  display: none !important;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  #owl-demo {
+    display: none;
+  }
+}
+
+.container-wide{
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.owl-carousel .nav-btn{
+  height: 47px;
+  position: absolute;
+  width: 26px;
+  cursor: pointer;
+  top: 100px !important;
+}
+
+.owl-carousel .owl-prev.disabled,
+.owl-carousel .owl-next.disabled{
+pointer-events: none;
+opacity: 0.2;
+}
+
+.owl-carousel .prev-slide{
+  background: url(nav-icon.png) no-repeat scroll 0 0;
+  left: -33px;
+}
+.owl-carousel .next-slide{
+  background: url(nav-icon.png) no-repeat scroll -24px 0px;
+  right: -33px;
+}
+.owl-carousel .prev-slide:hover{
+ background-position: 0px -53px;
+}
+.owl-carousel .next-slide:hover{
+background-position: -24px -53px;
+}
+.btns{
+  display: table;
+  margin: 30px auto;
+  z-index: 9999;
+  margin-top: -100px;
+position: relative;
+}
+.customNextBtn, .customPreviousBtn{
+      float: right;
+    background: #2d9070;
+    color: #fff;
+    padding: 10px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+</style>
+<div id="owl-demo" class="owl-carousel owl-theme owl-back">
+  
+    <div class="item">
+    <div class="container">
+      <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center"><h4>Distribusi Bantuan</h4></div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <table class="table table-bordered table-hovered">
+                    <thead>
+                        <tr>
+                          <th style="text-align:left;">Tanggal</th>
+                          <th style="text-align:left;">Penerima</th>
+                          <th style="text-align:left;">Jumlah Paket</th>
+                          <th style="text-align:left;">Detail Barang</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                                            <tr>
+                          <td style="vertical-align:top;">11/05/2020</td>
+                          <td style="vertical-align:top;">Dinas Kesehatan Kabupaten Banyuwangi</td>
+                          <td style="text-align:left;vertical-align:top;">-</td>
+                          <td style="text-align:left;vertical-align:top;">- Masker Kain 1 Lembar 800 Lembar,- Tes Kit 50 Pcs,- Kacamata Google 20 Pcs,- Desinfektan 5L 10 Jerigen,- Masker N95 200 Lembar,- Sarung Tangan Latex 47 Box,- Desinfektan 35L 3 Jerigen,- APD 93 Buah</td>
+                      </tr>
+                                          <tr>
+                          <td style="vertical-align:top;">11/05/2020</td>
+                          <td style="vertical-align:top;">RSUD Blambangan</td>
+                          <td style="text-align:left;vertical-align:top;">-</td>
+                          <td style="text-align:left;vertical-align:top;">- Masker Shield 10 Pcs,- Sarung Tangan Latex 50 Box,- Masker N95 10 Lembar,- APD 268 Buah,- Hand Sanitizer 20 Botol,- Nurse Cap 10 Pcs,- Hair Cap 50 Box,- Sarung Tangan 10 Box,- Sepatu Boot 135 Pasang,- Masker Kain 1 Lembar 750 Lembar,- Wastafel Portable 3 Unit,- Kacamata Google 210 Pcs,- Masker Operasi (Box) 90 Box</td>
+                      </tr>
+                                          <tr>
+                          <td style="vertical-align:top;">11/05/2020</td>
+                          <td style="vertical-align:top;">Warga Desa Banjarsari Kecamatan Glagah</td>
+                          <td style="text-align:left;vertical-align:top;">-</td>
+                          <td style="text-align:left;vertical-align:top;">- Masker Kain 1 Lembar 150 Lembar</td>
+                      </tr>
+                                          <tr>
+                          <td style="vertical-align:top;">11/05/2020</td>
+                          <td style="vertical-align:top;">Dinas Koperasi UM dan Perdagangan Kabupaten Banyuwangi</td>
+                          <td style="text-align:left;vertical-align:top;">6 Paket</td>
+                          <td style="text-align:left;vertical-align:top;">- Beras 10 Kg 6 Karung,- Minyak Goreng 2 Liter 2 Bungkus,- Mie Instan 1 Bks 60 Bungkus,- Gula Pasir 1 Kg 2 Bungkus,- Sarden 155gr 20 Kaleng</td>
+                      </tr>
+                                        </tbody>
+                    </table>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="container">
+      <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center"><h4>Donasi Masuk</h4></div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-12">
+                <table class="table table-bordered table-hovered">
+                  <thead>
+                      <tr>
+                        <th style="text-align:left;">Tanggal</th>
+                        <th style="text-align:left;width:200px">Donatur</th>
+                        <th style="text-align:left;">Jumlah Paket</th>
+                        <th style="text-align:left;">Detail Donasi</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                                            <tr>
+                          <td style="vertical-align:top;">11/05/2020</td>
+                          <td style="vertical-align:top;">Ny. Erni (Ny. Drg. Suharnyoto)</td>
+                          <td style="text-align:left;vertical-align:top;">-</td>
+                          <td style="text-align:left;vertical-align:top;">- Desinfektan 35L 3 Jerigen,- APD 93 Buah,- Masker Kain 1 Lembar 800 Lembar,- Kacamata Google 20 Pcs,- Desinfektan 5L 10 Jerigen,- Masker N95 200 Lembar,- Sarung Tangan Latex 47 Box</td>
+                      </tr>
+                                            <tr>
+                          <td style="vertical-align:top;">11/05/2020</td>
+                          <td style="vertical-align:top;">Pelindo III Banyuwangi</td>
+                          <td style="text-align:left;vertical-align:top;">-</td>
+                          <td style="text-align:left;vertical-align:top;">- Wastafel Portable 30 Unit</td>
+                      </tr>
+                                            <tr>
+                          <td style="vertical-align:top;">11/05/2020</td>
+                          <td style="vertical-align:top;">CSR BUMN di Banyuwangi</td>
+                          <td style="text-align:left;vertical-align:top;">-</td>
+                          <td style="text-align:left;vertical-align:top;">- Nurse Cap 10 Pcs,- Hair Cap 50 Box,- Sarung Tangan 10 Box,- Sepatu Boot 135 Pasang,- Masker Kain 1 Lembar 750 Lembar,- Kacamata Google 210 Pcs,- Masker Operasi (Lembar) 90 Lembar,- Masker Shield 10 Pcs,- Sarung Tangan Latex 50 Box,- Masker N95 10 Lembar,- APD 268 Buah,- Hand Sanitizer 20 Botol</td>
+                      </tr>
+                                            <tr>
+                          <td style="vertical-align:top;">11/05/2020</td>
+                          <td style="vertical-align:top;">Dinas Pertanian dan Pangan Kabupaten Banyuwangi</td>
+                          <td style="text-align:left;vertical-align:top;">-</td>
+                          <td style="text-align:left;vertical-align:top;">- Telur 900 Butir</td>
+                      </tr>
+                                            <tr>
+                          <td style="vertical-align:top;">11/05/2020</td>
+                          <td style="vertical-align:top;">Satuan Polisi Pamong Praja Kabupaten Banyuwangi</td>
+                          <td style="text-align:left;vertical-align:top;">106 Paket</td>
+                          <td style="text-align:left;vertical-align:top;">- Beras 10 Kg 106 Karung,- Masker Kain 1 Lembar 318 Lembar,- Mie Instan 1 Bks 1060 Bungkus,- Minyak Goreng 2 Liter 106 Bungkus</td>
+                      </tr>
+                                        </tbody>
+                  </table>
+              </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/data_peta.jpeg" alt="" style="width:auto;height:550px"/>
+  </div>
+  <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/donasi.jpeg" alt="" style="width:auto;height:550px"/>
+  </div>
+  <!-- <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/masker.jpeg" alt="" style="width:990px"/>
+  </div>
+  <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/bumil.jpeg" alt="" style="width:990px"/>
+  </div>
+  <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/pelaku-wisata.jpeg" alt=""/ style="width:990px">
+  </div> -->
+  <!-- <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/checkpoint.jpeg" alt=""/ style="width:990px">
+  </div> -->
+  <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/skema-8.jpeg" alt=""/ style="width:990px">
+  </div>
+  <!-- <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/penjahit-umkm.jpeg" alt=""/ style="width:990px">
+  </div> -->
+  <!-- <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/asdp.jpeg" alt=""/ style="width:990px">
+  </div> -->
+  <!-- <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/daudbh.jpeg" alt=""/ style="width:990px">
+  </div> -->
+  <!-- <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/paket-sembako-21700.jpeg" alt=""/ style="width:990px">
+  </div> -->
+  <!-- <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/rumah-singgah.jpeg" alt=""/ style="width:990px">
+  </div> -->
+  <!-- <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/obser-posko.jpeg" alt=""/ style="width:990px">
+  </div> -->
+  <!-- <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/medis-covid.jpeg" alt=""/ style="width:990px">
+  </div> -->
+  <!-- <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/obser-bwistbd.jpeg" alt=""/ style="width:990px">
+  </div> -->
+  <!-- <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/obser-asdp.jpeg" alt=""/ style="width:990px">
+  </div>
+  <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/bantuan-pkm-bajulmati.jpeg" alt=""/ style="width:990px">
+  </div> -->
+  <!-- <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/paket-sembako-asn.jpeg" alt=""/ style="width:990px">
+  </div>
+  <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/kades-covid19.jpeg" alt=""/ style="width:990px">
+  </div>
+  <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/bantuan-pkm-klatak.jpeg" alt=""/ style="width:990px">
+  </div>
+  <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/kunjungan-tiga-pilar.jpeg" alt=""/ style="width:990px">
+  </div>
+  <div class="item">
+    <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/karantina-gor.jpeg" alt=""/ style="width:990px">
+  </div> -->
+      <div class="item">
+      <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/rs-rujukan.jpeg" alt=""/ style="width:990px">
+    </div>
+      <div class="item">
+      <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/satkorwil-sempu.jpeg" alt=""/ style="width:990px">
+    </div>
+    <!-- <div class="item">
+    <div class="container-wide">
+      <div class="row" style="width: 1500px;">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center"><h4>Donatur Bantuan</h4></div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-3">
+                <table class="table table-bordered table-hovered font-small">
+                  <tbody>
+                                                              <tr>
+                        <td style="text-align:left">Aice Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                        <td style="text-align:left">ANANTAKUPA </td>
+                      </tr>
+                                            <tr>
+                        <td style="text-align:left">Asosiasi Koperasi Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                        <td style="text-align:left">Badan Kepegawaian Pendidikan dan Pelatihan Kabupaten Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                        <td style="text-align:left">Badan Musyawarah Antar Gereja Kabupaten Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                        <td style="text-align:left">Badan Penanggulangan Bencana Daerah Kabupaten Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                        <td style="text-align:left">Badan Pendapatan Kabupaten Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                        <td style="text-align:left">Badan Pengelola Keuangan dan Aset Daerah Kabupaten Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                        <td style="text-align:left">Bag. Pemdes Setda Kab. Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                        <td style="text-align:left">Bag. Perencanaan Keuangan Setda Kab. Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                        <td style="text-align:left">Bagian Hukum Setda Kabupaten Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                        <td style="text-align:left">Bagian Kesra Setda Kabupaten Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                        <td style="text-align:left">Bagian Organisasi Setda Kab. Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                        <td style="text-align:left">Bagian Pemdes Setda Kabupaten Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                        <td style="text-align:left">Bagian Pemerintahan Desa Setda Kabupaten Banyuwangi</td>
+                      </tr>
+                                          </tbody>
+                  </table>
+                </div>
+              <div class="col-md-3">
+                <table class="table table-bordered table-hovered font-small">
+                  <tbody>
+                                                              <tr>
+                        <td style="text-align:left">Bagian Pemerintahan Setda Kabupaten Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Bagian Pengadaan Barang dan Jasa Setda Kabupaten Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Bagian Perekonomian Setda Kabupaten Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Bagian Perencanaan Keuangan Setda Kabupaten Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Bagian Protokol Setda Kab. Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Bagian Umum Setda Kabupaten Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">BAKESBANGPOL Kabupaten Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Bakti Sosial Warga Tionghoa Se Kab. Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Bank BNI Cabang Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">BAPPEDA Kabupaten Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Belanja Posko Gugas Covid-19 Kabupaten Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">BKD Kabupaten Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">BLK Kemenakertrans Muncar</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">BPBD Kabupaten Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">BPC Gapensi Banyuwangi</td>
+                      </tr>
+                                      </tbody>
+                </table>
+              </div>
+              <div class="col-md-3">
+                <table class="table table-bordered table-hovered font-small">
+                  <tbody>
+                                                              <tr>
+                        <td style="text-align:left">BPKAD Kab. Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">BRI Syariah</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">BULOG Subdivre Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Csr Asosiasi UMKM Akrab</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">CSR BUMN di Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Csr Donator</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">CV Rajawali Perkasa Marine</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Dinas Kependudukan dan Pencatatan Sipil Kabupaten Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Dinas Kesehatan Kab. Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Dinas Kesehatan Kabupaten Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Dinas Komunikasi, Informatika dan Persandian Kabupaten Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Dinas Koperasi, Usaha Mikro dan Perdagangan Kab Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Dinas Koperasi, Usaha Mikro dan Perdagangan Kabupaten Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Dinas Lingkungan Hidup Kabupaten Banyuwangi</td>
+                      </tr>
+                                          <tr>
+                        <td style="text-align:left">Dinas Pemberdayaan Masyarakat Dan Desa Kab. Banyuwangi</td>
+                      </tr>
+                                      </tbody>
+                </table>
+              </div>
+              <div class="col-md-3">
+                <table class="table table-bordered table-hovered font-small">
+                  <tbody>
+                                                                <tr>
+                          <td style="text-align:left">Dinas Pemberdayaan Masyarakat dan Desa Kabupaten Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                          <td style="text-align:left">Dinas Penanaman Modal dan PTSP Kab Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                          <td style="text-align:left">Dinas Pendidikan Kab. Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                          <td style="text-align:left">Dinas Pendidikan Kabupaten Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                          <td style="text-align:left">Dinas Perikanan Kab. Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                          <td style="text-align:left">Dinas Perikanan Kabupaten Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                          <td style="text-align:left">Dinas Perpustakaan dan Kearsipan Kab Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                          <td style="text-align:left">Dinas Perpustakaan dan Kearsipan Kabupaten Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                          <td style="text-align:left">Dinas Pertanian dan Pangan Kabupaten Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                          <td style="text-align:left">Dinas PU Pengairan Kabupaten Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                          <td style="text-align:left">Dinas Sosial PP & KB Kab. Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                          <td style="text-align:left">Dinas Tenaga Kerja, Transmigrasi dan Perindustrian Kabupaten Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                          <td style="text-align:left">Disbudpar Kab Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                          <td style="text-align:left">Dishub Kab. Banyuwangi</td>
+                      </tr>
+                                            <tr>
+                          <td style="text-align:left">Dispendukcapil Kab. Banyuwangi</td>
+                      </tr>
+                                          </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+</div>
+<div class="btns">
+  <div class="customNextBtn">Slide Selanjutnya <i class="fa fa-arrow-right"></i></div>
+  <div class="customPreviousBtn"><i class="fa fa-arrow-left"></i> Slide Sebelumnya</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+var owl = $('#owl-demo');
+
+$("#owl-demo").owlCarousel({
+      items: 1,
+      loop: true,
+      margin: 10,
+      autoplay:true,
+      autoplayTimeout:20000,
+      // animateOut: 'fadeOut',
+      animateIn: 'fadeIn',
+      itemsMobile : false,
+    // "singleItem:true" is a shortcut for:
+    // items : 1,
+    // itemsDesktop : false,
+    // itemsDesktopSmall : false,
+    // itemsTablet: false,
+    // itemsMobile : false
+});
+// Custom Button
+  $('.customNextBtn').click(function() {
+    owl.trigger('next.owl.carousel');
+  });
+  $('.customPreviousBtn').click(function() {
+    owl.trigger('prev.owl.carousel');
+  });
+});
+</script>
+<section id="data-terkini">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading-title heading-dotted text-center">
+                    <h2>DATA TERKINI COVID-19 DI BANYUWANGI</h2>
+                </div>
+                <p style="font-style:italic;">* Last Update Data 2020-05-13</p>
+                  <!-- <p style="font-style:italic;">* Last Update Data 2020-04-19</p> -->
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center"><h4>ORANG DALAM RESIKO (ODR)</h4></div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- <h3 class="jml_angka semua odp">782 <span> Total ODP</span></h3> -->
+				<h2 class="jml_angka semua odr"> 7472 <span> Total ODR</span></h2>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- <h3 class="jml_angka filter odp">33 <span> Proses Pemantauan</span></h3> -->
+				<h2 class="jml_angka filter odr"> 802 <span> Proses Pemantauan</span></h2>
+                            </div>
+                            <div class="col-md-6">
+                                <!-- <h3 class="jml_angka filter odp">748 <span> Selesai Pantau</span></h3> -->
+				<h2 class="jml_angka filter odr"> 6670 <span> Selesai Pantau</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center"><h4>ORANG DALAM PEMANTAUAN (ODP)</h4></div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                 <h2 class="jml_angka semua odp">782 <span> Total ODP</span></h2>
+				<!-- <h3 class="jml_angka semua odp"> 769 <span> Total ODP</span></h3> -->
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                 <h2 class="jml_angka filter odp">33 <span> Proses Pemantauan</span></h2>
+				<!-- <h3 class="jml_angka filter odp">37 <span> Proses Pemantauan</span></h3> -->
+                            </div>
+                            <div class="col-md-4">
+                                <h2 class="jml_angka filter odp">748 <span> Selesai Pantau</span></h2>
+				<!-- <h3 class="jml_angka filter odp">576 <span> Selesai Pantau</span></h3> -->
+                            </div>
+			    <div class="col-md-4">
+                                <h2 class="jml_angka filter odp">1 <span> Meninggal</span></h2>
+				<!-- <h3 class="jml_angka filter odp">294 <span> Selesai Pantau</span></h3> -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center"><h4>PASIEN DALAM Pengawasan (PDP)</h4></div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2 class="jml_angka semua pdp">20 <span> Total PDP</span></h2>
+                                <!-- <h3 class="jml_angka semua pdp">15 <span> Total PDP</span></h3> -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h2 class="jml_angka filter pdp">6 <span> Masih Dirawat</span></h2>
+                                <!-- <h3 class="jml_angka filter pdp">3 <span> Masih Dirawat</span></h3> -->
+                            </div>
+                            <div class="col-md-4">
+                                <h2 class="jml_angka filter pdp">10 <span> Sembuh</span></h2>
+                                <!-- <h3 class="jml_angka filter pdp">15 <span> Sembuh</span></h3> -->
+                       </div>
+							<div class="col-md-4">
+                                <h2 class="jml_angka filter pdp">4 <span>Meninggal</span></h2>
+                                <!-- <h3 class="jml_angka filter pdp">0 <span> Meninggal </span></h3> -->
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center"><h4>KASUS TERKONFIRMASI COVID19</h4></div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="jml_angka semua suspect">4 <span> Total Positif</span></h3>
+                                <!-- <h3 class="jml_angka semua suspect">1 <span> Total Positif</span></h3> -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h2 class="jml_angka filter suspect">1 <span> Dirawat</span></h2>
+                                <!-- <h3 class="jml_angka filter suspect">0  <span> Dirawat</span></h3> -->
+                            </div>
+                            <div class="col-md-3">
+                                 <h2 class="jml_angka filter suspect">1 <span> Pengawasan</span></h2>
+                                <!-- <h3 class="jml_angka filter suspect">0  <span> Pengawasan</span></h3> -->
+                            </div>
+                            <div class="col-md-3">
+                                <h2 class="jml_angka filter suspect">1 <span> Sembuh</span></h2>
+                            </div>
+                            <div class="col-md-3">
+                                <h2 class="jml_angka filter suspect">1 <span> Meninggal</span></h2>
+                                <!-- <h3 class="jml_angka filter suspect">0  <span> Meninggal</span></h3> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <BR/>
+                <ul>
+                    <li><a href="https://corona.banyuwangikab.go.id/public/SE_BUPATI_TTG_COVID-19 - RESMI.pdf" target="_blank">SURAT EDARAN BUPATI BANYUWANGI TENTANG KEWASPADAAN DAN PENCEGAHAN TERHADAP CORONA VIRUS DISEASE 2019 (Covid-19)</a></li>
+                    <li><a href="https://corona.banyuwangikab.go.id/public/se_sekda.pdf" target="_blank">SURAT EDARAN SEKRETARIAT DAERAH TENTANG PENYESUAIAN SISTEM KERJA APARATUR SIPIL NEGARA DALAM UPAYA PENCEGAHAN PENYEBARAN COVID-19 DI LINGKUNGAN PEMERINTAH KABUPATEN BANYUWANGI </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider divider-color divider-center"> <i class="fa fa-users"></i>
+                </div>
+                <div align="center">KONDISI NASIONAL DAN GLOBAL</div>
+                <iframe title="" aria-label="Table" id="datawrapper-chart-7Yo1k" src="https://datawrapper.dwcdn.net/7Yo1k/" scrolling="no" frameborder="0" style="width: 0px; border: none; height: 180px; min-width: 100% !important;" height="191"></iframe>
+            </div>
+        </div>
+  </div>
+</section>
+
+<section class="padding-xxs" id="peta-sebaran" style="padding-bottom:0px">
+    <div class="container">
+        <div class="heading-title heading-dotted text-center">
+            <h2>PETA SEBARAN COVID-19 DI BANYUWANGI</h2>
+        </div>
+        <div class="row">
+            <div class="info-peta">
+                <span class="info-peta-zonk"></span> Tidak Ada Kasus <span class="info-peta-odp"></span> Ada ODP <span class="info-peta-pdp"></span> Ada PDP <span class="info-peta-suspect"></span> Ada Positif Covid-19
+            </div>
+        </div>
+    </div>
+    <div id="map" class="peta-sebaran"></div>
+</section>
+
+<section id="data_pemantauan"class="padding-xxs" style="padding-bottom:0px">
+  <div class="container">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="heading-title heading-dotted text-center">
+              <h2>Data Pemantauan COVID-19 Banyuwangi</h2>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title text-center">Grafik perkembangan ODP (Orang Dalam Pemantauan) Banyuwangi</h3>
+            </div>
+            <div class="panel-body">
+              <div id="chart-kasus-odp"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title text-center">
+                Grafik perkembangan PDP (Pasien Dalam Pengawasan) 2020 Banyuwangi
+              </h3>
+            </div>
+            <div class="panel-body">
+              <div id="chart-kasus-pdp">
+             </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+               <h3 class="panel-title">
+                Grafik perkembangan Positif COVID-19 2020 Banyuwangi
+               </h3>
+            </div>
+            <div class="panel-body">
+              <div id="chart-kasus-covid"></div>
+            </div>
+          </div>
+          </div>
+        </div>
+      <div class="row">
+        <!-- <div class="col-md-2">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <h4>Mapping Per Kecamatan</h4>
+            </div>
+            <div class="panel-body">
+              <div class="" id="mapping_kecamatan" style="width: 100%; min-height: 555px;"></div>
+            </div>
+          </div>
+        </div> -->
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <h4>Data Covid-19 Per Kecamatan</h4>
+            </div>
+            <div class="panel-body">
+              <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                  <tr>
+                   <th class="text-left">Kecamatan</th>
+                   <th class="text-left">ODP</th>
+                   <th class="text-left">PDP</th>
+                   <th class="text-left">Covid</th>
+                 </tr>
+               </thead>
+                <tbody>
+                                      <tr class="active">
+                     <td> Bangorejo</td>
+                     <td>25</td>
+                     <td>0</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Banyuwangi</td>
+                     <td>108</td>
+                     <td>3</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Blimbingsari</td>
+                     <td>14</td>
+                     <td>0</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Cluring</td>
+                     <td>27</td>
+                     <td>1</td>
+                     <td>1</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Gambiran</td>
+                     <td>30</td>
+                     <td>1</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Genteng</td>
+                     <td>42</td>
+                     <td>1</td>
+                     <td>2</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Giri</td>
+                     <td>20</td>
+                     <td>2</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Glagah</td>
+                     <td>24</td>
+                     <td>1</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Glenmore</td>
+                     <td>56</td>
+                     <td>1</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Kabat</td>
+                     <td>58</td>
+                     <td>2</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Kalibaru</td>
+                     <td>25</td>
+                     <td>1</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Kalipuro</td>
+                     <td>28</td>
+                     <td>0</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Licin</td>
+                     <td>12</td>
+                     <td>0</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Muncar</td>
+                     <td>43</td>
+                     <td>1</td>
+                     <td>1</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Pesanggaran</td>
+                     <td>36</td>
+                     <td>0</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Purwoharjo</td>
+                     <td>23</td>
+                     <td>1</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Rogojampi</td>
+                     <td>26</td>
+                     <td>1</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Sempu</td>
+                     <td>32</td>
+                     <td>2</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Siliragung</td>
+                     <td>15</td>
+                     <td>1</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Singojuruh</td>
+                     <td>15</td>
+                     <td>0</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Songgon</td>
+                     <td>11</td>
+                     <td>0</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Srono</td>
+                     <td>44</td>
+                     <td>0</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Tegaldlimo</td>
+                     <td>12</td>
+                     <td>0</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Tegalsari</td>
+                     <td>33</td>
+                     <td>0</td>
+                     <td>0</td>
+                   </tr>
+                                  <tr class="active">
+                     <td> Wongsorejo</td>
+                     <td>27</td>
+                     <td>1</td>
+                     <td>0</td>
+                   </tr>
+                              </tbody>
+                  <tr>
+                    <td> <h4> Total </h4></td>
+                    <td> <h4> 782 </h4> </td>
+                    <td> <h4> 20 </h4> </td>
+                    <td> <h4> 4 </h4></td>
+                  </tr>
+             </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="kesehatan">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <h4>Fasilitas Kesehatan</h4>
+            </div>
+            <div class="panel-body">
+              <div class="" id="faskes" style="width: 100%; min-height: 500px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="rumah_isolasi">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <h4>Data Rumah Isolasi</h4>
+			  <span>Terdapat 251 Rumah Isolasi Tersedia</span>
+            </div>
+            <div class="panel-body">
+
+			<div class="col-md-12">
+			<div class="panel panel-default">
+			<div class="panel-body">
+			<div class="" id="mapping_kecamatan_isolasi" style="width: 100%; min-height: 555px;"></div>
+			</div></div></div>
+			<div class="col-md-12">
+			<div class="panel panel-default">
+			<div class="panel-body">
+			<form class="form-horizontal" name="filterspm" id="filterspm">
+			    <div class="row">
+			        <div class="col-md-6">
+
+			            <div class="form-group">
+	                        <label for="kecamatan" class="col-sm-3 control-label">Kecamatan</label>
+	                        <div class="col-sm-9">
+	                            <select name="NO_KEC" id="NO_KEC" class="form-control" onchange="get_iso();getkel()">
+<option value="" selected="selected"></option>
+<option value="1">PESANGGARAN</option>
+<option value="2">BANGOREJO</option>
+<option value="3">PURWOHARJO</option>
+<option value="4">TEGALDLIMO</option>
+<option value="5">MUNCAR</option>
+<option value="6">CLURING</option>
+<option value="7">GAMBIRAN</option>
+<option value="8">SRONO</option>
+<option value="9">GENTENG</option>
+<option value="10">GLENMORE</option>
+<option value="11">KALIBARU</option>
+<option value="12">SINGOJURUH</option>
+<option value="13">ROGOJAMPI</option>
+<option value="14">KABAT</option>
+<option value="15">GLAGAH</option>
+<option value="16">BANYUWANGI</option>
+<option value="17">GIRI</option>
+<option value="18">WONGSOREJO</option>
+<option value="19">SONGGON</option>
+<option value="20">SEMPU</option>
+<option value="21">KALIPURO</option>
+<option value="22">SILIRAGUNG</option>
+<option value="23">TEGALSARI</option>
+<option value="24">LICIN</option>
+<option value="25">BLIMBINGSARI</option>
+</select>
+	                        </div>
+	                    </div><!-- /.form-group -->
+
+			             <div class="form-group">
+	                        <label for="no_kel" class="col-sm-3 control-label">Kelurahan / Desa</label>
+	                        <div class="col-sm-9">
+	                            <div id="kelurahan">
+
+	                                    <div id="kel">
+	                                        <select name="NO_KEL" id="NO_KEL" class="form-control" onchange="get_iso()">
+</select>
+	                                    </div>
+
+	                            </div>
+	                        </div>
+	                    </div><!-- /.form-group -->
+	           		</div>
+
+					<div class="col-md-6">
+			   			<div class="form-group">
+		                    <label for="kecamatan" class="col-sm-3 control-label">Nama</label>
+		                    <div class="col-sm-9">
+		                       <input type="text" name="namalgkp" value=""  id="namalgkp" class="form-control" onkeyup="get_iso()" />
+		                    </div>
+		                </div>
+					</div>
+        		</div>
+			</form>
+ <div class="">
+
+
+        <div id="content_map"></div>
+
+
+    </div>
+</div></div>
+			</div>
+
+
+			<!-- <div class="col-md-6">
+
+			</div> -->
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <h4>Grafik perkembangan Covid-19 Banyuwangi Berdasarkan Umur</h4>
+            </div>
+            <div class="panel-body">
+              <div id="chart"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+                  <h4>Grafik perkembangan Covid-19 Banyuwangi Bedasarkan Jenis Kelamin</h4>
+              </div>
+            <div class="panel-body">
+                <div id="gender"></div>
+            </div>
+              <div class="row">
+                <div class="col-md-12">
+                                                                                                                                                                                                                                                                                        <!-- <p class="text-center">Laki : Laki : 509</p>
+                    <p class="text-center" style="margin-top: -20px;">Perempuan : 296</p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bantuan -->
+      <div class="row" id="bantuan">
+          <div class="col-md-12">
+              <div class="heading-title heading-dotted text-center">
+                  <h2>PEDULI COVID-19</h2>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div style="text-align: justify;text-justify: inter-word;">
+            <h4 style="text-align:center"><strong>Posko Gugus Tugas COVID19</strong></h4>
+            <p>Gugus tugas covid 19 adalah satuan tugas yang dibentuk dan hadir 
+            untuk membantu masyarakat Banyuwangi menghadapai wabah corona virus. 
+            Gugus tugas ini membuka posko yang bertujuan untuk percepatan penanganan covid19, 
+            seperti memberikan infomasi tetang covid19, bantuan paket sembako dan lain sebagainya. 
+            Gugus tugas ini berkoordinasi bersama berbagai pihak guna memberikan solusi dan bantuan 
+            secara cepat dan tepat. </p>
+            <p>Gugus tugas ini mempunyai posko yang bepusat di jalan Ahmad Yani Banyuwangi. 
+            Selain di tempat ini posko bantuan covid19 juga tersebar di seluruh wilayah Banyuwangi, 
+            yakni dengan berbasis kecamatan dan desa. Posko ini menerima donasi dan menyalurkan hasil 
+            donasi tersebut kepada masyarakat Banyuwangi yang masuk dan memenuhi kriteria yang telah 
+            ditetapkan dengan integrasi bersama program smartkampung sehingga hasil penyaluran bantuan 
+            ini bisa terukur dan tepat sasaran</p>
+            <p>Posko covid19 telah mempunyai data sasaran bantuan. 
+            Data ini berhasil dihimpun dari hasil integrasi dengan 
+            program dan layanan di smartkampung, berikut adalah daftar
+             warga terdampak berserta data donasi yang berhasil dikumpulkan </p>
+
+        </div>
+    </div>
+    <div class="col-md-12 col-sm-12">
+
+    </div>
+
+</div>        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <div class="panel panel-default">
+                  <div class="panel-heading text-center">
+                      <h4>Rekap Usulan Calon Penerima Bantuan</h4>
+                  </div>
+                  <div class="panel-body">
+                      <ul class="nav nav-tabs">
+                          <li class="active"><a href="#warga_terdampak_perkec" data-toggle="tab">Kecamatan</a></li>
+                          <li><a href="#warga_terdampak_perkel" data-toggle="tab">Desa</a></li>
+                      </ul>
+                      <div id="myTabContent" class="tab-content">
+                          <div class="tab-pane fade active in warga_terdampak_perkec" id="warga_terdampak_perkec"></div>
+                          <div class="tab-pane fade in warga_terdampak_perkel" id="warga_terdampak_perkel"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-12">
+              <div class="panel panel-default">
+                  <div class="panel-heading text-center">
+                      <h4>Bantuan</h4>
+                  </div>
+                  <div class="panel-body">
+                      <ul class="nav nav-tabs">
+                          <li class="active"><a href="#stok" data-toggle="tab">Donasi Sembako</a></li>
+                          <!--<li><a href="#bantuan_masuk" data-toggle="tab">Bantuan Masuk</a></li>-->
+                          <!--<li><a href="#distribusi" data-toggle="tab">Distribusi Bantuan</a></li>-->
+                          <li><a href="#donasi_brg_wrapper" data-toggle="tab">Donasi Barang</a>
+                          <li><a href="#donasi_wrapper" data-toggle="tab">Donasi Uang</a>
+                          <li><a href="#laziz_wrapper" data-toggle="tab">Lazis</a>
+                          <li><a href="#sekolah_wrapper" data-toggle="tab">Sekolah</a>
+                          <li><a href="#bantuan_masuk_new" data-toggle="tab">Bantuan Masuk</a>
+                          <li><a href="#distribusi_bantuan_new" data-toggle="tab">Distribusi Bantuan</a>
+                          <!--<li><a href="#parpol_wrapper" data-toggle="tab">Bantuan Parpol</a>-->
+                      </ul>
+                      <div id="myTabContent" class="tab-content">
+                          <div class="tab-pane fade active in stok_bantuan_wrapper" id="stok"></div>
+                          <div class="tab-pane fade bantuan_masuk in bantuan_masuk_wrapper" id="bantuan_masuk"></div>
+                          <div class="tab-pane fade distribusi_bantuan_wrapper" id="distribusi"></div>
+                          <div class="tab-pane fade" id="donasi_brg_wrapper"></div>
+                          <div class="tab-pane fade" id="donasi_wrapper"></div>
+                          <div class="tab-pane fade" id="laziz_wrapper"></div>
+                          <div class="tab-pane fade" id="sekolah_wrapper"></div>
+                          <div class="tab-pane fade" id="parpol_wrapper"></div>
+                          <div class="tab-pane fade" id="bantuan_masuk_new"></div>
+                          <div class="tab-pane fade" id="distribusi_bantuan_new"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- End Bantuan -->
+
+      <div class="row" id="infografis">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <h4>INFO GRAFIS</h4>
+            </div>
+              <div class="panel-body">
+              <div class="row">
+              <div class="col-md-6">
+                  <div class="thumbnail">
+                    <a href="https://corona.banyuwangikab.go.id/public/media/infografis/data_peta.jpeg" target="_blank">
+                        <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/data_peta.jpeg" alt="" width="200" height="350"/>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="thumbnail">
+                    <a href="https://corona.banyuwangikab.go.id/public/media/infografis/data_covid.jpeg" target="_blank">
+                        <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/data_covid.jpeg" alt="" width="200" height="350"/>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <div class="col-md-4">
+                  <div class="thumbnail">
+                    <a href="https://corona.banyuwangikab.go.id/public/media/infografis/data_peta_jatim.jpeg" target="_blank">
+                        <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/data_peta_jatim.jpeg" alt="" />
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="thumbnail">
+                    <a href="https://corona.banyuwangikab.go.id/public/media/infografis/update_jatim2.jpeg" target="_blank">
+                        <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/update_jatim2.jpeg" alt="" width="200" height="350"/>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="thumbnail">
+                    <a href="https://corona.banyuwangikab.go.id/public/media/infografis/update_jatim.jpeg" target="_blank">
+                        <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/update_jatim.jpeg" alt="" width="200" height="350"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="thumbnail">
+                    <a href="https://corona.banyuwangikab.go.id/public/media/infografis/data_donat.jpeg" target="_blank">
+                        <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/data_donat.jpeg" alt="" width="200" height="350"/>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="thumbnail">
+                    <a href="https://corona.banyuwangikab.go.id/public/media/infografis/data_jatim2.jpeg" target="_blank">
+                        <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/data_jatim2.jpeg" alt="" width="200" height="350"/>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="thumbnail">
+                    <a href="https://corona.banyuwangikab.go.id/public/media/infografis/data_jatim.jpeg" target="_blank">
+                        <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/data_jatim.jpeg" alt="" width="200" height="350"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="thumbnail">
+                    <a href="https://corona.banyuwangikab.go.id/public/media/infografis/data_peta_indo.jpeg" target="_blank">
+                        <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/data_peta_indo.jpeg" alt="" width="200" height="350"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="col-md-12" id="aktivitas-gugus-tugas">
+                  <div class="heading-title heading-dotted text-center">
+                      <h2>Aktivitas Gugus Tugas Covid-19</h2>
+                  </div>
+              </div>
+              <div class="col-md-12 col-sm-12">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <!-- <ol class="carousel-indicators" style="top: 535px !important;">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+                        <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+                    </ol> -->
+
+                    <!-- Wrapper for slides -->
+                    <!-- <div class="carousel-inner">
+                        <div class="item active">
+                            <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/masker.jpeg" style="width: 100%;margin: auto;" alt="Los Angeles">
+                        </div>
+
+                        <div class="item">
+                            <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/bumil.jpeg" style="width: 100%;margin: auto;" alt="Chicago">
+                        </div>
+
+                        <div class="item">
+                            <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/pelaku-wisata.jpeg" style="width: 100%;margin: auto;" alt="New York">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/infografis/checkpoint.jpeg" style="width: 100%;margin: auto;" alt="New York">
+                        </div>
+                    </div> -->
+
+                    <!-- Left and right controls -->
+                    <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a> -->
+                <!-- </div>
+              </div>  -->
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+  </div>
+</section>
+<div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true" style="z-index: 1101;">
+              <div class="modal-dialog modal-lg" role="document">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="judul"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="konten">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+$(document).ready(function() {
+      var url_jsaon='https://corona.banyuwangikab.go.id/data/getmapfaskes';
+
+      var map = L.map('faskes',{
+        center: [-8.2169235, 114.3311312],
+        zoom:1,
+        scrollWheelZoom: false,
+        zoomControl: true
+      }).setView([-8.2169235, 114.3311312], 11);
+    //   var roadMutant = L.gridLayer.googleMutant({
+    //   maxZoom: 24,
+    //   type:'roadmap'
+    // }).addTo(map);
+
+      // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      //     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      // }).addTo(map);
+
+      // Basemap layer
+      new L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+      // new L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png').addTo(map);
+        // new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+      // new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png').addTo(map);//http:/
+      // new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png').addTo(map);
+
+      // L.marker([-8.2070617,114.3632373]).addTo(map)
+      //     .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+      //     .openPopup();
+          var hasilpasien=$.getJSON(url_jsaon, function (data) {
+
+            var blueIcon = L.icon({ iconUrl: 'public/blue.png', iconSize:[20, 20],});
+
+            for (var i = 0; i < data.length; i++) {
+              var lat =data[i].latitude;
+              var lng =data[i].longitude;
+              var namarumahsakit=data[i].nama;
+              var no_tel=data[i].telepon;
+              var tipe=data[i].tipe;
+              var alamat=data[i].alamat;
+              var tempat_tidur=data[i].tt_isolasi;
+              var ventilator=data[i].ventilator;
+              if (tipe =='Rumah Sakit') {
+                var greenIcon = L.icon({ iconUrl: 'https://corona.banyuwangikab.go.id/public/hospital2.png', iconSize:[50, 50],});
+              }
+              else{
+                var greenIcon = L.icon({ iconUrl: 'https://corona.banyuwangikab.go.id/public/puskesmas.png', iconSize:[50, 50],});
+              }
+
+              var customPopup =
+                  "<h5 style='margin-bottom:5px;'>Faskes : "+ tipe + " - " + namarumahsakit + "</h5>"
+                  +"Alamat : "+alamat+"<br>"
+                  +"Telepon : <a href='tel:"+no_tel+"'>"+no_tel +"</a><br>"
+                  +"Tempat Tidur Isolasi : "+tempat_tidur+"<br>"
+                  +"Ventilator : "+ventilator+"<br>"
+              ;
+
+                L.marker([lng, lat],{icon:greenIcon}).addTo(map)
+                .bindPopup(customPopup);
+                // L.marker([lat,lon]).addTo(map).bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+                // .openPopup();
+            }
+
+
+          });
+
+          /* Bantuan */
+          $.ajax({
+              //'url' : 'https://corona.banyuwangikab.go.id/front/bantuan/rekap_penerima',
+              'url' : 'https://corona.banyuwangikab.go.id/front/bantuan/rekap_penerima_new',
+              success: function(res){
+                  $('#warga_terdampak_perkel').html(res);
+              }
+          });
+
+          $.ajax({
+              //'url' : 'https://corona.banyuwangikab.go.id/front/bantuan/rekap_penerima_perkec',
+              'url' : 'https://corona.banyuwangikab.go.id/front/bantuan/rekap_penerima_perkec_new',
+              success: function(res){
+                  $('#warga_terdampak_perkec').html(res);
+              }
+          });
+
+          $(document).on('change', "#pil_kec", function(){
+              $.ajax({
+                  'url' : 'https://corona.banyuwangikab.go.id/front/bantuan/rekap_penerima_detail/'+$("#pil_kec").val(),
+                  success: function(res){
+                      $('#desa_list').html(res);
+                  }
+              });
+          })
+
+          $.ajax({
+              'url' : 'https://corona.banyuwangikab.go.id/front/bantuan/stok_bantuan',
+              success: function(res){
+                  $('.stok_bantuan_wrapper').html(res);
+              }
+          });
+
+          $(document).on('change', "#pil_gud", function(){
+              $.ajax({
+                  'url' : 'https://corona.banyuwangikab.go.id/front/bantuan/stok_bantuan_detail/'+$("#pil_gud").val(),
+                  success: function(res){
+                      $('#stok_list').html(res);
+                  }
+              });
+          });
+
+          $.ajax({
+              'url' : 'https://corona.banyuwangikab.go.id/front/bantuan/bantuan_barang',
+              success: function(res){
+                  $('#donasi_brg_wrapper').html(res);
+              }
+          });
+
+          $.ajax({
+              'url' : 'https://corona.banyuwangikab.go.id/front/bantuan/bantuan_masuk',
+              success: function(res){
+                  $('.bantuan_masuk_wrapper').html(res);
+              }
+          });
+
+          $.ajax({
+              'url' : 'https://corona.banyuwangikab.go.id/front/bantuan/distribusi_bantuan',
+              success: function(res){
+                  $('.distribusi_bantuan_wrapper').html(res);
+              }
+          });
+
+          $.ajax({
+              'url' : 'https://corona.banyuwangikab.go.id/front/bantuan/bantuan_laziz',
+              success: function(res){
+                  $('#laziz_wrapper').html(res);
+              }
+          });
+
+          $.ajax({
+              'url' : 'https://corona.banyuwangikab.go.id/front/bantuan/bantuan_sekolah',
+              success: function(res){
+                  $('#sekolah_wrapper').html(res);
+              }
+          });
+
+          $.ajax({
+              'url' : 'https://corona.banyuwangikab.go.id/front/bantuan/donasi_uang',
+              success: function(res){
+                  $('#donasi_wrapper').html(res);
+              }
+          });
+
+          $.ajax({
+              'url' : 'https://corona.banyuwangikab.go.id/front/bantuan/bantuan_parpol',
+              success: function(res){
+                  $('#parpol_wrapper').html(res);
+              }
+          });
+
+          $.ajax({
+              'url' : 'https://corona.banyuwangikab.go.id/front/bantuan/donasi_masuk_new',
+              success: function(res){
+                  $('#bantuan_masuk_new').html(res);
+              }
+          });
+
+          $.ajax({
+              'url' : 'https://corona.banyuwangikab.go.id/front/bantuan/donasi_keluar_new',
+              success: function(res){
+                  $('#distribusi_bantuan_new').html(res);
+              }
+          });
+
+          $(document).on('change', "#pil_gud_dis", function(){
+              $.ajax({
+                  'url' : 'https://corona.banyuwangikab.go.id/front/bantuan/distribusi_bantuan_detail/'+$("#pil_gud_dis").val(),
+                  success: function(res){
+                      $('#distribusi_list').html(res);
+                  }
+              });
+          })
+
+          /* End Bantuan */
+})
+
+
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+var options = {
+          series: [{
+          colors : [],
+          name: 'Laki-laki',
+          data: [-77,-280,-1012,-588,-480,-284,-83,-19]        },
+        {
+          name: 'Perempuan',
+          data: [76,211,557,329,271,129,45,10]        }
+        ],
+          chart: {
+          type: 'bar',
+          height: 440,
+          stacked: true
+        },
+        colors: ['#128bee', '#ee295a'],
+        plotOptions: {
+          bar: {
+            horizontal: true,
+            barHeight: '80%',
+
+          },
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          width: 1,
+          colors: ["#fff"]
+        },
+
+        grid: {
+          xaxis: {
+            lines: {
+              show: false
+            }
+          }
+        },
+        yaxis: {
+          min: -50,
+          max: 50,
+          title: {
+            // text: 'Age',
+          },
+        },
+        tooltip: {
+          shared: false,
+          x: {
+            formatter: function (val) {
+              return val
+            }
+          },
+          y: {
+            formatter: function (val) {
+              return Math.abs(val) + ""
+            }
+          }
+        },
+        title: {
+          text: ''
+        },
+        xaxis: {
+          categories: ['0-9','10-19','20-29','30-39','40-49','50-59','60-69'
+          ],
+          title: {
+            text: ''
+          },
+          labels: {
+            formatter: function (val) {
+              return Math.abs(Math.round(val)) + ""
+            }
+          }
+        },
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+</script>
+<script type="text/javascript">
+var options = {
+series: [509,296,1],
+chart: {
+// width: 380,
+type: 'donut',
+},
+colors: ['#128bee', '#ee295a','#ccc'],
+dataLabels:{
+  enabled: false,
+  formatter: function (val) {
+   return val + "Orang"
+  },
+},
+plotOptions: {
+pie: {
+  customScale: 1,
+  offsetX: 0,
+  offsetY: 0,
+  expandOnClick: true,
+  dataLabels: {
+      offset: 0,
+      minAngleToShowLabel: 10
+  },
+  donut: {
+    // size: '65%',
+    background: 'transparent',
+    labels: {
+      show: true,
+      name: {
+        show: true,
+        fontSize: '22px',
+        fontFamily: 'Helvetica, Arial, sans-serif',
+        fontWeight: 600,
+        color: undefined,
+        offsetY: -10
+      },
+      value: {
+        show: true,
+        fontSize: '16px',
+        fontFamily: 'Helvetica, Arial, sans-serif',
+        fontWeight: 400,
+        color: undefined,
+        offsetY: 16,
+        formatter: function (val) {
+          return val
+        }
+      },
+      total: {
+        show: true  ,
+        showAlways: false,
+        label: 'Total',
+        fontSize: '22px',
+        fontFamily: 'Helvetica, Arial, sans-serif',
+        fontWeight: 600,
+        color: '#373d3f',
+        formatter: function (w) {
+          return w.globals.seriesTotals.reduce((a, b) => {
+            return a + b
+          }, 0)
+        }
+      }
+    }
+  },
+}
+},
+  labels: ['Laki-laki', 'Perempuan','Tidak Diketahui'],
+legend: {
+  position: 'bottom'
+},
+responsive: [{
+breakpoint: undefined,
+options: {
+  chart: {
+    width: 200
+  },
+  legend: {
+    position: 'bottom'
+  }
+}
+}]
+};
+
+var chart = new ApexCharts(document.querySelector("#gender"), options);
+chart.render();
+</script>
+<script>
+$(document).ready(function() {
+        var map = L.map('map', {
+            center: [-8.313829, 114.236571],
+            zoom: 10.4,
+            scrollWheelZoom: false,
+            zoomControl: true
+        });
+
+        var greenIcon = L.icon({ iconUrl: 'public/green.png', iconSize:[20, 20],});
+        var blueIcon = L.icon({ iconUrl: 'public/blue.png', iconSize:[20, 20],});
+        var orangeIcon = L.icon({ iconUrl: 'public/orange2.png', iconSize:[20, 20],});
+        var redIcon = L.icon({ iconUrl: 'public/red.png', iconSize:[20, 20],});
+
+        map.attributionControl.setPrefix('');
+
+        new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        var json_maps = 'https://corona.banyuwangikab.go.id/front/data_sebaran';
+
+        var maps = $.getJSON(json_maps, function (data) {
+            geoJsonLayer = L.geoJson(data, {
+                style: style,
+                onEachFeature: onEachFeature
+            })
+            .addTo(map);
+        });
+
+        var info = L.control();
+        info.onAdd = function (map) {
+            this._div = L.DomUtil.create('div', 'info');
+            this.update();
+            return this._div;
+        };
+
+        function getColor(d) {
+          return d > 10 ? '#800026' :
+            '#FFEDA0';
+        }
+
+        function style(feature) {
+            return {
+                fillColor: getColor(feature.properties.data),
+                weight: 0.5,
+                opacity: 0.3,
+                color: 'black',
+                fillOpacity: 0.7
+            };
+        }
+
+        function onEachFeature(feature, layer) {
+            var lat = feature.properties.kec_lat;
+            var lon = feature.properties.kec_long;
+            var nama = feature.properties.kecamatan;
+            var jumlah_odp = feature.properties.jumlah_odp;
+            var odp_pantau = feature.properties.jumlah_odp_pantau;
+            var odp_selesai = feature.properties.jumlah_odp_selesai;
+            var jumlah_pdp = feature.properties.jumlah_pdp;
+            var jumlah_pdp_rawat = feature.properties.jumlah_pdp_rawat;
+            var jumlah_pdp_sembuh = feature.properties.jumlah_pdp_sembuh;
+            var jumlah_covid = feature.properties.jumlah_covid;
+            var pdp_meninggal = feature.properties.jumlah_pdp_meninggal;
+            var covid_meninggal = feature.properties.jumlah_covid_meninggal;
+
+            var covid_sembuh = feature.properties.jumlah_covid_sembuh;
+            var customPopup =
+                "<h5 style='margin-bottom:5px;'>KECAMATAN " + nama + "</h5>" +
+                "<br><strong>Jumlah ODP :</strong> " + jumlah_odp + " Kasus" +
+                "<br><strong>Jumlah ODP Masa Pantau :</strong> " + odp_pantau + " Kasus" +
+                "<br><strong>Jumlah ODP Selesai Masa Pantau :</strong> " + odp_selesai + " Kasus" +
+                "<br><strong>Jumlah PDP :</strong> " + jumlah_pdp + " Kasus" +
+                "<br><strong>Jumlah PDP Dirawat:</strong> " + jumlah_pdp_rawat + " Kasus" +
+                "<br><strong>Jumlah PDP Sembuh :</strong> " + jumlah_pdp_sembuh + " Kasus" +
+                "<br><strong>PDP Meninggal :</strong> " + pdp_meninggal + " Kasus" +
+                "<br><strong>Terkonfirmasi Covid-19 :</strong> " + jumlah_covid + " Kasus" +
+                "<br><strong>Sembuh Covid-19 :</strong> " + covid_sembuh + " Kasus" +
+                "<br><strong>Meninggal Covid-19 :</strong> " + covid_meninggal + " Kasus"
+  ;
+
+
+            layer.on({
+                mouseover: function () {
+                    this.setStyle({
+                        'fillColor': '#FFEDA0',
+                    });
+                },
+                mouseout: function () {
+                    this.setStyle({
+                        'fillColor': '#FFEDA0',
+                    });
+                },
+                click: function () {
+                    // TODO Link to page
+                }
+            });
+            if (jumlah_odp > 0 && jumlah_pdp == 0 && jumlah_covid == 0) {L.marker([lat,lon], {icon:blueIcon}).bindPopup(customPopup).addTo(map)}
+            else if (jumlah_odp >= 0 && jumlah_pdp >= 1 && jumlah_covid < 1) {L.marker([lat,lon], {icon:orangeIcon}).bindPopup(customPopup).addTo(map)}
+            else if (jumlah_odp >= 0 && jumlah_pdp >= 0 && jumlah_covid > 0) {L.marker([lat,lon], {icon:redIcon}).bindPopup(customPopup).addTo(map)}
+            else {L.marker([lat,lon], {icon:greenIcon}).bindPopup(customPopup).addTo(map)}
+            var myIcon = L.divIcon({className: 'my-div-icon', html: nama, iconAnchor: [10, -13],});
+            L.marker([lat,lon], {icon: myIcon}).addTo(map);
+
+        }
+
+
+    });
+</script>
+<script type="text/javascript">
+var kasusodp = {
+          series: [{
+          color : ['#26a0fc','#259871','#feb019'],
+          name: 'ODP',
+          type: 'column',
+          data: [
+                          0,                          0,                          8,                          9,                          17,                          21,                          37,                          53,                          69,                          85,                          110,                          127,                          175,                          192,                          229,                          283,                          314,                          347,                          400,                          429,                          434,                          442,                          465,                          485,                          493,                          512,                          527,                          555,                          578,                          587,                          605,                          627,                          643,                          649,                          651,                          664,                          671,                          683,                          691,                          700,                          711,                          713,                          717,                          724,                          734,                          737,                          739,                          743,                          743,                          750,                          756,                          760,                          761,                          768,                          772,                          774,                          777,                          781,                          782,                      ]
+        }, {
+          name: 'ODP Dalam Proses Pemantauan',
+          type: 'line',
+          data: [
+                          0,                          0,                          8,                          9,                          17,                          21,                          26,                          42,                          58,                          72,                          97,                          112,                          150,                          166,                          195,                          233,                          245,                          256,                          284,                          298,                          264,                          222,                          195,                          193,                          181,                          168,                          154,                          166,                          167,                          139,                          111,                          113,                          115,                          112,                          105,                          99,                          95,                          90,                          91,                          90,                          94,                          89,                          78,                          80,                          81,                          77,                          71,                          71,                          53,                          56,                          52,                          46,                          35,                          36,                          36,                          36,                          37,                          35,                          33,                      ]
+        }, {
+          name: 'ODP Selesai Pemantauan',
+          type: 'line',
+          data: [
+                          0,                          0,                          0,                          0,                          0,                          0,                          11,                          11,                          11,                          13,                          13,                          15,                          25,                          26,                          34,                          50,                          69,                          91,                          116,                          131,                          170,                          220,                          270,                          292,                          312,                          344,                          373,                          389,                          411,                          447,                          493,                          513,                          527,                          536,                          545,                          564,                          575,                          592,                          599,                          609,                          616,                          623,                          638,                          643,                          652,                          659,                          667,                          671,                          689,                          693,                          703,                          713,                          725,                          731,                          735,                          737,                          739,                          745,                          748,                      ]
+        },
+
+          ],
+          chart: {
+          height: 350,
+          type: 'line',
+          stacked: false,
+        },
+        stroke: {
+          width: [0, 5, 5],
+          curve: 'smooth'
+        },
+        plotOptions: {
+          bar: {
+            columnWidth: '50%'
+          }
+        },
+
+        fill: {
+          opacity: [0.60, 0.60, 1],
+          gradient: {
+            inverseColors: false,
+            shade: 'light',
+            type: "vertical",
+            opacityFrom: 0.85,
+            opacityTo: 0.55,
+            stops: [0, 100, 100, 100]
+          }
+        },
+        labels: [           '',                  '2019-04-17',                  '2020-03-18',                  '2020-03-19',                  '2020-03-20',                  '2020-03-21',                  '2020-03-22',                  '2020-03-23',                  '2020-03-24',                  '2020-03-25',                  '2020-03-26',                  '2020-03-27',                  '2020-03-28',                  '2020-03-29',                  '2020-03-30',                  '2020-03-31',                  '2020-04-01',                  '2020-04-02',                  '2020-04-03',                  '2020-04-04',                  '2020-04-05',                  '2020-04-06',                  '2020-04-07',                  '2020-04-08',                  '2020-04-09',                  '2020-04-10',                  '2020-04-11',                  '2020-04-12',                  '2020-04-13',                  '2020-04-14',                  '2020-04-15',                  '2020-04-16',                  '2020-04-17',                  '2020-04-18',                  '2020-04-19',                  '2020-04-20',                  '2020-04-21',                  '2020-04-22',                  '2020-04-23',                  '2020-04-24',                  '2020-04-25',                  '2020-04-26',                  '2020-04-27',                  '2020-04-28',                  '2020-04-29',                  '2020-04-30',                  '2020-05-01',                  '2020-05-02',                  '2020-05-03',                  '2020-05-04',                  '2020-05-05',                  '2020-05-06',                  '2020-05-07',                  '2020-05-08',                  '2020-05-09',                  '2020-05-10',                  '2020-05-11',                  '2020-05-12',                  '2020-05-13',                ],
+          markers: {
+          size: 5,
+          hover: {
+            size: 9
+          }
+        },
+        xaxis: {
+          // type: 'datetime'
+        },
+        yaxis: {
+          title: {
+            text: 'Orang',
+          },
+          min: 0
+        },
+        tooltip: {
+          shared: true,
+          intersect: false,
+          y: {
+            formatter: function (y) {
+              if (typeof y !== "undefined") {
+                return y.toFixed(0) + " Orang";
+              }
+              return y;
+
+            }
+          }
+        }
+        };
+        var chart = new ApexCharts(document.querySelector("#chart-kasus-odp"), kasusodp);
+        chart.render();
+var kasuscovid = {
+        series: [{
+        name: 'COVID19',
+        type: 'column',
+        data: [          0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  2,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  4,                  4,                  4,                  4,                  4,                  4,                  4,                  4,        ]
+      }, {
+        name: 'Sembuh',
+        type: 'area',
+        data: [          0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,        ]
+      }, {
+        name: 'Rawat',
+        type: 'line',
+        data: [          0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  0,                  0,                  0,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,        ]
+      },
+          {
+        name: 'Meninggal',
+        type: 'line',
+        data: [          0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,        ]
+      },
+      {
+        name: 'Pengawasan',
+        type: 'line',
+        data: [          0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,                  1,        ]
+      }
+        ],
+        chart: {
+        height: 350,
+        type: 'line',
+        stacked: false,
+      },
+      colors: ['#E8000C','#35FD0B','#04a7ff','#000000','#f2f700'],
+      stroke: {
+        width: [0, 5, 5,5],
+        colors: ['#000000','#2Cff00','#04A7FF'],
+        curve: 'smooth',
+        // colors:['']
+      },
+      plotOptions: {
+        bar: {
+          columnWidth: '50%'
+        }
+      },
+
+      fill: {
+        colors: ['#E8000C','#35FD0B','#2303c2'],
+        opacity: [0.85, 0.25, 1],
+        gradient: {
+          inverseColors: false,
+          // shade: 'light',
+          type: "vertical",
+          // opacityFrom: 0.85,
+          // opacityTo: 0.55,
+          stops: [0, 100, 100, 100]
+        }
+      },
+      labels: [         '',              '2019-04-17',              '2020-03-18',              '2020-03-19',              '2020-03-20',              '2020-03-21',              '2020-03-22',              '2020-03-23',              '2020-03-24',              '2020-03-25',              '2020-03-26',              '2020-03-27',              '2020-03-28',              '2020-03-29',              '2020-03-30',              '2020-03-31',              '2020-04-01',              '2020-04-02',              '2020-04-03',              '2020-04-04',              '2020-04-05',              '2020-04-06',              '2020-04-07',              '2020-04-08',              '2020-04-09',              '2020-04-10',              '2020-04-11',              '2020-04-12',              '2020-04-13',              '2020-04-14',              '2020-04-15',              '2020-04-16',              '2020-04-17',              '2020-04-18',              '2020-04-19',              '2020-04-20',              '2020-04-21',              '2020-04-22',              '2020-04-23',              '2020-04-24',              '2020-04-25',              '2020-04-26',              '2020-04-27',              '2020-04-28',              '2020-04-29',              '2020-04-30',              '2020-05-01',              '2020-05-02',              '2020-05-03',              '2020-05-04',              '2020-05-05',              '2020-05-06',              '2020-05-07',              '2020-05-08',              '2020-05-09',              '2020-05-10',              '2020-05-11',              '2020-05-12',              '2020-05-13',            ],
+       legend: {
+    show: true,
+    showForSingleSeries: false,
+    showForNullSeries: true,
+    showForZeroSeries: true,
+    position: 'bottom',
+    horizontalAlign: 'center',
+    floating: false,
+    fontSize: '14px',
+    fontFamily: 'Helvetica, Arial',
+    fontWeight: 400,
+    formatter: undefined,
+    inverseOrder: false,
+    width: undefined,
+    height: undefined,
+    tooltipHoverFormatter: undefined,
+    offsetX: 0,
+    offsetY: 0,
+    labels: {
+        colors: ['#000000'],
+        useSeriesColors: false
+    },
+    markers: {
+        width: 12,
+        height: 12,
+        strokeWidth: 0,
+        strokeColor: '#fff',
+        fillColors: ['#E8000C','#35FD0B','#04a7ff','#000000','#f2f700'],
+        radius: 12,
+        customHTML: undefined,
+        onClick: undefined,
+        offsetX: 0,
+        offsetY: 0
+    },
+    itemMargin: {
+        horizontal: 5,
+        vertical: 0
+    },
+    onItemClick: {
+        toggleDataSeries: true
+    },
+    onItemHover: {
+        highlightDataSeries: true
+    },
+},
+        markers: {
+
+        size: 5,
+        hover: {
+          size: 9
+        }
+      },
+      xaxis: {
+        // type: 'datetime'
+      },
+      yaxis: {
+        title: {
+          text: 'Orang',
+        },
+        labels: {
+                    formatter: function (val) {
+                        return val.toFixed(0)
+                    }
+                },
+        min: 0
+      },
+      tooltip: {
+        shared: true,
+        intersect: false,
+        y: {
+          formatter: function (y) {
+            if (typeof y !== "undefined") {
+              return y.toFixed(0) + " Orang";
+            }
+            return y;
+
+          }
+        }
+      }
+      };
+
+      var chart = new ApexCharts(document.querySelector("#chart-kasus-covid"), kasuscovid);
+      chart.render();
+</script>
+
+<!-- <script>
+$(document).ready(function() {
+// var info = L.control();
+
+// Edit the center point and zoom level
+var map = L.map('mapping_kecamatan', {
+  center: [-8.313829, 114.236571],
+  zoom: 10,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+var roadMutant = L.gridLayer.googleMutant({
+maxZoom: 24,
+type:'roadmap'
+}).addTo(map);
+var greenIcon = L.icon({
+  iconUrl: 'https://cdn4.iconfinder.com/data/icons/gradient-circle-blue/36/5079-512.png',
+
+  iconSize:     [20, 20], // size of the icon
+//   shadowSize:   [50, 64], // size of the shadow
+//   iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+//  shadowAnchor: [4, 62],  // the same for the shadow
+//   popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+// Edit links to your GitHub repo and data source credit
+map.attributionControl.setPrefix('');
+
+// Basemap layer
+// new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+// new L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png').addTo(map);
+  // new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+// new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png').addTo(map);//http:/
+// new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png').addTo(map);
+var url_jsaon='https://corona.banyuwangikab.go.id/map/getdata';
+
+// Edit to upload GeoJSON data file from your local directory
+// $.getJSON("ct-towns-density.geojson", function (data) {
+var hasilpasien=$.getJSON(url_jsaon, function (data) {
+  geoJsonLayer = L.geoJson(data, {
+  style: style,
+  onEachFeature: onEachFeature
+  })
+  .addTo(map);
+});
+
+
+// Edit ranges and colors to match your data; see http://colorbrewer.org
+// Any values not listed in the ranges below displays as the last color
+
+
+
+// Edit the getColor property to match data column header in your GeoJson file
+function style(feature) {
+  return {
+    fillColor: '#' + feature.properties.color,
+      weight: 1,
+      opacity: 1,
+      color: 'black',
+      fillOpacity: 0.7
+  };
+}
+
+// This highlights the layer on hover, also for mobile
+function highlightFeature(e) {
+  var layer = e.target;
+  layer.setStyle({
+  weight: 4,
+  // color: 'black',
+  fillOpacity: 0.7,
+  });
+
+  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+            layer.bringToFront();
+        }
+//   info.update(layer.feature.properties);
+}
+
+// This resets the highlight after hover moves away
+function resetHighlight(e) {
+  geoJsonLayer.setStyle(style);
+//   info.update();
+}
+
+// This instructs highlight and reset functions on hover movement
+function onEachFeature(feature, layer) {
+
+  var lat = feature.properties.cen_lat;
+  var lon = feature.properties.cen_lng;
+  var nama = feature.properties.kota;
+
+  var jumlah_odp = feature.properties.JumlahPasien;
+  var odp_pantau = feature.properties.jumlah_odp_pantau;
+  var odp_selesai = feature.properties.jumlah_odp_selesai;
+  var jumlah_pdp = feature.properties.peserta_pdp;
+  var jumlah_pdp_rawat = feature.properties.jumlah_pdp_rawat;
+  var jumlah_pdp_sembuh = feature.properties.jumlah_pdp_sembuh;
+  var jumlah_covid = feature.properties.peserta_covid;
+  var pdp_meninggal = feature.properties.jumlah_pdp_meninggal;
+  var covid_meninggal = feature.properties.jumlah_covid_meninggal;
+
+  var covid_sembuh = feature.properties.jumlah_covid_sembuh;
+            var customPopup =
+                "<h5 style='margin-bottom:5px;'>KECAMATAN " + nama + "</h5>" +
+                "<br><strong>Jumlah ODP :</strong> " + jumlah_odp + " Kasus" +
+                "<br><strong>Jumlah ODP Masa Pantau :</strong> " + odp_pantau + " Kasus" +
+                "<br><strong>Jumlah ODP Selesai Masa Pantau :</strong> " + odp_selesai + " Kasus" +
+                "<br><strong>Jumlah PDP :</strong> " + jumlah_pdp + " Kasus" +
+                "<br><strong>Jumlah PDP Dirawat:</strong> " + jumlah_pdp_rawat + " Kasus" +
+                "<br><strong>Jumlah PDP Sembuh :</strong> " + jumlah_pdp_sembuh + " Kasus" +
+                "<br><strong>PDP Meninggal :</strong> " + pdp_meninggal + " Kasus" +
+                "<br><strong>Terkonfirmasi Covid-19 :</strong> " + jumlah_covid + " Kasus" +
+                "<br><strong>Sembuh Covid-19 :</strong> " + covid_sembuh + " Kasus" +
+                "<br><strong>Meninggal Covid-19 :</strong> " + covid_meninggal + " Kasus"
+  ;
+
+  // specify popup options
+  var customOptions =
+    {
+    'maxWidth': '500',
+    'className' : 'custom',
+    'color':"#b43838"
+  }
+  var iconku= '<span class="dot">'+feature.properties.kota+'</span>'
+  var marker=L.marker([lat,lon], {icon: greenIcon}).bindPopup(customPopup,customOptions).addTo(map);
+  var myIcon = L.divIcon({className: 'my-div-icon', html: nama, iconAnchor: [10, -13],});
+  // var marker=L.marker([lat,lon], {icon: myIcon}).addTo(map);
+
+  // L.marker([lat,lon], {icon: greenIcon}).addTo(map).on('click',function() {
+  //   alert(nama);
+  // });
+  layer.on({
+  mouseover: function (e) {
+    marker.openPopup();
+    layer.setStyle({
+    weight: 4,
+    color: 'black',
+    fillOpacity: 0.7,
+    });
+  },
+  mouseout: function (e) {
+  marker.closePopup();
+  layer.setStyle({
+  weight: 1,
+  color: 'black',
+  fillOpacity: 0.7,
+  });
+  },
+  click: highlightFeature
+  });
+    // marker.bindPopup("Popup content");
+    //       marker.on('mouseover', function (e) {
+    //           this.openPopup();
+    //       });
+    //       marker.on('mouseout', function (e) {
+    //           this.closePopup();
+    //       });
+}
+});
+
+</script> -->
+
+<script>
+$(document).ready(function() {
+      var url_jsaon='https://corona.banyuwangikab.go.id/map/getmapIsolasi';
+
+      var map = L.map('mapping_kecamatan_isolasi',{
+        center: [-8.2169235, 114.3311312],
+        zoom: 10,
+        scrollWheelZoom: true,
+        zoomControl: true
+      }).setView([-8.313829, 114.236571], 10);
+    //   var roadMutant = L.gridLayer.googleMutant({
+		// 	type:'roadmap'
+		// }).addTo(map);
+    // Basemap layer
+    new L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+    // new L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png').addTo(map);
+      // new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+    // new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png').addTo(map);//http:/
+    // new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png').addTo(map);
+
+          var hasilpasien=$.getJSON(url_jsaon, function (data) {
+            var greenIcon = L.icon({ iconUrl: 'https://cdn1.iconfinder.com/data/icons/medical-2-5/128/59-512.png', iconSize:[25, 25],});
+            var blueIcon = L.icon({ iconUrl: 'public/blue.png', iconSize:[20, 20],});
+            for (var i = 0; i < data.length; i++) {
+              var lat =data[i].latitude;
+              var lng =data[i].longitude;
+              var alamat = data[i].alamat;
+              var nama=data[i].nama;
+              var namahubung = data[i].nama_narahubung;
+              var hp = data[i].hp_narahubung;
+              var kamar = data[i].kamar;
+              var tempat_tidur = data[i].tempat_tidur;
+              var kecamatan = data[i].kecamatan;
+              var kelurahan = data[i].NAMA_KEL;
+
+
+              var customPopup =
+                  "<h5 style='margin-bottom:5px;'><b>" + nama + "</b></h5>" +
+                  "<h6 style='margin-bottom:5px;'>Kecamatan : <b>" + kecamatan + "</b></h6>" +
+                  "<h6 style='margin-bottom:5px;'>Kelurahan : <b>" + kelurahan + "</b></h6>" +
+                  "<h6 style='margin-bottom:5px;'>Alamat : <b>" + alamat + "</b></h6>" +
+                  "<h6 style='margin-bottom:5px;'>Nama Petugas : <b>" + namahubung + "</b></h6>" +
+                  "<h6 style='margin-bottom:5px;'>No Hp Petugas : <b>+" + hp + "</b></h6>"+
+                  "<h6 style='margin-bottom:5px;'>Jumlah Kamar : <b>" + kamar + "</b></h6>"+
+                  "<h6 style='margin-bottom:5px;'>Jumlah Tempat Tidur : <b>" + tempat_tidur + "</b></h6>"
+
+              ;
+
+                // console.log("lat:"+lat+"lng"+lng);
+                L.marker([lat, lng],{icon:greenIcon}).addTo(map)
+                .bindPopup(customPopup);
+                // L.marker([lat,lon]).addTo(map).bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+                // .openPopup();
+            }
+          });
+});
+function getkel() {
+        kec = $("#NO_KEC").val();
+        $("#kelurahan").html('<img src="https://corona.banyuwangikab.go.id/images/ajax-loader.gif" />');
+        load('map/deskel_aja/' + kec, '#kelurahan');
+    }
+
+
+$(function() {
+	get_iso();
+});
+
+var page = '1';
+function get_iso(page){
+
+
+		var image_load = "<div class='text-center'><img src='"+site+"images/loading.gif' /></div>";
+		$("#content_map").html(image_load);
+		var NO_KEC = $('#NO_KEC').val();
+		var NO_KEL = $('#NO_KEL').val();
+		var latid = $('#latid').val();
+		var namalgkp = $('#namalgkp').val();
+
+		var limit = $('#limit').val();
+		$.post(site+'front/rumahiso_list', {
+			NO_KEC: NO_KEC,
+			NO_KEL: NO_KEL,
+			latid: latid,
+			namalgkp: namalgkp,
+
+			page:page,
+			limit:limit,
+			}, function(data) {
+			$("#content_map").html(data);
+		});
+
+}
+
+
+
+</script>
+<!-- start grafik PDP -->
+<script type="text/javascript">
+var kasuspdp = {
+        series: [{
+        name: 'Total PDP',
+        type: 'column',
+        data: [          0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  1,                  1,                  1,                  1,                  1,                  0,                  0,                  0,                  0,                  2,                  2,                  3,                  3,                  5,                  5,                  5,                  8,                  7,                  7,                  9,                  9,                  9,                  9,                  9,                  9,                  11,                  11,                  11,                  11,                  11,                  12,                  12,                  12,                  12,                  12,                  12,                  12,                  12,                  12,                  12,                  12,                  12,                  14,                  14,                  14,                  15,                  15,                  15,                  15,                  18,                  20,        ]
+      }, {
+        name: 'Sudah Sembuh',
+        type: 'line',
+        data: [          0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  3,                  3,                  3,                  3,                  3,                  3,                  3,                  6,                  6,                  6,                  6,                  7,                  7,                  7,                  7,                  10,                  10,                  10,                  10,                  10,                  10,                  10,                  10,                  10,                  10,                  10,                  10,        ]
+      }, {
+        name: 'Masih Dirawat',
+        type: 'line',
+        data: [          0,                  0,                  0,                  0,                  0,                  0,                  0,                  0,                  1,                  1,                  1,                  1,                  1,                  0,                  0,                  0,                  0,                  2,                  2,                  3,                  3,                  5,                  5,                  5,                  8,                  7,                  7,                  9,                  9,                  9,                  9,                  9,                  6,                  8,                  8,                  7,                  7,                  7,                  8,                  5,                  5,                  5,                  5,                  4,                  4,                  4,                  4,                  1,                  1,                  1,                  2,                  2,                  2,                  3,                  3,                  3,                  3,                  6,                  6,        ]
+      },
+
+        ],
+        chart: {
+        height: 350,
+        type: 'line',
+        stacked: false,
+      },
+      colors: ['#056eeb','#0de623','#eddd00'],
+      stroke: {
+        width: [0, 5, 5,5],
+        colors: ['#056eeb','#0de623','#eddd00'],
+        curve: 'smooth',
+        // colors:['']
+      },
+      plotOptions: {
+        bar: {
+          columnWidth: '50%'
+        }
+      },
+
+      fill: {
+        colors: ['#056eeb','#0de623','#eddd00'],
+        // opacity: [0.85, 0.25, 1],
+        // gradient: {
+        //   inverseColors: false,
+        //   // shade: 'light',
+        //   type: "vertical",
+        //   // opacityFrom: 0.85,
+        //   // opacityTo: 0.55,
+        //   stops: [0, 100, 100, 100]
+        // }
+      },
+      labels: [         '',              '2019-04-17',              '2020-03-18',              '2020-03-19',              '2020-03-20',              '2020-03-21',              '2020-03-22',              '2020-03-23',              '2020-03-24',              '2020-03-25',              '2020-03-26',              '2020-03-27',              '2020-03-28',              '2020-03-29',              '2020-03-30',              '2020-03-31',              '2020-04-01',              '2020-04-02',              '2020-04-03',              '2020-04-04',              '2020-04-05',              '2020-04-06',              '2020-04-07',              '2020-04-08',              '2020-04-09',              '2020-04-10',              '2020-04-11',              '2020-04-12',              '2020-04-13',              '2020-04-14',              '2020-04-15',              '2020-04-16',              '2020-04-17',              '2020-04-18',              '2020-04-19',              '2020-04-20',              '2020-04-21',              '2020-04-22',              '2020-04-23',              '2020-04-24',              '2020-04-25',              '2020-04-26',              '2020-04-27',              '2020-04-28',              '2020-04-29',              '2020-04-30',              '2020-05-01',              '2020-05-02',              '2020-05-03',              '2020-05-04',              '2020-05-05',              '2020-05-06',              '2020-05-07',              '2020-05-08',              '2020-05-09',              '2020-05-10',              '2020-05-11',              '2020-05-12',              '2020-05-13',            ],
+       legend: {
+    show: true,
+    showForSingleSeries: false,
+    showForNullSeries: true,
+    showForZeroSeries: true,
+    position: 'bottom',
+    horizontalAlign: 'center',
+    floating: false,
+    fontSize: '14px',
+    fontFamily: 'Helvetica, Arial',
+    fontWeight: 400,
+    formatter: undefined,
+    inverseOrder: false,
+    width: undefined,
+    height: undefined,
+    tooltipHoverFormatter: undefined,
+    offsetX: 0,
+    offsetY: 0,
+    labels: {
+        colors: ['#000000'],
+        useSeriesColors: false
+    },
+    markers: {
+        width: 12,
+        height: 12,
+        strokeWidth: 0,
+        strokeColor: '#fff',
+        fillColors: ['#056eeb','#0de623','#eddd00'],
+        radius: 10,
+        customHTML: undefined,
+        onClick: undefined,
+        offsetX: 0,
+        offsetY: 0
+    },
+    itemMargin: {
+        horizontal: 5,
+        vertical: 0
+    },
+    onItemClick: {
+        toggleDataSeries: true
+    },
+    onItemHover: {
+        highlightDataSeries: true
+    },
+},
+        markers: {
+
+        size: 5,
+        hover: {
+          size: 9
+        }
+      },
+      xaxis: {
+        // type: 'datetime'
+      },
+      yaxis: {
+        title: {
+          text: 'Points',
+        },
+        labels: {
+                    formatter: function (val) {
+                        return val.toFixed(0)
+                    }
+                },
+        min: 0
+      },
+      tooltip: {
+        shared: true,
+        intersect: false,
+        y: {
+          formatter: function (y) {
+            if (typeof y !== "undefined") {
+              return y.toFixed(0) + " points";
+            }
+            return y;
+
+          }
+        }
+      }
+      };
+
+      var chart = new ApexCharts(document.querySelector("#chart-kasus-pdp"), kasuspdp);
+      chart.render();
+</script>
+<!-- CLOSE grafik PDP -->
+<!-- <script>
+$(document).ready(function() {
+var map = L.map('mapping_kecamatan_isolasi2', {
+  center: [-8.313829, 114.236571],
+  zoom: 10,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+var roadMutant = L.gridLayer.googleMutant({
+maxZoom: 24,
+type:'roadmap'
+}).addTo(map);
+var greenIcon = L.icon({
+  iconUrl: 'https://www.pinclipart.com/picdir/big/183-1831001_hospital-hospital-icon-red-clipart.png',
+
+  iconSize:     [20, 20], // size of the icon
+});
+
+map.attributionControl.setPrefix('');
+var url_jsaon='https://corona.banyuwangikab.go.id/map/data_sebaran_isolasi';
+
+// Edit to upload GeoJSON data file from your local directory
+// $.getJSON("ct-towns-density.geojson", function (data) {
+var hasilpasien=$.getJSON(url_jsaon, function (data) {
+  geoJsonLayer = L.geoJson(data, {
+  style: style,
+  onEachFeature: onEachFeature
+  })
+  .addTo(map);
+});
+function style(feature) {
+  return {
+    fillColor: '#' + feature.properties.color,
+      weight: 1,
+      opacity: 1,
+      color: 'black',
+      fillOpacity: 0.7
+  };
+}
+
+// This highlights the layer on hover, also for mobile
+function highlightFeature(e) {
+  var layer = e.target;
+  layer.setStyle({
+  weight: 4,
+  fillOpacity: 0.7,
+  });
+
+  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+            layer.bringToFront();
+        }
+}
+function resetHighlight(e) {
+  geoJsonLayer.setStyle(style);
+}
+function onEachFeature(feature, layer) {
+  var nama = feature.properties.kecamatan;
+  var lat = feature.properties.kec_lat;
+  var lon = feature.properties.kec_long;
+  // var data = feature.properties.data;
+  var ket = feature.properties.marker;
+  var kecamatan_id = feature.properties.kecamatan_id;
+  var obj;
+  var customPopup;
+  var isipopup;
+  var desa,jumlah_rumah,jumlah_kamar,keterangan;
+  var customOptions =
+    {
+    'maxWidth': '500',
+    'className' : 'custom',
+    'color':"#b43838"
+  }
+  var iconku= '<span class="dot">'+feature.properties.kecamatan+'</span>'
+  var marker=L.marker([lat,lon], {icon: greenIcon}).addTo(map).on('click',function() {
+        $('#mymodal').modal('show');
+        var url = "https://corona.banyuwangikab.go.id/"
+        $.get(url+'map/detail_isolasi/'+kecamatan_id,{}, function(data) {
+              $('#konten').html(data);
+              $('#judul').html('Kecamatan ' +feature.properties.kecamatan);
+            });
+    });;
+  var myIcon = L.divIcon({className: 'my-div-icon', html: nama, iconAnchor: [10, -13],});
+  layer.on('click', function (e) {
+    layer.setStyle({
+    weight: 3,
+    fillOpacity: 0.7,
+    });
+    $('#mymodal').modal('show');
+    var url = "https://corona.banyuwangikab.go.id/"
+    $.get(url+'map/detail_isolasi/'+kecamatan_id,{}, function(data) {
+          $('#konten').html(data);
+          $('#judul').html('Kecamatan ' +feature.properties.kecamatan);
+        });
+    });
+}
+});
+
+</script> -->
+<section class="theme-color padding-xxs" id="info-covid">
+	<div class="container">
+	    <div align="center" class="row">
+ 		        <div class="col-sm-6 col-md-12">
+	            <h2 class="text-center">INFORMASI COVID-19</h2>
+	        </div>
+	    </div>
+
+		<div class="row">
+			<div class="col-sm-6 col-md-3">
+				<div class="thumbnail">
+    			    <a href="https://corona.banyuwangikab.go.id/front/infografis">
+    			        <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/kes6.jpeg" alt="" />
+    			    </a>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-3">
+				<div class="thumbnail">
+    			    <a href="https://corona.banyuwangikab.go.id/uploads/rekap-hoax.pdf" target="_blank">
+    			        <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/kes5.jpg" alt="" />
+    			    </a>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-3">
+				<div class="thumbnail">
+					<a href="https://www.kominfo.go.id/content/all/laporan_isu_hoaks" target="_blank">
+    			        <img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/kementerian.jpeg" alt="" />
+					</a>
+    			</div>
+			</div>
+			<div class="col-sm-6 col-md-3">
+				<div class="thumbnail">
+					<a href="https://corona.banyuwangikab.go.id/front/kebijakan">
+						<img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/media/kebijakan.jpeg" alt="" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="padding-xxs">
+  <div class="container">
+    <div class="row">
+        <h2 class="text-center">INFORMASI TERKAIT</h2>
+      <div class="col-sm-6 col-md-4">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/9iZIRBiH710"></iframe>
+</div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/kNBNAdI7Vog"></iframe>
+</div>
+
+
+      </div>
+      <div class="col-sm-6 col-md-4">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/TltRzGNeumQ"></iframe>
+</div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="padding-xxs">
+  <div class="container">
+    <div class="row">
+      <h2 class="text-center">VIDEO PUBLIKASI</h2>
+      <div class="col-sm-6 col-md-3">
+        <div class="embed-responsive embed-responsive-16by9">
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/s68YqwLrjNQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      </div>
+      
+      <div class="col-sm-6 col-md-3">
+        <div class="embed-responsive embed-responsive-16by9">
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/o3ZDarRvzyo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="embed-responsive embed-responsive-16by9">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/hojrPof92dM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="embed-responsive embed-responsive-16by9">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/9KT4zeUZQQQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+		<!-- FOOTER -->
+		<footer id="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<a href="https://www.covid19.go.id" target="_blank"><img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/covid19goid.jpg" alt=""></a>
+					</div>
+					<div class="col-md-4">
+						<a href="https://www.kemkes.go.id/" target="_blank"><img class="img-responsive" src="https://corona.banyuwangikab.go.id/public/kemkes.jpg" alt=""></a>
+					</div>
+					<div class="col-md-4">
+						<a href="https://connect.banyuwangikab.go.id/harga_pasar" target="_blank"><img style="height: 75px;" class="img-responsive" src="https://corona.banyuwangikab.go.id/public/bkonek.jpeg" alt=""></a>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="copyright">
+				<div class="container">
+					<ul class="pull-right nomargin list-inline mobile-block">
+						<li>&bull;</li>
+					</ul>
+					&copy; Pemerintah Kabupaten Banyuwangi
+				</div>
+			</div>
+		</footer>
+		<!-- /FOOTER -->
+
+	</div>
+	<!-- /wrapper -->
+
+
+		<!-- SCROLL TO TOP -->
+		<a href="#" id="toTop"></a>
+
+
+
+
+		<!-- JAVASCRIPT FILES -->
+		<script type="text/javascript">var plugin_path = 'https://corona.banyuwangikab.go.id/templates/bwi/assets/plugins/';</script>
+
+
+		<script type="text/javascript" src="https://corona.banyuwangikab.go.id/templates/bwi/assets/js/scripts.js"></script>
+		<script src="https://corona.banyuwangikab.go.id/templates/bwi/app.js"></script>
+		<script src="https://corona.banyuwangikab.go.id/templates/bwi/jquery.bootpag.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+		  $('#example').DataTable({
+				"scrollY":        "400px",
+        "scrollCollapse": true,
+        "paging":         false
+			});
+			$('#example2').DataTable();
+			$('#example1').DataTable();
+		} );
+		$('#example1').DataTable();
+		</script>
+
+		<script type="text/javascript">
+		$(document).ready(function() {
+
+		$("#owl-demo2").owlCarousel({
+		      items: 1,
+		      loop: true,
+		      margin: 10,
+		      autoplay:true,
+					indicators: true,
+		      autoplayTimeout:15000,
+		      // animateOut: 'fadeOut',
+		      animateIn: 'fadeIn',
+		      itemsMobile : false
+		    // "singleItem:true" is a shortcut for:
+		    // items : 1,
+		    // itemsDesktop : false,
+		    // itemsDesktopSmall : false,
+		    // itemsTablet: false,
+		    // itemsMobile : false
+		});
+		});
+		</script>
+
+	</body>
+</html>

@@ -55,7 +55,7 @@ class User extends CI_Controller {
 		$json = file_get_contents('data-sampang.json');
 		$data['kecamatan'] = json_decode($json,true);
 		$data['user_now'] = $this->session->userdata('covid-admin');							
-		if($data['user_now']->level != 'admin' && $data['user_now']->level != 'master-admin'){
+		if($data['user_now']->level != 'admin' && $data['user_now']->level != 'master-admin' && $data['user_now']->level != 'pusat'){
 			$data['kec'] = $data['user_now']->level;
 		} else {
 			$data['kec'] = $data['kecamatan']['Kecamatan'][0];

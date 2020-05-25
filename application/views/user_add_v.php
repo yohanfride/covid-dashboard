@@ -129,6 +129,15 @@
                                         <textarea class="form-control r-0" id="exampleFormControlTextarea2" rows="2" style="resize: none;" name="alamat"  required></textarea>
                                     </div>
                                     <div class="form-group">
+                                        <label for="inputPhone" class="col-form-label">
+                                            Lokasi 
+                                            <button class="btn btn-sm btn-success" type="button" onclick="getmylocation()" style="position: absolute; right: 1px; top: 35px; z-index: 100;">Lokasi Saya</button> 
+                                        </label>
+                                        <div id="map" style="min-width: 400px; width: 100%; min-height: 195px; z-index: 1;"></div>
+                                        <input type="hidden" class="form-control" id="location-lat"  name="loc_lat">
+                                        <input type="hidden" class="form-control" id="location-lng"  name="loc_long">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="inputPhone" class="col-form-label">Riwayat Perjalanan</label>
                                         <textarea class="form-control r-0" id="exampleFormControlTextarea2" rows="3" style="resize: none;" name="riwayat_perjalanan"  required></textarea>
                                     </div>
@@ -145,6 +154,10 @@
     </div>
 
 <?php include('footer.php'); ?> 
+<!--/#app -->
+<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.css" />
+<script src="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.js"></script>
+
 <script>
     level_status = JSON.parse('<?php echo JSON_encode($level_status);?>');
     console.log(level_status);
@@ -171,5 +184,68 @@
         }
         $("#kelurahan").html(text);
     });
-
+     $(document).ready(function() {  
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout:10000}); 
+    });
 </script>
+<script type="text/javascript">
+    var map,marker,geocodeService;
+    
+    function initMaps(center){
+        console.log(center);
+        map = L.map('map').setView(center, 15);
+        L.tileLayer(
+          'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18
+          }).addTo(map);
+        $("#location-lat").val(center[0]);
+        $("#location-lng").val(center[1]);
+        marker = L.marker(center).addTo(map);
+        map.on('click', function(e) {        
+            var popLocation= [e.latlng.lat,e.latlng.lng]; 
+            map.removeLayer(marker);
+            marker = L.marker(popLocation).addTo(map); 
+            $("#location-lat").val(e.latlng.lat);
+            $("#location-lng").val(e.latlng.lng);
+        });
+    }
+    
+    // get location using the Geolocation interface
+    var geoLocationOptions = {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0
+    }
+
+    function onSuccess(position) {
+        console.log('success');
+        myLat = position.coords.latitude.toFixed(6);
+        myLng = position.coords.longitude.toFixed(6);
+        latLng = [myLat, myLng];
+        initMaps(latLng);
+    }
+
+    function onError(err) {
+        var center = [-7.1888675,113.2403184];
+        console.log(`ERROR(${err.code}): ${err.message}`);
+        $("#btnError").click();
+        //alert("Sistem tidak dapat mengakes sensor GPS Anda");
+        initMaps(center);
+    }
+
+    function getmylocation(){
+        navigator.geolocation.getCurrentPosition(function(position){
+            var popLocation= [position.coords.latitude.toFixed(6),position.coords.longitude.toFixed(6)]; 
+            map.removeLayer(marker);
+            marker = L.marker(popLocation).addTo(map); 
+            map.setView(popLocation, 15);
+            $("#location-lat").val(position.coords.latitude.toFixed(6));
+            $("#location-lng").val(position.coords.longitude.toFixed(6));
+        }, function onError(err) {
+            $("#btnError").click();
+            //alert("Sistem tidak dapat mengakes sensor GPS Anda");
+        }, {maximumAge:60000, timeout: 2000}); //{timeout:10000}
+    }
+   
+</script>
+

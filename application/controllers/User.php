@@ -23,8 +23,6 @@ class User extends CI_Controller {
 			if ($this->form_validation->run() == FALSE){
 				$data['error'] = validation_errors();
 			} else{
-				print_r($this->input->post());
-
 				$input=array(
 					'level' => $this->input->post('level'),
 					'level_status' => $this->input->post('level_status'),
@@ -36,6 +34,8 @@ class User extends CI_Controller {
 					'tgl_lahir' =>  $this->input->post('tgl_lahir'),
 					'phone' => $this->input->post('phone'),
 					'riwayat_perjalanan' =>  $this->input->post('riwayat_perjalanan'),
+					'loc_lat' => $this->input->post('loc_lat'),
+					'loc_long' => $this->input->post('loc_long'),
 					'keluhan' =>  $this->input->post('keluhan')
 				);
 				$respo = $this->user_m->add($input);
@@ -79,6 +79,8 @@ class User extends CI_Controller {
 				'kelurahan' =>  $this->input->post('kelurahan'),
 				'alamat' =>  $this->input->post('alamat'),
 				'phone' => $this->input->post('phone'),
+				'loc_lat' => $this->input->post('loc_lat'),
+				'loc_long' => $this->input->post('loc_long'),
 				'riwayat_perjalanan' =>  $this->input->post('riwayat_perjalanan'),
 				'keluhan' =>  $this->input->post('keluhan')
 			);

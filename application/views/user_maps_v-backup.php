@@ -146,7 +146,8 @@
 
 <script type="text/javascript">
     jQuery(function($){
-      // Maps 
+      // Maps ///https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png
+      ///https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png
       var maps = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?access_token={accessToken}', { 
             attribution: 'Data © <a href="http://sampangkab.go.id">SIM PUPR Kabupaten sampang</a>',
             maxZoom: 18,
@@ -184,18 +185,19 @@
         style: function(feature) {
           var color;
           var fitur = dataKecamatan[feature.properties['kecamatan']];
-          // if( fitur.confirm > 0){
-          //   color = '#ef5350';
-          // } else if( fitur.pdp > 0){
-          //   color = '#8e24aa';
-          // } else if( fitur.odp > 0){
-          //   color = '#42a5f5';
-          // } else if( fitur.odr > 0){
-          //   color = '#ffa000';
-          // } else {
-          //   color = '#4caf50';
-          // }
-          return {fillOpacity: 0.3,color: "white", fillColor: '#424242', weight:0.5};
+          
+          if( fitur.confirm > 0){
+            color = '#ef5350';
+          } else if( fitur.pdp > 0){
+            color = '#8e24aa';
+          } else if( fitur.odp > 0){
+            color = '#42a5f5';
+          } else if( fitur.odr > 0){
+            color = '#ffa000';
+          } else {
+            color = '#4caf50';
+          }
+          return {fillOpacity: 0.3,color: "black", fillColor: color, weight:0.5};
         }
       });
 
@@ -206,6 +208,7 @@
       function update_maps(hal){
         url_jsaon = "<?= base_url();?>user/get_data_user/?hal="+hal+"&kec=<?= str_replace(" ", "+", $kec); ?>&kel=<?= str_replace(" ", "+", $kel); ?>&lvl=<?= str_replace(" ", "+", $lvl); ?>&lvlstat=<?= str_replace(" ", "+", $lvlstat); ?>";
         var hasilpasien=$.getJSON(url_jsaon, function (data) {
+        //var blueIcon = L.icon({ iconUrl: 'public/blue.png', iconSize:[20, 20],});
         for (var i = 0; i < data.length; i++) {
             var lat =data[i].latitude;
             var lng =data[i].longitude;
@@ -220,10 +223,24 @@
             var level=data[i].level;
             var levelstat=data[i].levelstat;
 
+            // var confirmIcon = L.icon({ iconUrl: '<?= base_url(); ?>assets/img/maps/confirm.png', iconSize:[30, 30],});
+            // var odpIcon = L.icon({ iconUrl: '<?= base_url(); ?>assets/img/maps/odp.png', iconSize:[30, 30],});
+            // var odrIcon = L.icon({ iconUrl: '<?= base_url(); ?>assets/img/maps/odr.png', iconSize:[30, 30],});
+            // var pdpIcon = L.icon({ iconUrl: '<?= base_url(); ?>assets/img/maps/pdp.png', iconSize:[30, 30],});
+            // var paneConfirmIcon = map.createPane('confirmIcon');
+            // var confirmIcon = { pane: 'confirmIcon', "radius": 5, "fillColor": "#ef5350", "color": "#ef5350", "weight": 1, "opacity": 1 };
+            // var panePdpIcon = map.createPane('pdpIcon');
+            // var pdpIcon = { pane: 'pdpIcon', "radius": 5, "fillColor": "#8e24aa", "color": "#8e24aa", "weight": 1, "opacity": 1 };
+            // var paneOdpIcon = map.createPane('odpIcon');
+            // var odpIcon = { pane: 'odpIcon', "radius": 5, "fillColor": "#42a5f5", "color": "#42a5f5", "weight": 1, "opacity": 1 };
+            // var paneOdrIcon = map.createPane('odrIcon');
+            // var odrIcon = { pane: 'odrIcon', "radius": 5, "fillColor": "#ffa000", "color": "#ffa000", "weight": 1, "opacity": 1 };
+
             var confirmIcon = L.divIcon({ className: 'circle bg-confirm shadow', iconSize: [12, 12]});
             var pdpIcon = L.divIcon({ className: 'circle bg-pdpicon shadow', iconSize: [12, 12]});
             var odpIcon = L.divIcon({ className: 'circle bg-odpicon shadow', iconSize: [12, 12]});
             var odrIcon = L.divIcon({ className: 'circle bg-odricon shadow', iconSize: [12, 12]});
+
 
             if(level == 'confirm'){
                 var stat = "Positif Covid-19";

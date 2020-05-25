@@ -27,6 +27,38 @@
             top: 50%;
             left: 50%;
         }
+        div.circle {
+            background-color: #ff7800;
+            border-color: black;
+            border-radius: 3px;
+            border: 0.4px black solid !important;
+            width:5px;
+            height:5px;
+        }
+        .bg-confirm{
+            background-color: #ef5350 !important;
+            -webkit-box-shadow:0 0 10px #ef5350!important; 
+            -moz-box-shadow: 0 0 10px #ef5350!important; 
+            box-shadow:0 0 10px #ef5350!important;
+        }
+        .bg-pdpicon{
+            background-color: #8e24aa !important;
+            -webkit-box-shadow:0 0 10px #8e24aa !important; 
+            -moz-box-shadow: 0 0 10px #8e24aa !important; 
+            box-shadow:0 0 10px #8e24aa !important;
+        }
+        .bg-odpicon{
+            background-color: #42a5f5 !important;
+            -webkit-box-shadow:0 0 10px #42a5f5 !important; 
+            -moz-box-shadow: 0 0 10px #42a5f5; !important 
+            box-shadow:0 0 10px #42a5f5 !important;
+        }
+        .bg-odricon{
+            background-color: #ffa000 !important;
+            -webkit-box-shadow:0 0 10px #ffa000 !important; 
+            -moz-box-shadow: 0 0 10px #ffa000 !important; 
+            box-shadow:0 0 10px #ffa000;
+        }
     </style>
     <?php if( $title == 'Tambah Fasilitas Kesehatan' or $title == 'Ubah Fasilitas Kesehatan' ){ ?>
         <style>

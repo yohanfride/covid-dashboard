@@ -14,7 +14,8 @@ class MY_Model extends CI_Model {
     function sendPost($url,$data){      
         $options = array(
                 'http' => array(
-                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                'header'  => "Content-type: application/x-www-form-urlencoded\r\n".
+                            "Authorization: Bearer ".$this->config->item('api-key')."\r\n ",
                 'method'  => 'POST',
                 'content' => http_build_query($data),
             )
@@ -23,8 +24,16 @@ class MY_Model extends CI_Model {
         $result = file_get_contents($url, false, $context);
         return $result;
     }
-    function getData($url){              
-        $json = file_get_contents($url);        
+    function getData($url){      
+         $options = array(
+                'http' => array(
+                'header'  => "Content-type: application/x-www-form-urlencoded\r\n".
+                            "Authorization: Bearer ".$this->config->item('api-key')."\r\n ",
+                'method'  => 'GET'
+            )
+        );
+        $context  = stream_context_create($options); 
+        $json = file_get_contents($url, false, $context);        
         return $json;
     }
     //====================================================

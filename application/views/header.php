@@ -27,6 +27,9 @@
             top: 50%;
             left: 50%;
         }
+
+
+        <?php if( $title == 'Tampilan Maps - Pasien Covid-19' ){ ?>
         div.circle {
             background-color: #ff7800;
             border-color: black;
@@ -59,6 +62,7 @@
             -moz-box-shadow: 0 0 10px #ffa000 !important; 
             box-shadow:0 0 10px #ffa000;
         }
+        <?php } ?>
     </style>
     <?php if( $title == 'Tambah Fasilitas Kesehatan' or $title == 'Ubah Fasilitas Kesehatan' ){ ?>
         <style>
@@ -249,11 +253,15 @@
                 <ul class="treeview-menu">
                     <li><a href="<?=base_url();?>user/add"><i class="icon icon-add"></i>Tambah Kasus Covid-19</a>
                     </li>
+                    <?php if($user_now->name =='master-admin1'){ ?>
+                    <li><a href="<?=base_url();?>user/import"><i class="icon icon-file-excel-o"></i>Import Excel Kasus Covid-19</a>
+                    </li>
+                    <?php } ?>
                     <li><a href="<?=base_url();?>user/"><i class="icon icon-document-table"></i>Tampilan Tabel</a>
                     </li>
-                    <li><a href="<?=base_url();?>user/grafik"><i class="icon icon-add"></i>Grafik Trend Kasus Covid-19</a>
-                    </li>
                     <li><a href="<?=base_url();?>user/maps"><i class="icon icon-map"></i>Tampilan Peta</a>
+                    </li>
+                    <li><a href="<?=base_url();?>user/grafik"><i class="icon icon-show_chart"></i>Grafik Trend Kasus Covid-19</a>
                     </li>
                     <li><a href="<?=base_url();?>user/log"><i class="icon icon-clipboard-list"></i>Manajemen Log</a>
                     </li>

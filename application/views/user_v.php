@@ -209,3 +209,34 @@
     </div>
 
 <?php include('footer.php'); ?> 
+
+<script>
+    level_status = JSON.parse('<?php echo JSON_encode($level_status);?>');
+    console.log(level_status);
+    kecamatan = JSON.parse('<?php echo JSON_encode($kecamatan);?>');
+    console.log(kecamatan);
+
+    $("#level").on('change', function() {
+        var level = $(this).find(":selected").val();
+        var level_item = level_status[level];
+        var i;
+        var text='';
+        for (i = 0; i < level_item.length; i++) {
+          text += '<option value="'+level_item[i]+'" >'+level_item[i]+'</option>';
+        }
+        $("#level_status").html(text);
+    });
+    $("#kecamatan").on('change', function() {
+        var level = $(this).find(":selected").val();
+        var level_item = kecamatan[level];
+        var i;
+        var text='';
+        for (i = 0; i < level_item.length; i++) {
+          text += '<option value="'+level_item[i]+'" >'+level_item[i]+'</option>';
+        }
+        $("#kelurahan").html(text);
+    });
+     $(document).ready(function() {  
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout:10000}); 
+    });
+</script>

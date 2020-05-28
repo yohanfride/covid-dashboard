@@ -291,13 +291,13 @@ class User extends CI_Controller {
 		$this->load->view('user_log_v', $data);
 	}
 
-	 public function maps(){        
+	public function maps(){        
 		$data=array();
 		$data['success']='';
 		$data['error']='';
 		if($this->input->get('alert')=='success') $data['success']='Data berhasil dihapus';	
 		if($this->input->get('alert')=='failed') $data['error']="Data gagal dihapus";
-		$data['title']='Tampilan tabel - Pasien Covid-19';
+		$data['title']='Tampilan Maps - Pasien Covid-19';
 
 		$hal = $this->input->get('hal');
 		if( $this->input->get('hal') == '' ) $hal = 1;
@@ -428,7 +428,7 @@ class User extends CI_Controller {
 		$data['error']='';
 		$data['user_now'] = $this->session->userdata('covid-admin');
 
-		$data['title']='Manajemen Log - Pasien Covid-19';
+		$data['title']='Tren Grafik - Pasien Covid-19';
 		$data['str_date'] = '';
 		$data['end_date'] = '';
 		$data['kec'] = '';
@@ -462,6 +462,190 @@ class User extends CI_Controller {
 		$data['kecamatan'] = json_decode($json,true);	
 
 		$this->load->view('user_graph_v', $data);
+	}
+
+	public function import(){
+		$data=array();
+		$data['success']='';
+		$data['error']='';
+		$data['title']='Import Excel - Pasien Covid-19';
+		if($this->input->post('save')){
+			include APPPATH.'libraries/PHPExcel/PHPExcel.php';
+			$config['upload_path'] = 'assets/excel';
+	        $config['allowed_types'] = 'xlsx|xls|csv';
+	        $config['max_size'] = '10000';
+	        $config['encrypt_name'] = true;
+	        $this->load->library('upload', $config);
+	        if (!$this->upload->do_upload('file')) {
+	            $data['error']= $this->upload->display_errors();//'Import gagal';
+	        } else {
+	            $data_upload = $this->upload->data();
+	            $excelreader     = new PHPExcel_Reader_Excel2007();
+	            $loadexcel         = $excelreader->load('assets/excel/'.$data_upload['file_name']); // Load file yang telah diupload ke folder excel
+	            $index = $this->input->post('index');
+	            if($index) $index = 0;
+	            $sheet             = $loadexcel->getActiveSheet($index)->toArray(null, true, true ,true);
+	            $lat = $this->input->post('lat');
+	            $lng = $this->input->post('lng');
+	            $str = $this->input->post('start_line');
+	            $end = $this->input->post('end_line');
+	            $kec = $this->input->post('kecamatan');
+	            $kode_import = date("dhis");
+	            $data_excel = $this->excel_format($sheet,$kec,$str,$end,$kode_import,$lat,$lng);
+	            //delete file from server
+	            unlink(realpath('assets/excel/'.$data_upload['file_name']));
+	            //upload success
+	            // echo "<pre>";
+	            // print_r($data_excel);
+	            // echo "</pre>";
+	            // exit();
+	            $data['import'] = $kode_import;
+	            $data['import_count'] = count($data_excel);
+	            $data['success']='Import dalam proses';         
+	        }
+	    }
+		$json = file_get_contents('./data-sampang.json');
+		$data['kecamatan'] = json_decode($json,true);
+		$data['user_now'] = $this->session->userdata('covid-admin');					
+   		$this->load->view('user_impport_v', $data);	
+	}
+
+	function excel_camplong($sheet, $kecamatan, $start_row, $end_row, $kode_import,$loc,$lng){
+		$data_excel = array();
+	    $numrow = 1;
+		foreach($sheet as $row){
+            if($numrow >= $start_row){
+				$item['level'] = strtolower($row['S']) ;
+				if($row['W']){
+					$item['status'] = 0;
+					$item['level_status'] = 'Selesai dipantau';
+				} else {
+					$item['level_status'] = 'Dipantau';
+					$item['status'] = 1;
+				}
+				$item['nama'] = $row['C'] ;
+				if($row['E'] == 'L')
+					$item['jenis_kelamin'] = 'Laki-laki';
+				else 
+					$item['jenis_kelamin'] = 'Perempuan';
+
+				$item['kecamatan'] = $kecamatan ;
+				$item['kelurahan'] = $row['H'];
+				$item['alamat'] = $row['G'];
+				$item['tgl_lahir'] = '';
+				$item['umur'] =  strtolower($row['D']);
+				$item['phone'] = '-';
+				$item['riwayat_perjalanan'] = ($row['M'] != '')?$row['M']:$row['N'];
+				$item['loc_lat'] = $loc;
+				$item['loc_long'] = $lng;
+				$item['date_add'] = date("Y-m-d",strtotime(str_replace('/', '-', $row['J'])));
+				$item['date_end'] = date("Y-m-d",strtotime(str_replace("'","", $row['X'])));;
+				$keluhan = array();
+				if($row['O']) $keluhan[] = 'Demam';
+				if($row['P']) $keluhan[] = 'Batuk-Pilek';
+				if($row['Q']) $keluhan[] = 'Sesak Nafas';
+				if($row['R']) $keluhan[] = 'Gejala Lain';
+				$item['keluhan'] = implode(', ', $keluhan);
+				$item['kode_import'] = $kode_import ;
+                array_push($data_excel,$item);
+    		}
+            $numrow++;
+            if($numrow > $end_row)
+            	break;
+        }
+
+        $fp = fopen('assets/import-json/'.$kode_import.'.json', 'w');
+		fwrite($fp, json_encode($data_excel));
+		fclose($fp);
+        return $data_excel;
+	}
+
+	function excel_format($sheet, $kecamatan, $start_row, $end_row, $kode_import,$loc,$lng){
+		$data_excel = array();
+	    $numrow = 1;
+		foreach($sheet as $row){
+            if($numrow >= $start_row){
+				$item['level'] = strtolower($row['P']) ;
+				if($row['T']){
+					$item['status'] = 0;
+					$item['level_status'] = 'Selesai dipantau';
+				} else {
+					$item['level_status'] = 'Dipantau';
+					$item['status'] = 1;
+				}
+				$item['nama'] = $row['C'] ;
+				if($row['E'] == 'L')
+					$item['jenis_kelamin'] = 'Laki-laki';
+				else 
+					$item['jenis_kelamin'] = 'Perempuan';
+
+				$item['kecamatan'] = $kecamatan ;
+				$item['kelurahan'] = $row['H'];
+				$item['alamat'] = $row['G'];
+				$item['tgl_lahir'] = '';
+				$item['umur'] =  strtolower($row['D']);
+				$item['phone'] = '-';
+				$item['riwayat_perjalanan'] = ($row['M'] != '')?$row['M']:$row['N'];
+				$item['loc_lat'] = $loc;
+				$item['loc_long'] = $lng;
+				$item['date_add'] = date("Y-m-d",strtotime(str_replace('/', '-', $row['J'])));
+				$item['date_end'] = date("Y-m-d",strtotime(str_replace("'","", $row['U'])));;
+				$item['keluhan'] = $row['O'];
+				$item['kode_import'] = $kode_import ;
+                array_push($data_excel,$item);
+    		}
+            $numrow++;
+            if($numrow > $end_row)
+            	break;
+        }
+
+        $fp = fopen('assets/import-json/'.$kode_import.'.json', 'w');
+		fwrite($fp, json_encode($data_excel));
+		fclose($fp);
+        return $data_excel;
+	}
+
+	public function ajax_add(){
+		$level = $this->input->post('level');
+		$date_add = $this->input->post('date_add');		
+		$input=array(
+			'level' => $this->input->post('level'),
+			'level_status' => $this->input->post('level_status'),
+			'nama' => $this->input->post('nama'),
+			'jenis_kelamin' =>  $this->input->post('jenis_kelamin'),
+			'kecamatan' => $this->input->post('kecamatan'),
+			'kelurahan' =>  $this->input->post('kelurahan'),
+			'alamat' =>  $this->input->post('alamat'),
+			'tgl_lahir' =>  $this->input->post('tgl_lahir'),
+			'umur' =>  $this->input->post('umur'),
+			'phone' => $this->input->post('phone'),
+			'riwayat_perjalanan' =>  $this->input->post('riwayat_perjalanan'),
+			'loc_lat' => $this->input->post('loc_lat'),
+			'loc_long' => $this->input->post('loc_long'),
+			'date_add' => $date_add,
+			'keluhan' =>  $this->input->post('keluhan'),
+			'kode_import' => $this->input->post('kode_import')
+		);
+		if( $level == 'odp' || $level == 'odr' ){
+			$date_end = $this->input->post('date_end');	
+				if($date_end){
+				$date_end =  date( 'Y-m-d', strtotime("-6 days",strtotime($date_add)));
+				$input['date_end'] = $date_end;
+				$dateTimestamp1 = strtotime(date("Y-m-d")); 
+				$dateTimestamp2 = strtotime($date_end); 
+				if ($dateTimestamp1 > $dateTimestamp2) 
+					$input['status'] = false;
+			}
+		}
+		if( $this->input->post('status') == 0 ){
+			$input['status'] = $this->input->post('status');
+		}
+		$respo = $this->user_m->add($input);
+		if($respo->is_success){	
+			echo 'success';
+		} else {				
+			echo 'error';
+		}
 	}
 
 	// public function delete($id=''){					

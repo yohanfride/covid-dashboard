@@ -5,7 +5,7 @@
                 <div class="col">
                     <h4>
                         <i class="icon-users"></i>
-                        Manajemen Log - Kasusu Covid-19
+                        Tren Grafik - Kasus Covid-19
                     </h4>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                         <a style="padding: .5rem;" class="nav-link active" href="#"><i style="padding-right: 0px;" class="icon icon-keyboard_arrow_right"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a style="padding: .5rem;" class="nav-link" href="#"><i style="padding-right: 5px;" class="icon icon-users"></i>Manajemen Log  - Kasus Covid-19</a>
+                        <a style="padding: .5rem;" class="nav-link" href="#"><i style="padding-right: 5px;" class="icon icon-users"></i>Tren Grafik  - Kasus Covid-19</a>
                     </li>
                 </ul>
             </div>

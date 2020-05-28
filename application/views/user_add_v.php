@@ -95,7 +95,7 @@
                                         <label for="inputName" class="col-form-label">Jenis Kelamin</label>
                                         <select id="inputState" class="form-control" name="jenis_kelamin" id="jenis_kelamin" required>
                                             <option value="laki-laki">Laki-laki</option>
-                                            <option value="wanita">Wanita</option>
+                                            <option value="perempuan">Perempuan</option>
                                         </select>
                                     </div> 
                                     <div class="form-group">

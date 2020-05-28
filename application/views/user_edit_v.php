@@ -102,7 +102,7 @@
                                         <label for="inputName" class="col-form-label">Jenis Kelamin</label>
                                         <select id="inputState" class="form-control" name="jenis_kelamin" id="jenis_kelamin" required>
                                             <option <?= ($data->jenis_kelamin == "laki-laki")?"selected":""; ?> value="laki-laki">Laki-laki</option>
-                                            <option <?= ($data->jenis_kelamin == "laki-laki")?"selected":""; ?> value="wanita">Wanita</option>
+                                            <option <?= ($data->jenis_kelamin == "perempuan")?"selected":""; ?> value="perempuan">Perempuan</option>
                                         </select>
                                     </div> 
                                     <div class="form-group">

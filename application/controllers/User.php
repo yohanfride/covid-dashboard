@@ -34,6 +34,8 @@ class User extends CI_Controller {
 					'tgl_lahir' =>  $this->input->post('tgl_lahir'),
 					'phone' => $this->input->post('phone'),
 					'riwayat_perjalanan' =>  $this->input->post('riwayat_perjalanan'),
+					'status_pantau' => $this->input->post('status_pantau'),
+					'puskesmas' => $this->input->post('puskesmas'),
 					'loc_lat' => $this->input->post('loc_lat'),
 					'loc_long' => $this->input->post('loc_long'),
 					'keluhan' =>  $this->input->post('keluhan')
@@ -81,6 +83,8 @@ class User extends CI_Controller {
 				'phone' => $this->input->post('phone'),
 				'loc_lat' => $this->input->post('loc_lat'),
 				'loc_long' => $this->input->post('loc_long'),
+				'status_pantau' => $this->input->post('status_pantau'),
+				'puskesmas' => $this->input->post('puskesmas'),
 				'riwayat_perjalanan' =>  $this->input->post('riwayat_perjalanan'),
 				'keluhan' =>  $this->input->post('keluhan')
 			);
@@ -307,10 +311,11 @@ class User extends CI_Controller {
 		$data['lvlstat'] = '';
 		$limit = 200;
 		$query = array(
+			'status_pantau' => 1,
 			'limit' => $limit,
 			'skip' => ($hal-1) * $limit
 		);
-		$query2 = array();
+		$query2 = array('status_pantau' => 1);
 
 		if($this->input->get('kec')){
 			$data['kec'] = $this->input->get('kec');
@@ -368,6 +373,7 @@ class User extends CI_Controller {
 		if( $this->input->get('hal') == '' ) $hal = 1;
 		$limit = 200;
 		$query = array(
+			'status_pantau' => 1,
 			'limit' => $limit,
 			'skip' => ($hal-1) * $limit
 		);
@@ -491,7 +497,9 @@ class User extends CI_Controller {
 	            $end = $this->input->post('end_line');
 	            $kec = $this->input->post('kecamatan');
 	            $kode_import = date("dhis");
-	            $data_excel = $this->excel_format($sheet,$kec,$str,$end,$kode_import,$lat,$lng);
+	            //$data_excel = $this->excel_format($sheet,$kec,$str,$end,$kode_import,$lat,$lng);
+	            $data_excel = $this->excel_format_puskesmas($sheet,$str,$end,$kode_import,$lat,$lng);
+
 	            //delete file from server
 	            unlink(realpath('assets/excel/'.$data_upload['file_name']));
 	            //upload success
@@ -605,6 +613,73 @@ class User extends CI_Controller {
         return $data_excel;
 	}
 
+	function excel_format_puskesmas($sheet, $start_row, $end_row, $kode_import,$loc,$lng){
+		$data_excel = array();
+	    $numrow = 1;
+		foreach($sheet as $row){
+            if($numrow >= $start_row){
+				$item['level'] = strtolower($row['P']) ;
+
+				if($item['level'] == 'odp' || $item['level'] == 'pdp'){
+					if($row['T']){
+						$item['status'] = 0;
+						$item['level_status'] = 'Selesai dipantau';
+					} else {
+						$item['level_status'] = 'Dipantau';
+						$item['status'] = 1;
+					}	
+				} else {
+					$item['status'] = 1;
+				}
+
+				if($item['level'] == 'confirm')
+					$item['level_status'] = 'Dirawat';
+
+				
+
+				$item['nama'] = $row['C'] ;
+				if($row['E'] == 'L')
+					$item['jenis_kelamin'] = 'Laki-laki';
+				else if($row['E'] == 'P')
+					$item['jenis_kelamin'] = 'Perempuan';
+				else 
+					$item['jenis_kelamin'] = '-';
+
+				$item['kecamatan'] = $row['H'] ;
+				$item['kelurahan'] = $row['I'];
+				$item['puskesmas'] = $row['L'];
+				$item['alamat'] = $row['G'];
+				$item['tgl_lahir'] = '';
+				$item['umur'] =  strtolower($row['D']);
+				$item['phone'] = '-';
+				$item['riwayat_perjalanan'] = ($row['M'] != '')?$row['M']:$row['N'];
+				$item['loc_lat'] = $row['Q'];
+				$item['loc_long'] = $row['R'];
+				if($row['K'])
+					$item['date_add'] = date("Y-m-d",strtotime(str_replace('/', '-', $row['K'])));
+				else 
+					$item['date_add'] = '';
+
+				if($row['U'])
+					$item['date_end'] = date("Y-m-d",strtotime(str_replace("'","", $row['U'])));
+				else 
+					$item['date_add'] = '';
+
+				$item['keluhan'] = $row['O'];
+				$item['kode_import'] = $kode_import ;
+                array_push($data_excel,$item);
+    		}
+            $numrow++;
+            if($numrow > $end_row)
+            	break;
+        }
+
+        $fp = fopen('assets/import-json/'.$kode_import.'.json', 'w');
+		fwrite($fp, json_encode($data_excel));
+		fclose($fp);
+        return $data_excel;
+	}
+
 	public function ajax_add(){
 		$level = $this->input->post('level');
 		$date_add = $this->input->post('date_add');		
@@ -624,6 +699,7 @@ class User extends CI_Controller {
 			'loc_long' => $this->input->post('loc_long'),
 			'date_add' => $date_add,
 			'keluhan' =>  $this->input->post('keluhan'),
+			'puskesmas' => $this->input->post('puskesmas'),
 			'kode_import' => $this->input->post('kode_import')
 		);
 		if( $level == 'odp' || $level == 'odr' ){
@@ -634,11 +710,11 @@ class User extends CI_Controller {
 				$dateTimestamp1 = strtotime(date("Y-m-d")); 
 				$dateTimestamp2 = strtotime($date_end); 
 				if ($dateTimestamp1 > $dateTimestamp2) 
-					$input['status'] = false;
+					$input['status_pantau'] = false;
 			}
 		}
 		if( $this->input->post('status') == 0 ){
-			$input['status'] = $this->input->post('status');
+			$input['status_pantau'] = $this->input->post('status');
 		}
 		$respo = $this->user_m->add($input);
 		if($respo->is_success){	

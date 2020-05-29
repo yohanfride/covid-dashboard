@@ -172,6 +172,8 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="row">
+
+                    <?php if($most_kec){ ?>
                     <div class="col-md-6 mb-3">
                         <div class="white">
                             <div class="card">
@@ -195,6 +197,8 @@
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
+
 
                     <div class="col-md-6 mb-3">
                         <div class="white">

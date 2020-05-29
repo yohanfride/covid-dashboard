@@ -184,7 +184,7 @@
         }
         $("#kelurahan").html(text);
     });
-     $(document).ready(function() {  
+    $(document).ready(function() {  
         navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout:10000}); 
     });
 </script>

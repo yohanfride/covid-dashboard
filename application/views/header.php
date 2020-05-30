@@ -45,22 +45,22 @@
             box-shadow:0 0 10px #ef5350!important;
         }
         .bg-pdpicon{
-            background-color: #8e24aa !important;
-            -webkit-box-shadow:0 0 10px #8e24aa !important; 
-            -moz-box-shadow: 0 0 10px #8e24aa !important; 
-            box-shadow:0 0 10px #8e24aa !important;
+            background-color: #ffa000  !important;
+            -webkit-box-shadow:0 0 10px #ffa000  !important; 
+            -moz-box-shadow: 0 0 10px #ffa000  !important; 
+            box-shadow:0 0 10px #ffa000  !important;
         }
         .bg-odpicon{
-            background-color: #42a5f5 !important;
-            -webkit-box-shadow:0 0 10px #42a5f5 !important; 
-            -moz-box-shadow: 0 0 10px #42a5f5; !important 
-            box-shadow:0 0 10px #42a5f5 !important;
+            background-color: #fdd835 !important;
+            -webkit-box-shadow:0 0 10px #fdd835 !important; 
+            -moz-box-shadow: 0 0 10px #fdd835 !important; 
+            box-shadow:0 0 10px #fdd835 !important;
         }
         .bg-odricon{
-            background-color: #ffa000 !important;
-            -webkit-box-shadow:0 0 10px #ffa000 !important; 
-            -moz-box-shadow: 0 0 10px #ffa000 !important; 
-            box-shadow:0 0 10px #ffa000;
+            background-color: #42a5f5   !important;
+            -webkit-box-shadow:0 0 10px #42a5f5 !important; 
+            -moz-box-shadow: 0 0 10px #42a5f5 !important; 
+            box-shadow:0 0 10px #42a5f5;
         }
         <?php } ?>
     </style>

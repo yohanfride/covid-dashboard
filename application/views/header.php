@@ -62,6 +62,13 @@
             -moz-box-shadow: 0 0 10px #42a5f5 !important; 
             box-shadow:0 0 10px #42a5f5;
         }
+        .info-peta{
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
         <?php } ?>
     </style>
     <?php if( $title == 'Tambah Fasilitas Kesehatan' or $title == 'Ubah Fasilitas Kesehatan' ){ ?>

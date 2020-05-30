@@ -408,9 +408,14 @@ class User extends CI_Controller {
 				if($value->level_status == "Selesai dipantau")
 					$lvlstat = "Selesai Pemantauan";
 
+				if($value->tgl_lahir)
+					$umur = date_diff(date_create(date( "Y-m-d", strtotime( $value->tgl_lahir))), date_create('today'))->y;
+				else 
+					$umur = $value->umur;
+
 				$res[] = array(
 					'nama' => $value->nama,
-					'umur' => date_diff(date_create(date( "Y-m-d", strtotime( $value->tgl_lahir))), date_create('today'))->y,
+					'umur' => $umur,
 					'phone' => $value->phone,
 					'alamat' => $value->alamat,
 					'level' => $value->level,

@@ -1,8 +1,8 @@
 <?php include('header.php'); ?>
-    <header class="blue accent-3 relative">
-        <div class="container-fluid text-white">
-            <div class="row p-t-b-10 ">
-                <div class="col">
+        <header class="blue accent-3 relative">
+            <div class="container-fluid text-white">
+                <div class="row p-t-b-10 ">
+                    <div class="col">
                     <h4>
                         <i class="icon-hospital-o"></i>
                         Manajemen Infografis

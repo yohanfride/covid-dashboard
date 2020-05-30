@@ -128,9 +128,15 @@
                 <div class="col-md-12">
                     <div class="card no-b">
                         <div class="card-body">
-                        <div class="card-title">
-                            <h4>Data Covid-19 <?php if($user_now->level != 'master-admin' && $user_now->level != 'admin'){ echo '- Kecamatan '.$user_now->level; } ?></h4> 
-                        </div>
+                            <div class="card-title">
+                                <h4>Data Covid-19 <?php if($user_now->level != 'master-admin' && $user_now->level != 'admin'){ echo '- Kecamatan '.$user_now->level; } ?></h4> 
+                            </div>
+                            <div class="" bis_skin_checked="1" style="text-align: center;">
+                              <span class="info-peta bg-odricon"></span> Kasus ODR &nbsp;&nbsp;
+                              <span class="info-peta bg-odpicon"></span> Kasus ODP &nbsp;&nbsp;
+                              <span class="info-peta bg-pdpicon"></span> Kasus PDP &nbsp;&nbsp;
+                              <span class="info-peta bg-confirm"></span> Kasus Positif Covid-19
+                          </div>
                         <br/>
                         <div id="map" style="width: 100%;height: 80vh;"></div>
                     </div>

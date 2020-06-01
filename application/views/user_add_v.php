@@ -62,6 +62,13 @@
                                         <input type="text" class="form-control" id="inputName" placeholder="Type Name"  name="name" required>
                                     </div>
                                     <div class="form-group">
+                                        <label for="inputName" class="col-form-label">Status Pemantauan <span class="text-danger small ml-3">*)Data dimasukkan ke proses rekapitulasi</span> </label>
+                                        <select id="inputState" class="form-control" name="jenis_kelamin" id="jenis_kelamin" required>
+                                            <option value="laki-laki">Aktif (Data Dalam Pemantauan)</option>
+                                            <option value="perempuan">Tidak Aktif (Data Tidak Dalam Pemantauan)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="inputName" class="col-form-label">Kondisi</label>
                                         <select  class="form-control" name="level" id="level" required>
                                             <option value="confirm"  >Confirm (Positif)</option>
@@ -90,6 +97,10 @@
                                                 </span>
                                             </span>
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPhone" class="col-form-label">Umur</label>
+                                        <input type="text" class="form-control" id="inputUmur" placeholder="Umur"  name="umur"  >
                                     </div>
                                     <div class="form-group">
                                         <label for="inputName" class="col-form-label">Jenis Kelamin</label>
@@ -123,6 +134,10 @@
                                             <option value="<?= $l?>" ><?= $l?></option>
                                         <?php } ?>
                                         </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPhone" class="col-form-label">Puskesmas</label>
+                                        <input type="text" class="form-control" id="puskesmas" placeholder="Puskesmas"  name="puskesmas"  value="<?= $data->puskesmas?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPhone" class="col-form-label">Alamat</label>

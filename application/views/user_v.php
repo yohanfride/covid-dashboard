@@ -177,11 +177,11 @@
                                                     <?php if(strtoupper($s->level) == "CONFIRM"){ ?>
                                                     <span class="badge badge-primary red lighten-1 r-20" style="font-size: 12px;">CONFIRM</span>
                                                     <?php } else if(strtoupper($s->level) == "PDP"){ ?>
-                                                    <span class="badge badge-primary purple darken-1 r-20" style="font-size: 12px;">PDP</span>
+                                                    <span class="badge badge-primary amber darken-2 r-20" style="font-size: 12px;">PDP</span>
                                                     <?php } else if(strtoupper($s->level) == "ODP"){ ?>
-                                                    <span class="badge badge-primary blue lighten-1 r-20" style="font-size: 12px;">ODP</span>
+                                                    <span class="badge badge-primary yellow darken-1 r-20" style="font-size: 12px;">ODP</span>
                                                     <?php } else if(strtoupper($s->level) == "ODR"){ ?>
-                                                    <span class="badge badge-primary amber darken-2 r-20" style="font-size: 12px;">ODR</span>
+                                                    <span class="badge badge-primary blue lighten-1 r-20" style="font-size: 12px;">ODR</span>
                                                     <?php } ?>
                                                 </td>
                                                 <td><?= $s->level_status ?></td>

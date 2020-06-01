@@ -288,6 +288,7 @@
                     </li>
                 </ul>
             </li>
+            <?php if($role == 'admin'){ ?>
             <li class="treeview">
                 <a href="#">
                     <i class="icon icon-hospital-o text-blue s-18"></i> <span>Fasilitas Kesehatan</span>
@@ -314,6 +315,7 @@
                     </li>
                 </ul>
             </li>
+            <?php } ?>
             <?php if($role == 'admin'){ ?>
             <li class="header light mt-3"><strong>NAVIGASI ADMINISTRATOR</strong></li>
             <?php if($user_now->level == 'master-admin' || $user_now->level == 'admin'){ ?>

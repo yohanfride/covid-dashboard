@@ -181,6 +181,17 @@
       $js_array = json_encode($current->kecamatan);
       echo "var dataKecamatan = ". $js_array . ";\n";
       ?>
+      kelerahan = JSON.parse('<?php echo JSON_encode($kecamatan);?>');
+      $("#kecamatan").on('change', function() {
+          var level = $(this).find(":selected").val();
+          var level_item = kelerahan[level];
+          var i;
+          var text='<option value="" >-- Semua Kelurahan --</option>';
+          for (i = 0; i < level_item.length; i++) {
+            text += '<option value="'+level_item[i]+'" >'+level_item[i]+'</option>';
+          }
+          $("#kelurahan").html(text);
+      });
 
       function pop_kecamatan(feature, layer) {
       }

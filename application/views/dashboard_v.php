@@ -103,7 +103,7 @@
                         </div>
                     </div>
 
-                    <div class="p-5 bg-primary purple darken-1 text-white">
+                    <div class="p-5 bg-primary ember darken-2 text-white">
                         <h5 class="font-weight-normal s-14">PDP<br/>&nbsp;</h5>
                         <span class="s-48 font-weight-lighter text-primary"><?= $new->pdp->total;?></span>
                         <div> Kasus &nbsp;&nbsp;
@@ -126,7 +126,7 @@
                     </div>
                     <div class="p-5 ">
                         <h5 class="font-weight-normal s-14">ODP<br/>&nbsp;</h5>
-                        <span class="s-48 font-weight-lighter text-primary"><?= $new->odp->total;?></span>
+                        <span class="s-48 font-weight-lighter text-warning"><?= $new->odp->total;?></span>
                         <div> Kasus &nbsp;&nbsp;
                             <?php 
                                 $old_data = 0;
@@ -147,7 +147,7 @@
                     </div>
                     <div class="p-5 light">
                         <h5 class="font-weight-normal s-14">ODR<br/>&nbsp;</h5>
-                        <span class="s-48 font-weight-lighter amber-text"><?= $new->odr->total;?></span>
+                        <span class="s-48 font-weight-lighter text-primary"><?= $new->odr->total;?></span>
                         <div> Kasus &nbsp;&nbsp;
                             <?php 
                                 $old_data = 0;

@@ -318,7 +318,7 @@
             <?php } ?>
             <?php if($role == 'admin'){ ?>
             <li class="header light mt-3"><strong>NAVIGASI ADMINISTRATOR</strong></li>
-            <?php if($user_now->level == 'master-admin' || $user_now->level == 'admin'){ ?>
+            <?php if($user_now->level == 'master-admin'){ ?>
             <li class="treeview"><a href="#"><i class="icon icon-account_box light-green-text s-18"></i>Administrator<i
                     class="icon icon-angle-left s-18 pull-right"></i></a>
                 <ul class="treeview-menu">

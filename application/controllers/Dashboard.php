@@ -66,8 +66,8 @@ class dashboard extends CI_Controller {
 			);
 			$data['new_user'] = $this->user_m->search_count($src)->data;
 			$src = array(
-				"str_date" => date("Y-m-d",strtotime("-1 days")),
-				"end_date" => date("Y-m-d",strtotime("-1 days"))
+				"str_date" => date("Y-m-d",strtotime("-1 days",strtotime($data['str_date']))),
+				"end_date" => date("Y-m-d",strtotime("-1 days",strtotime($data['end_date'])))
 			);
 			$data['old_user'] = $this->user_m->search_count($src)->data;		
 			//-----------///
@@ -127,8 +127,8 @@ class dashboard extends CI_Controller {
 			);
 			$data['new_user'] = $this->user_m->search_count($src)->data;
 			$src = array(
-				"str_date" => date("Y-m-d",strtotime("-1 days")),
-				"end_date" => date("Y-m-d",strtotime("-1 days")),
+				"str_date" => date("Y-m-d",strtotime("-1 days",strtotime($data['str_date']))),
+				"end_date" => date("Y-m-d",strtotime("-1 days",strtotime($data['end_date']))),
 				"kecamatan" => $data['kec']
 			);
 			$data['old_user'] = $this->user_m->search_count($src)->data;		

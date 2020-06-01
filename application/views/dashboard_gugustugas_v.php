@@ -103,7 +103,7 @@
                         </div>
                     </div>
 
-                    <div class="p-5 bg-primary purple darken-1 text-white">
+                    <div class="p-5 bg-primary amber darken-2  text-white">
                         <h5 class="font-weight-normal s-14">PDP<br/>&nbsp;</h5>
                         <span class="s-48 font-weight-lighter text-primary"><?= $new->pdp;?></span>
                         <div> Kasus &nbsp;&nbsp;
@@ -126,7 +126,7 @@
                     </div>
                     <div class="p-5 ">
                         <h5 class="font-weight-normal s-14">ODP<br/>&nbsp;</h5>
-                        <span class="s-48 font-weight-lighter text-primary"><?= $new->odp;?></span>
+                        <span class="s-48 font-weight-lighter yellow-text"><?= $new->odp;?></span>
                         <div> Kasus &nbsp;&nbsp;
                             <?php 
                                 $old_data = 0;
@@ -142,12 +142,12 @@
                                     $icon = "icon-arrow_downward";
                                 $jarak = abs($jarak)  
                             ?>
-                            <span class="text-primary"><i class="icon <?= $icon;?>"></i> <?= $jarak;?></span>
+                            <span class="yellow-text"><i class="icon <?= $icon;?>"></i> <?= $jarak;?></span>
                         </div>
                     </div>
                     <div class="p-5 light">
                         <h5 class="font-weight-normal s-14">ODR<br/>&nbsp;</h5>
-                        <span class="s-48 font-weight-lighter amber-text"><?= $new->odr;?></span>
+                        <span class="s-48 font-weight-lighter text-primary"><?= $new->odr;?></span>
                         <div> Kasus &nbsp;&nbsp;
                             <?php 
                                 $old_data = 0;
@@ -163,7 +163,7 @@
                                     $icon = "icon-arrow_downward";
                                 $jarak = abs($jarak)  
                             ?>
-                            <span class="amber-text"><i class="icon <?= $icon;?>"></i> <?= $jarak;?></span>
+                            <span class="text-primary"><i class="icon <?= $icon;?>"></i> <?= $jarak;?></span>
                         </div>
                     </div>
                 </div>
@@ -218,7 +218,7 @@
                                     <div class="p-4">
                                         <h5 class="font-weight-normal s-14">Jumlah Kasus Baru Yang Terdaftar </h5>
                                         <span class="s-48 font-weight-lighter text-primary"><?= ($new_user)?$new_user:'0'; ?></span>
-                                        <h5 class="font-weight-normal s-14"> Pada hasri sebelumnya </h5>
+                                        <h5 class="font-weight-normal s-14"> Pada hari sebelumnya </h5>
                                         <span class="s-48 font-weight-lighter text-primary"><?= ($old_user)?$old_user:'0'; ?></span>
                                         <div> User Terdaftar
                                         </div>

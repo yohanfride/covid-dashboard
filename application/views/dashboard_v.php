@@ -269,7 +269,7 @@
                                     <div class="p-4">
                                         <h5 class="font-weight-normal s-14">Jumlah Kasus Baru Yang Terdaftar </h5>
                                         <span class="s-48 font-weight-lighter text-primary"><?= ($new_user)?$new_user:'0'; ?></span>
-                                        <h5 class="font-weight-normal s-14"> Pada hasri sebelumnya </h5>
+                                        <h5 class="font-weight-normal s-14"> Pada hari sebelumnya </h5>
                                         <span class="s-48 font-weight-lighter text-primary"><?= ($old_user)?$old_user:'0'; ?></span>
                                         <div> User Terdaftar
                                         </div>

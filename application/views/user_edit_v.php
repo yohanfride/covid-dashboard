@@ -107,7 +107,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPhone" class="col-form-label">Umur</label>
-                                        <input type="text" class="form-control" id="inputUmur" placeholder="Umur"  name="umur" value="<?= $data->umur?>" >
+                                        <input type="text" class="form-control" id="inputUmur" placeholder="Umur"  name="umur" value="<?= ($data->umur)?$data->umur:''; ?>" >
                                     </div>
                                     <div class="form-group">
                                         <label for="inputName" class="col-form-label">Jenis Kelamin</label>

@@ -103,7 +103,7 @@
                         </div>
                     </div>
 
-                    <div class="p-5 bg-primary ember darken-2 text-white">
+                    <div class="p-5 bg-primary amber darken-2 text-white">
                         <h5 class="font-weight-normal s-14">PDP<br/>&nbsp;</h5>
                         <span class="s-48 font-weight-lighter text-primary"><?= $new->pdp->total;?></span>
                         <div> Kasus &nbsp;&nbsp;
@@ -126,7 +126,7 @@
                     </div>
                     <div class="p-5 ">
                         <h5 class="font-weight-normal s-14">ODP<br/>&nbsp;</h5>
-                        <span class="s-48 font-weight-lighter text-warning"><?= $new->odp->total;?></span>
+                        <span class="s-48 font-weight-lighter yellow-text"><?= $new->odp->total;?></span>
                         <div> Kasus &nbsp;&nbsp;
                             <?php 
                                 $old_data = 0;
@@ -142,7 +142,7 @@
                                     $icon = "icon-arrow_downward";
                                 $jarak = abs($jarak)  
                             ?>
-                            <span class="text-primary"><i class="icon <?= $icon;?>"></i> <?= $jarak;?></span>
+                            <span class="yellow-text"><i class="icon <?= $icon;?>"></i> <?= $jarak;?></span>
                         </div>
                     </div>
                     <div class="p-5 light">
@@ -163,7 +163,7 @@
                                     $icon = "icon-arrow_downward";
                                 $jarak = abs($jarak)  
                             ?>
-                            <span class="amber-text"><i class="icon <?= $icon;?>"></i> <?= $jarak;?></span>
+                            <span class="text-primary"><i class="icon <?= $icon;?>"></i> <?= $jarak;?></span>
                         </div>
                     </div>
                 </div>

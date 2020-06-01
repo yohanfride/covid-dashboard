@@ -107,7 +107,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPhone" class="col-form-label">Umur</label>
-                                        <input type="text" class="form-control" id="inputUmur" placeholder="Umur"  name="umur" value="<?= ($data->umur)?$data->umur:''; ?>" >
+                                        <input type="text" class="form-control" id="inputUmur" placeholder="Umur"  name="umur" value="<?= (array_key_exists("umur",$data))?$data->umur:''; ?>" >
                                     </div>
                                     <div class="form-group">
                                         <label for="inputName" class="col-form-label">Jenis Kelamin</label>
@@ -145,7 +145,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPhone" class="col-form-label">Puskesmas</label>
-                                        <input type="text" class="form-control" id="puskesmas" placeholder="Puskesmas"  name="puskesmas"  value="<?= $data->puskesmas?>">
+                                        <input type="text" class="form-control" id="puskesmas" placeholder="Puskesmas"  name="puskesmas"  value="<?= (array_key_exists("puskesmas",$data))?$data->puskesmas:''; ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPhone" class="col-form-label">Alamat</label>

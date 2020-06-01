@@ -137,7 +137,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPhone" class="col-form-label">Puskesmas</label>
-                                        <input type="text" class="form-control" id="puskesmas" placeholder="Puskesmas"  name="puskesmas"  value="<?= $data->puskesmas?>">
+                                        <input type="text" class="form-control" id="puskesmas" placeholder="Puskesmas"  name="puskesmas" >
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPhone" class="col-form-label">Alamat</label>

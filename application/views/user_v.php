@@ -149,7 +149,7 @@
                                                 <th>Kecamatan</th>
                                                 <?php } ?>
                                                 <th>Kelurahan</th>
-                                                <th width="10%">Aksi</th>
+                                                <th width="14%">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
@@ -191,6 +191,7 @@
                                                 <td><?= $s->kelurahan ?></td>
                                                 <td>
                                                    <a href="<?= base_url()?>user/edit/<?= $s->_id?>"><button type="button" class="btn  btn-xs btn-warning r-20"><i class="icon-pencil"></i> Edit</button></a>
+                                                   <a href="<?= base_url()?>user/delete/<?= $s->_id?>" class="btn-delete"><button type="button" class="btn  btn-xs btn-danger r-20 "><i class="icon-trash"></i> Hapus</button></a>
                                                 </td>
                                             </tr>
                                             <?php } ?>

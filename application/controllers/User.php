@@ -731,15 +731,15 @@ class User extends CI_Controller {
 		}
 	}
 
-	// public function delete($id=''){					
-	// 	//if(!$this->antrian_m->cek_hapus_g($data->NIP)){
-	// 		$del=$this->user_m->del($id);
-	// 		if($del->is_success){
-	// 			redirect(base_url().'user/?alert=success') ; 			
-	// 		} 
-	// 	//}
-	// 	redirect(base_url().'user/?alert=failed') ; 			
-	// }
+	public function delete($id=''){					
+		//if(!$this->antrian_m->cek_hapus_g($data->NIP)){
+			$del=$this->user_m->del($id);
+			if($del->is_success){
+				redirect(base_url().'user/?alert=success') ; 			
+			} 
+		//}
+		redirect(base_url().'user/?alert=failed') ; 			
+	}
 
     public function _doupload_file($name,$target){
 		$img						= $name;

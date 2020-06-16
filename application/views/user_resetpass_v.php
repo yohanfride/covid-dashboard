@@ -1,126 +1,165 @@
+
 <!DOCTYPE html>
-<html lang="zxx">
-<head>
+<html class="no-js css-menubar" lang="en">
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="bootstrap admin template">
     <meta name="author" content="">
-    <link rel="icon" href="<?= base_url(); ?>assets/img/basic/favicon.ico" type="image/x-icon">
-    <title>Login - Administrator</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/app.css">
-    <style>
-        .loader {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #F5F8FA;
-            z-index: 9998;
-            text-align: center;
-        }
+    
+    <title>Register</title>
+    
+    <link rel="apple-touch-icon" href="<?= base_url()?>assets/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="<?= base_url()?>assets/images/favicon.ico">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="<?= base_url()?>assets/global/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= base_url()?>assets/global/css/bootstrap-extend.min.css">
+    <link rel="stylesheet" href="<?= base_url()?>assets/css/site.min.css">
+    
+    <!-- Plugins -->
+    <link rel="stylesheet" href="<?= base_url()?>assets/global/vendor/animsition/animsition.css">
+    <link rel="stylesheet" href="<?= base_url()?>assets/global/vendor/asscrollable/asScrollable.css">
+    <link rel="stylesheet" href="<?= base_url()?>assets/global/vendor/switchery/switchery.css">
+    <link rel="stylesheet" href="<?= base_url()?>assets/global/vendor/intro-js/introjs.css">
+    <link rel="stylesheet" href="<?= base_url()?>assets/global/vendor/slidepanel/slidePanel.css">
+    <link rel="stylesheet" href="<?= base_url()?>assets/global/vendor/flag-icon-css/flag-icon.css">
+        <link rel="stylesheet" href="<?= base_url()?>assets/examples/css/pages/login-v3.css">
+    
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="<?= base_url()?>assets/global/fonts/web-icons/web-icons.min.css">
+    <link rel="stylesheet" href="<?= base_url()?>assets/global/fonts/brand-icons/brand-icons.min.css">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+    
+    <!--[if lt IE 9]>
+    <script src="<?= base_url()?>assets/global/vendor/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+    
+    <!--[if lt IE 10]>
+    <script src="<?= base_url()?>assets/global/vendor/media-match/media.match.min.js"></script>
+    <script src="<?= base_url()?>assets/global/vendor/respond/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Scripts -->
+    <script src="<?= base_url()?>assets/global/vendor/breakpoints/breakpoints.js"></script>
+    <script>
+      Breakpoints();
+    </script>
+  </head>
+  <body class="animsition page-login-v3 layout-full">
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-        .plane-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-        }
-    </style>
-</head>
-<body class="light">
-<!-- Pre loader -->
-<div id="loader" class="loader">
-    <div class="plane-container">
-        <div class="preloader-wrapper small active">
-            <div class="spinner-layer spinner-blue">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div><div class="gap-patch">
-                <div class="circle"></div>
-            </div><div class="circle-clipper right">
-                <div class="circle"></div>
-            </div>
-            </div>
 
-            <div class="spinner-layer spinner-red">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div><div class="gap-patch">
-                <div class="circle"></div>
-            </div><div class="circle-clipper right">
-                <div class="circle"></div>
+    <!-- Page -->
+    <div class="page vertical-align text-center" data-animsition-in="fade-in" data-animsition-out="fade-out">>
+      <div class="page-content vertical-align-middle animation-slide-top animation-duration-1">
+        <div class="panel">
+          <div class="panel-body">
+            <div class="brand">
+              <img class="brand-img" src="<?= base_url()?>assets//images/logo-colored.png" alt="...">
+              <h2 class="brand-text font-size-18">RESET PASSWORD</h2>
             </div>
-            </div>
-
-            <div class="spinner-layer spinner-yellow">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div><div class="gap-patch">
-                <div class="circle"></div>
-            </div><div class="circle-clipper right">
-                <div class="circle"></div>
-            </div>
-            </div>
-
-            <div class="spinner-layer spinner-green">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div><div class="gap-patch">
-                <div class="circle"></div>
-            </div><div class="circle-clipper right">
-                <div class="circle"></div>
-            </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="app">
-<main>
-    <div id="primary" class="p-t-b-100 height-full ">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mx-md-auto">
-                    <div class="text-center">
-                        <img src="<?= base_url(); ?>assets/img/dummy/u1.png" alt="">
-                        <h3 class="mt-2">Reset Password</h3>
+            <form method="post" action="#">
+                <?php if($error){ ?>
+                    <div class="alert dark alert-alt alert-danger alert-dismissible text-left" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                        Warning!<br/><span class="alert-link"><?= $error?></span>.
                     </div>
-                    <form method="post" >
-                        <?php if($error){ ?>
-                            <div class="alert alert-danger alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" style="font-size: 14px;">&#10006;</span>
-                                </button>
-                                <strong>Peringatan!</strong></span><br/><?= $error?> 
-                            </div>
-                        <?php } if($success2){ ?>
-                            <div class="alert alert-success alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" style="font-size: 14px;">&#10006;</span>
-                                </button>
-                                <strong>Permintaan Berhasil!</strong> Silahkan masuk ke Halaman login menggunakan password yang baru.</span> 
-                            </div>
-                            <a href="<?= base_url()?>auth/login/" class="btn btn-default btn-block content-group legitRipple">Halaman Login</a>
-                        <?php } else if($success){ ?>
-                            <div class="form-group has-icon"><i class="icon-user-secret"></i>
-                                <input type="password" name="password" class="form-control form-control-lg" placeholder="Password Baru" required>
-                            </div>
-                            <div class="form-group has-icon"><i class="icon-user-secret"></i>
-                                <input type="password" name="passconf" class="form-control form-control-lg" placeholder="Ulangi Password" required>
-                            </div>
-                            <input type="submit" class="btn btn-success btn-lg btn-block"  name="save"  value="Ganti Password">
-                        <?php } ?> 
-                    </form>
-                </div>
-            </div>
+                <?php } if($success2){ ?>
+                    <div class="alert dark alert-alt alert-success alert-dismissible text-left" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                        Success<br/><span class="alert-link">Please enter the login page using the new password. </span>.
+                    </div>
+                    <a href="<?= base_url()?>auth/login/" class="btn btn-primary btn-block btn-lg mt-40">Login Page</a>
+               <?php } else if($success){ ?>
+              <div class="form-group form-material floating" data-plugin="formMaterial">
+                <input id="password" type="password" class="form-control" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one upper and lower case letter, and at least 6 or more characters"/>
+                <label class="floating-label">Password</label>
+              </div>
+              <div class="form-group form-material floating" data-plugin="formMaterial">
+                <input id="confirm_password" type="password" class="form-control" name="passconf" onkeyup="validatePassword()" required/>
+                <label class="floating-label">Re-enter Password</label>
+              </div>
+              <button type="submit" name="save" value="save" class="btn btn-primary btn-block btn-lg mt-40">Sign up</button>
+              <?php } ?>
+            </form>
+            <p>Have account already? Please go to <a href="<?= base_url()?>auth/login">Sign In</a></p>
+          </div>
         </div>
-    </div>
-    <!-- #primary -->
-</main>
 
-<!-- Add the sidebar's background. This div must be placed
-         immediately after the control sidebar -->
-<div class="control-sidebar-bg shadow white fixed"></div>
-</div>
-<!--/#app -->
-<script src="<?= base_url(); ?>assets/js/app.js"></script>
-</body>
+        
+      </div>
+    </div>
+    <!-- End Page -->
+
+
+    <!-- Core  -->
+    <script src="<?= base_url()?>assets/global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
+    <script src="<?= base_url()?>assets/global/vendor/jquery/jquery.js"></script>
+    <script src="<?= base_url()?>assets/global/vendor/popper-js/umd/popper.min.js"></script>
+    <script src="<?= base_url()?>assets/global/vendor/bootstrap/bootstrap.js"></script>
+    <script src="<?= base_url()?>assets/global/vendor/animsition/animsition.js"></script>
+    <script src="<?= base_url()?>assets/global/vendor/mousewheel/jquery.mousewheel.js"></script>
+    <script src="<?= base_url()?>assets/global/vendor/asscrollbar/jquery-asScrollbar.js"></script>
+    <script src="<?= base_url()?>assets/global/vendor/asscrollable/jquery-asScrollable.js"></script>
+    <script src="<?= base_url()?>assets/global/vendor/ashoverscroll/jquery-asHoverScroll.js"></script>
+    
+    <!-- Plugins -->
+    <script src="<?= base_url()?>assets/global/vendor/switchery/switchery.js"></script>
+    <script src="<?= base_url()?>assets/global/vendor/intro-js/intro.js"></script>
+    <script src="<?= base_url()?>assets/global/vendor/screenfull/screenfull.js"></script>
+    <script src="<?= base_url()?>assets/global/vendor/slidepanel/jquery-slidePanel.js"></script>
+        <script src="<?= base_url()?>assets/global/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+    
+    <!-- Scripts -->
+    <script src="<?= base_url()?>assets/global/js/Component.js"></script>
+    <script src="<?= base_url()?>assets/global/js/Plugin.js"></script>
+    <script src="<?= base_url()?>assets/global/js/Base.js"></script>
+    <script src="<?= base_url()?>assets/global/js/Config.js"></script>
+    
+    <script src="<?= base_url()?>assets/js/Section/Menubar.js"></script>
+    <script src="<?= base_url()?>assets/js/Section/GridMenu.js"></script>
+    <script src="<?= base_url()?>assets/js/Section/Sidebar.js"></script>
+    <script src="<?= base_url()?>assets/js/Section/PageAside.js"></script>
+    <script src="<?= base_url()?>assets/js/Plugin/menu.js"></script>
+    
+    <script src="<?= base_url()?>assets/global/js/config/colors.js"></script>
+    <script src="<?= base_url()?>assets/js/config/tour.js"></script>
+    <script>Config.set('assets', '<?= base_url()?>assets');</script>
+    
+    <!-- Page -->
+    <script src="<?= base_url()?>assets/js/Site.js"></script>
+    <script src="<?= base_url()?>assets/global/js/Plugin/asscrollable.js"></script>
+    <script src="<?= base_url()?>assets/global/js/Plugin/slidepanel.js"></script>
+    <script src="<?= base_url()?>assets/global/js/Plugin/switchery.js"></script>
+        <script src="<?= base_url()?>assets/global/js/Plugin/jquery-placeholder.js"></script>
+        <script src="<?= base_url()?>assets/global/js/Plugin/material.js"></script>
+    
+    <script>
+      (function(document, window, $){
+        'use strict';
+    
+        var Site = window.Site;
+        $(document).ready(function(){
+          Site.run();
+        });
+      })(document, window, jQuery);
+    function validatePassword(){
+        var password = document.getElementById("password"), confirm_password = document.getElementById("confirm_password");
+        if(password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+    </script>
+  </body>
 </html>

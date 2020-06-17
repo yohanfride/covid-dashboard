@@ -387,9 +387,9 @@
 <script type="text/javascript">
     jQuery(function($){
         var chartColors ={
-        orange:"#ffa000",
-        blue:"#42a5f5",
-        purple:"#8e24aa",
+        orange:"#42a5f5",
+        blue:"#fdd835",
+        purple:"#ffa000",
         red:"#ef5350",
       }
       <?php  

@@ -57,6 +57,15 @@
                             <div class="card-body b-b">
                                 <h4>Data Anda</h4>
                                 <div class="row">
+                                	<?php if(empty($data->nama)){ ?>
+                                	<div class="col-md-6">
+	                                	<div class="alert alert-danger alert-dismissible" role="alert">
+	                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" style="font-size: 14px;">&#10006;</span>
+	                                        </button>
+	                                        <strong>Data pasien tidak ada!</strong></span><br/>Data telah dihapus dari sistem
+	                                    </div>
+                                    </div>
+                                	<?php } else { ?>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="inputName" class="col-form-label">Nama</label>
@@ -119,6 +128,8 @@
                                             <textarea class="form-control r-0" id="exampleFormControlTextarea2" rows="3" style="resize: none;" name="riwayat_perjalanan"  required disabled><?= $data->riwayat_perjalanan ?></textarea>
                                         </div>
                                     </div>
+                                    <?php } ?>
+
                                 </div> 
                             </div>
                     </div>

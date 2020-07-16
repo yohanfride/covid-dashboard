@@ -5,7 +5,7 @@
                 <div class="col">
                     <h4>
                         <i class="icon-users"></i>
-                        Manajemen Log - Kasusu Covid-19
+                        Manajemen Log - Kasus Covid-19
                     </h4>
                 </div>
             </div>
@@ -166,7 +166,7 @@
                                             <tr>
                                                 <th>Tanggal Update</th>
                                                 <th>Nama</th>
-                                                <th>Jenis kelamin</th>
+                                                <th>Lokasi (Lat,Lng)</th>
                                                 <th>Kelompok</th>
                                                 <th>Status</th>
                                                 <?php if($user_now->level == 'admin' || $user_now->level == 'master-admin'){ ?>

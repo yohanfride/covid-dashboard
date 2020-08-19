@@ -71,27 +71,41 @@
                                     <div class="form-group">
                                         <label for="inputName" class="col-form-label">Kondisi</label>
                                         <select  class="form-control" name="level" id="level" required>
-                                            <option value="confirm" <?= (strtoupper($data->level) == "CONFIRM")?"selected":""; ?> >Confirm</option>
-                                            <option value="pdp" <?= (strtoupper($data->level) == "PDP")?"selected":""; ?> >PDP (Pasien Dalam Perawatan)</option>
-                                            <option value="odp" <?= (strtoupper($data->level) == "ODP")?"selected":""; ?> >ODP (Orang Dalam Pengawasan)</option>
-                                            <option value="odr" <?= (strtoupper($data->level) == "ODR")?"selected":""; ?> >ODR (Orang Dengan Resiko)</option>
+                                            <option value="konfirmasi" <?= (strtoupper($data->level) == "KONFIRMASI")?"selected":""; ?> >Konfirmasi</option>
+                                            <option value="suspek" <?= (strtoupper($data->level) == "SUSPEK")?"selected":""; ?> >Suspek</option>
+                                            <option value="probable" <?= (strtoupper($data->level) == "PROBABLE")?"selected":""; ?> >Probable</option>
+                                            <option value="kontak_erat" <?= (strtoupper($data->level) == "KONTAK_ERAT")?"selected":""; ?> >Kontak Erat</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPhone" class="col-form-label">Status</label>
                                         <select class="form-control" name="level_status" id="level_status" required>
                                         <?php 
-                                            if((strtoupper($data->level) == "CONFIRM"))
-                                                $list = $level_status['confirm'];   
-                                            if((strtoupper($data->level) == "PDP"))
-                                                $list = $level_status['pdp'];
-                                            if((strtoupper($data->level) == "ODP"))
-                                                $list = $level_status['odp'];
-                                            if((strtoupper($data->level) == "ODR"))
-                                                $list = $level_status['odr'];
+                                            if((strtoupper($data->level) == "KONFIRMASI"))
+                                                $list = $level_status['konfirmasi'];   
+                                            if((strtoupper($data->level) == "SUSPEK"))
+                                                $list = $level_status['suspek'];
+                                            if((strtoupper($data->level) == "PROBABLE"))
+                                                $list = $level_status['probable'];
+                                            if((strtoupper($data->level) == "KONTAK_ERAT"))
+                                                $list = $level_status['kontak_erat'];
                                             foreach($list as $l){ ?>
                                             <option value="<?= $l?>" <?= ( $data->level_status == $l )?"selected":""; ?>><?= $l?></option>
                                         <?php } ?>
+                                        </select>
+                                    </div>
+                                    <?php 
+                                        if(isset($data->konfirmasi_gejala)){
+                                            $konfirmasi_gejala = $data->konfirmasi_gejala;
+                                        } else {
+                                            $konfirmasi_gejala = '-';
+                                        }
+                                    ?>
+                                    <div class="form-group" id="form_gejala">
+                                        <label for="inputName" class="col-form-label">Status Konfirmasi</label>
+                                        <select  class="form-control" name="gejala" id="gejala" >
+                                            <option value="Dengan Gejala" <?= ($konfirmasi_gejala == "Dengan Gejala")?"selected":""; ?> >Dengan Gejala</option>
+                                            <option value="Tanpa Gejala" <?= ($konfirmasi_gejala == "Tanpa Gejala")?"selected":""; ?> >Tanpa Gejala</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -214,7 +228,11 @@
     // kecamatan = JSON.parse('<?php echo JSON_encode($kecamatan);?>');
     // console.log(kecamatan);
 
-
+    <?php
+        if((strtoupper($data->level) != "KONFIRMASI")){
+            echo '$("#form_gejala").hide();';
+        }
+    ?>
 
     $("#level").on('change', function() {
         var level = $(this).find(":selected").val();
@@ -225,6 +243,11 @@
           text += '<option value="'+level_item[i]+'" >'+level_item[i]+'</option>';
         }
         $("#level_status").html(text);
+        if(level == 'konfirmasi'){
+            $("#form_gejala").show();
+        } else {
+            $("#form_gejala").hide();
+        }
     });
     $("#kecamatan").on('change', function() {
         var level = $(this).find(":selected").val();

@@ -39,10 +39,10 @@
                                             <label for="inputName" class="col-form-label">Kondisi</label>
                                             <select  class="form-control" name="lvl" id="level" >
                                                 <option value="" >-- Semua --</option>
-                                                <option value="confirm" <?= (strtoupper($lvl) == "CONFIRM")?"selected":""; ?> >Confirm</option>
-                                                <option value="pdp" <?= (strtoupper($lvl) == "PDP")?"selected":""; ?> >PDP (Pasien Dalam Perawatan)</option>
-                                                <option value="odp" <?= (strtoupper($lvl) == "ODP")?"selected":""; ?> >ODP (Orang Dalam Pengawasan)</option>
-                                                <option value="odr" <?= (strtoupper($lvl) == "ODR")?"selected":""; ?> >ODR (Orang Dengan Resiko)</option>
+                                                <option value="konfirmasi" <?= (strtoupper($lvl) == "KONFIRMASI")?"selected":""; ?> >Konfirmasi</option>
+                                                <option value="suspek" <?= (strtoupper($lvl) == "SUSPEK")?"selected":""; ?> >Suspek</option>
+                                                <option value="probable" <?= (strtoupper($lvl) == "PROBABLE")?"selected":""; ?> >Probable</option>
+                                                <option value="kontak_erat" <?= (strtoupper($lvl) == "KONTAK_ERAT")?"selected":""; ?> >Kontak Erat</option>
                                             </select>
                                         </div> 
                                     </div>
@@ -53,14 +53,14 @@
                                             <option value="" >-- Semua --</option>
                                             <?php 
                                                 $list = array();
-                                                if((strtoupper($lvl) == "CONFIRM"))
-                                                    $list = $level_status['confirm'];   
-                                                if((strtoupper($lvl) == "PDP"))
-                                                    $list = $level_status['pdp'];
-                                                if((strtoupper($lvl) == "ODP"))
-                                                    $list = $level_status['odp'];
-                                                if((strtoupper($lvl) == "ODR"))
-                                                    $list = $level_status['odr'];
+                                                if((strtoupper($lvl) == "KONFIRMASI"))
+                                                    $list = $level_status['konfirmasi'];   
+                                                if((strtoupper($lvl) == "SUSPEK"))
+                                                    $list = $level_status['suspek'];
+                                                if((strtoupper($lvl) == "PROBABLE"))
+                                                    $list = $level_status['probable'];
+                                                if((strtoupper($lvl) == "KONTAK_ERAT"))
+                                                    $list = $level_status['kontak_erat'];
 
                                                 foreach($list as $l){ ?>
                                                 <option value="<?= $l?>" <?= ( $lvlstat == $l )?"selected":""; ?>><?= $l?></option>
@@ -68,6 +68,16 @@
                                             </select>
                                         </div>
                                     </div> 
+                                    <div class="col-md-6" id="form_gejala">
+                                            <div class="form-group">
+                                                <label for="inputGejala" class="col-form-label">Konfirmasi Gejala</label>
+                                                <select  class="form-control" name="gejala" id="gejala" >
+                                                    <option value="" >-- Semua --</option>
+                                                    <option value="Dengan Gejala" <?= ($gejala == "Dengan Gejala")?"selected":""; ?> >Dengan Gejala</option>
+                                                    <option value="Tanpa Gejala" <?= ($gejala == "Tanpa Gejala")?"selected":""; ?> >Tanpa Gejala</option>
+                                                </select>
+                                            </div>
+                                        </div> 
                                 </div>
                                 <div class="row">   
                                     <div class="col-md-6">
@@ -132,10 +142,10 @@
                                 <h4>Data Covid-19 <?php if($user_now->level != 'master-admin' && $user_now->level != 'admin'){ echo '- Kecamatan '.$user_now->level; } ?></h4> 
                             </div>
                             <div class="" bis_skin_checked="1" style="text-align: center;">
-                              <span class="info-peta bg-odricon"></span> Kasus ODR &nbsp;&nbsp;
-                              <span class="info-peta bg-odpicon"></span> Kasus ODP &nbsp;&nbsp;
-                              <span class="info-peta bg-pdpicon"></span> Kasus PDP &nbsp;&nbsp;
-                              <span class="info-peta bg-confirm"></span> Kasus Positif Covid-19
+                              <span class="info-peta bg-odricon"></span> Kasus Kontak Erat &nbsp;&nbsp;
+                              <span class="info-peta bg-odpicon"></span> Kasus Probable &nbsp;&nbsp;
+                              <span class="info-peta bg-pdpicon"></span> Kasus Suspek &nbsp;&nbsp;
+                              <span class="info-peta bg-confirm"></span> Kasus Konfirmasi Positif Covid-19
                           </div>
                         <br/>
                         <div id="map" style="width: 100%;height: 80vh;"></div>
@@ -177,6 +187,28 @@
         scrollWheelZoom: false,
         zoomControl: true,
         layers: [maps, bounds_group]
+      });
+      level_status = JSON.parse('<?php echo JSON_encode($level_status);?>');
+      console.log(level_status);
+      <?php
+        if((strtoupper($lvl) != "KONFIRMASI")){
+          echo '$("#form_gejala").hide();';
+        }
+      ?>
+      $("#level").on('change', function() {
+          var level = $(this).find(":selected").val();
+          var level_item = level_status[level];
+          var i;
+          var text='<option value="" >-- Semua --</option>';
+          for (i = 0; i < level_item.length; i++) {
+            text += '<option value="'+level_item[i]+'" >'+level_item[i]+'</option>';
+          }
+          $("#level_status").html(text);
+          if(level == 'konfirmasi'){
+              $("#form_gejala").show();
+          } else {
+              $("#form_gejala").hide();
+          }
       });
 
       <?php
@@ -223,7 +255,7 @@
       var totalhal = <?= ceil($total/$limit); ?>;
 
       function update_maps(hal){
-        url_jsaon = "<?= base_url();?>user/get_data_user/?hal="+hal+"&kec=<?= str_replace(" ", "+", $kec); ?>&kel=<?= str_replace(" ", "+", $kel); ?>&lvl=<?= str_replace(" ", "+", $lvl); ?>&lvlstat=<?= str_replace(" ", "+", $lvlstat); ?>";
+        url_jsaon = "<?= base_url();?>user/get_data_user/?hal="+hal+"&kec=<?= str_replace(" ", "+", $kec); ?>&kel=<?= str_replace(" ", "+", $kel); ?>&lvl=<?= str_replace(" ", "+", $lvl); ?>&lvlstat=<?= str_replace(" ", "+", $lvlstat); ?>&gejala=<?= str_replace(" ", "+", $gejala); ?>";
         var hasilpasien=$.getJSON(url_jsaon, function (data) {
         for (var i = 0; i < data.length; i++) {
             var lat =data[i].latitude;
@@ -238,35 +270,43 @@
             var updated=data[i].last_update;
             var level=data[i].level;
             var levelstat=data[i].levelstat;
-
+            var konfirmasi_gejala = data[i].konfirmasi_gejala;
             var confirmIcon = L.divIcon({ className: 'circle bg-confirm shadow', iconSize: [12, 12]});
             var pdpIcon = L.divIcon({ className: 'circle bg-pdpicon shadow', iconSize: [12, 12]});
             var odpIcon = L.divIcon({ className: 'circle bg-odpicon shadow', iconSize: [12, 12]});
             var odrIcon = L.divIcon({ className: 'circle bg-odricon shadow', iconSize: [12, 12]});
 
-            if(level == 'confirm'){
-                var stat = "Positif Covid-19";
+            if(level == 'konfirmasi'){
+                var stat = "Konfirmasi Positif Covid-19";
                 var greenIcon = confirmIcon;
-            } else if(level == 'pdp'){
-                var stat = "Pasien Dalam Perawatan (PDP)";
+                var levelname = 'Konfirmasi';
+            } else if(level == 'suspek'){
+                var stat = "Suspek";
+                var levelname = 'Suspek';
                 var greenIcon = pdpIcon;
-            } else if(level == 'odp'){
-                var stat = "Orang Dalam Pengawasan (ODP)";
+            } else if(level == 'probable'){
+                var stat = "Probable";
+                var levelname = 'Probable';
                 var greenIcon = odpIcon;
             } else {
-                var stat = "Orang Dengan Resiko (ODR)";
+                var stat = "Kontak Erat";
+                var levelname = 'Kontak Erat';
                 var greenIcon = odrIcon;
             } 
+
             var customPopup =
                   "<h4>Kasus "+stat+"</h4>"
                   +"<span>Nama: <b>"+nama+"</b></span><br>"
                   +"<span>Umur: <b>"+umur+"</b></span><br>"
-                  +"<span>Status Pasien: <b>"+level+" "+levelstat+"</b></span><br>"
+                  +"<span>Status Pasien: <b>"+levelname+" - "+levelstat+"</b></span><br>"
                   +"<span>Jenis Kelamin: <b>"+jk+"</b></span><br>"
                   +"<span>Kelurahan: <b>"+kel_user+"</b></span><br>"
                   +"<span>Kecamatan: <b>"+kec_user+"</b></span><br>"
                   +"<span>Update Terakhir: <b>"+updated+"</b></span><br>"
               ;
+            if(level == 'konfirmasi'){
+              customPopup+="<span>Konfirmasi Gejala : <b>"+konfirmasi_gejala+"</b></span><br>"
+            }
               console.log(greenIcon);
               L.marker([lat, lng],{icon:greenIcon}).addTo(map).bindPopup(customPopup);
             }

@@ -71,20 +71,27 @@
                                     <div class="form-group">
                                         <label for="inputName" class="col-form-label">Kondisi</label>
                                         <select  class="form-control" name="level" id="level" required>
-                                            <option value="confirm"  >Confirm (Positif)</option>
-                                            <option value="pdp"  >PDP (Pasien Dalam Pengawasan)</option>
-                                            <option value="odp" >ODP (Orang Dalam Pemantauan)</option>
-                                            <option value="odr" >ODR (Orang Dalam Resiko)</option>
+                                            <option value="konfirmasi"  >Konfirmasi</option>
+                                            <option value="suspek"  >Suspek</option>
+                                            <option value="probable" >Probable</option>
+                                            <option value="kontak_erat" >Kontak Erat</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPhone" class="col-form-label">Status</label>
                                         <select class="form-control" name="level_status" id="level_status" required>
                                         <?php 
-                                            $list = $level_status['confirm'];  
+                                            $list = $level_status['konfirmasi'];  
                                             foreach($list as $l){ ?>
                                             <option value="<?= $l?>"><?= $l?></option>
                                         <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" id="form_gejala">
+                                        <label for="inputName" class="col-form-label">Status Konfirmasi</label>
+                                        <select  class="form-control" name="gejala" id="gejala" >
+                                            <option value="Dengan Gejala"  >Dengan Gejala</option>
+                                            <option value="Tanpa Gejala"  >Tanpa Gejala</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -188,6 +195,11 @@
           text += '<option value="'+level_item[i]+'" >'+level_item[i]+'</option>';
         }
         $("#level_status").html(text);
+        if(level == 'konfirmasi'){
+            $("#form_gejala").show();
+        } else {
+            $("#form_gejala").hide();
+        }
     });
     $("#kecamatan").on('change', function() {
         var level = $(this).find(":selected").val();

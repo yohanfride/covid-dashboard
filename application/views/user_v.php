@@ -39,10 +39,10 @@
                                             <label for="inputName" class="col-form-label">Kondisi</label>
                                             <select  class="form-control" name="lvl" id="level" >
                                                 <option value="" >-- Semua --</option>
-                                                <option value="confirm" <?= (strtoupper($lvl) == "CONFIRM")?"selected":""; ?> >Confirm</option>
-                                                <option value="pdp" <?= (strtoupper($lvl) == "PDP")?"selected":""; ?> >PDP (Pasien Dalam Perawatan)</option>
-                                                <option value="odp" <?= (strtoupper($lvl) == "ODP")?"selected":""; ?> >ODP (Orang Dalam Pengawasan)</option>
-                                                <option value="odr" <?= (strtoupper($lvl) == "ODR")?"selected":""; ?> >ODR (Orang Dengan Resiko)</option>
+                                                <option value="konfirmasi" <?= (strtoupper($lvl) == "KONFIRMASI")?"selected":""; ?> >Konfirmasi</option>
+                                                <option value="suspek" <?= (strtoupper($lvl) == "SUSPEK")?"selected":""; ?> >Suspek</option>
+                                                <option value="probable" <?= (strtoupper($lvl) == "PROBABLE")?"selected":""; ?> >Probable</option>
+                                                <option value="kontak_erat" <?= (strtoupper($lvl) == "KONTAK_ERAT")?"selected":""; ?> >Kontak Erat</option>
                                             </select>
                                         </div> 
                                     </div>
@@ -53,17 +53,27 @@
                                             <option value="" >-- Semua --</option>
                                             <?php 
                                                 $list = array();
-                                                if((strtoupper($lvl) == "CONFIRM"))
-                                                    $list = $level_status['confirm'];   
-                                                if((strtoupper($lvl) == "PDP"))
-                                                    $list = $level_status['pdp'];
-                                                if((strtoupper($lvl) == "ODP"))
-                                                    $list = $level_status['odp'];
-                                                if((strtoupper($lvl) == "ODR"))
-                                                    $list = $level_status['odr'];
+                                                if((strtoupper($lvl) == "KONFIRMASI"))
+                                                    $list = $level_status['konfirmasi'];   
+                                                if((strtoupper($lvl) == "SUSPEK"))
+                                                    $list = $level_status['suspek'];
+                                                if((strtoupper($lvl) == "PROBABLE"))
+                                                    $list = $level_status['probable'];
+                                                if((strtoupper($lvl) == "KONTAK_ERAT"))
+                                                    $list = $level_status['kontak_erat'];
                                                 foreach($list as $l){ ?>
                                                 <option value="<?= $l?>" <?= ( $lvlstat == $l )?"selected":""; ?>><?= $l?></option>
                                             <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div> 
+                                    <div class="col-md-4" id="form_gejala">
+                                        <div class="form-group">
+                                            <label for="inputGejala" class="col-form-label">Konfirmasi Gejala</label>
+                                            <select  class="form-control" name="gejala" id="gejala" >
+                                                <option value="" >-- Semua --</option>
+                                                <option value="Dengan Gejala" <?= ($gejala == "Dengan Gejala")?"selected":""; ?> >Dengan Gejala</option>
+                                                <option value="Tanpa Gejala" <?= ($gejala == "Tanpa Gejala")?"selected":""; ?> >Tanpa Gejala</option>
                                             </select>
                                         </div>
                                     </div> 
@@ -174,14 +184,14 @@
                                                 <td><?= $s->nama ?></td>
                                                 <td><?= $s->jenis_kelamin ?></td>
                                                 <td style="text-align: center;">
-                                                    <?php if(strtoupper($s->level) == "CONFIRM"){ ?>
-                                                    <span class="badge badge-primary red lighten-1 r-20" style="font-size: 12px;">CONFIRM</span>
-                                                    <?php } else if(strtoupper($s->level) == "PDP"){ ?>
-                                                    <span class="badge badge-primary amber darken-2 r-20" style="font-size: 12px;">PDP</span>
-                                                    <?php } else if(strtoupper($s->level) == "ODP"){ ?>
-                                                    <span class="badge badge-primary yellow darken-1 r-20" style="font-size: 12px;">ODP</span>
-                                                    <?php } else if(strtoupper($s->level) == "ODR"){ ?>
-                                                    <span class="badge badge-primary blue lighten-1 r-20" style="font-size: 12px;">ODR</span>
+                                                    <?php if(strtoupper($s->level) == "KONFIRMASI"){ ?>
+                                                    <span class="badge badge-primary red lighten-1 r-20" style="font-size: 12px;">KONFIRMASI</span>
+                                                    <?php } else if(strtoupper($s->level) == "SUSPEK"){ ?>
+                                                    <span class="badge badge-primary amber darken-2 r-20" style="font-size: 12px;">SUSPEK</span>
+                                                    <?php } else if(strtoupper($s->level) == "PROBABLE"){ ?>
+                                                    <span class="badge badge-primary yellow darken-1 r-20" style="font-size: 12px;">PROBABLE</span>
+                                                    <?php } else if(strtoupper($s->level) == "KONTAK_ERAT"){ ?>
+                                                    <span class="badge badge-primary blue lighten-1 r-20" style="font-size: 12px;">KONTAK_ERAT</span>
                                                     <?php } ?>
                                                 </td>
                                                 <td><?= $s->level_status ?></td>
@@ -216,16 +226,25 @@
     console.log(level_status);
     kecamatan = JSON.parse('<?php echo JSON_encode($kecamatan);?>');
     console.log(kecamatan);
-
+    <?php
+        if((strtoupper($lvl) != "KONFIRMASI")){
+            echo '$("#form_gejala").hide();';
+        }
+    ?>
     $("#level").on('change', function() {
         var level = $(this).find(":selected").val();
         var level_item = level_status[level];
         var i;
-        var text='';
+        var text='<option value="" >-- Semua --</option>';
         for (i = 0; i < level_item.length; i++) {
           text += '<option value="'+level_item[i]+'" >'+level_item[i]+'</option>';
         }
         $("#level_status").html(text);
+        if(level == 'konfirmasi'){
+            $("#form_gejala").show();
+        } else {
+            $("#form_gejala").hide();
+        }
     });
     $("#kecamatan").on('change', function() {
         var level = $(this).find(":selected").val();

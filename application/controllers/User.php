@@ -23,9 +23,15 @@ class User extends CI_Controller {
 			if ($this->form_validation->run() == FALSE){
 				$data['error'] = validation_errors();
 			} else{
+				if($this->input->post('level') == 'konfirmasi'){
+					$gejala = $this->input->post('gejala');
+				} else {
+					$gejala = '';
+				}
 				$input=array(
 					'level' => $this->input->post('level'),
 					'level_status' => $this->input->post('level_status'),
+					'konfirmasi_gejala' => $gejala,
 					'nama' => $this->input->post('name'),
 					'jenis_kelamin' =>  $this->input->post('jenis_kelamin'),
 					'kecamatan' => $this->input->post('kecamatan'),
@@ -50,10 +56,10 @@ class User extends CI_Controller {
 		    }
 		}	
 		$data['level_status'] = array(
-			"confirm" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
-			"pdp" => ['Dirawat','Sembuh','Meninggal'],
-			"odp" => ['Dipantau','Selesai dipantau','Meninggal'],
-			"odr" => ['Dipantau','Selesai dipantau']
+			"konfirmasi" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
+			"suspek" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
+			"probable" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
+			"kontak_erat" => ["Dipantau", "Selesai dipantau"]
 		);
 		$json = file_get_contents('data-sampang.json');
 		$data['kecamatan'] = json_decode($json,true);
@@ -72,9 +78,15 @@ class User extends CI_Controller {
 		$data['error']='';
 		$data['title']='Ubah User';
 		if($this->input->post('save')){
+			if($this->input->post('level') == 'konfirmasi'){
+				$gejala = $this->input->post('gejala');
+			} else {
+				$gejala = '';
+			}
 			$input=array(
 				'level' => $this->input->post('level'),
 				'level_status' => $this->input->post('level_status'),
+				'konfirmasi_gejala' => $gejala,
 				'nama' => $this->input->post('nama'),
 				'tgl_lahir' =>  $this->input->post('tgl_lahir'),
 				'umur' => $this->input->post('umur'),
@@ -102,10 +114,10 @@ class User extends CI_Controller {
 			$data['error']='Tidak ada data';
 		}	
 		$data['level_status'] = array(
-			"confirm" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
-			"pdp" => ['Dirawat','Sembuh','Meninggal'],
-			"odp" => ['Dipantau','Selesai dipantau','Meninggal'],
-			"odr" => ['Dipantau','Selesai dipantau']
+			"konfirmasi" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
+			"suspek" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
+			"probable" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
+			"kontak_erat" => ["Dipantau", "Selesai dipantau"]
 		);
 		$json = file_get_contents('data-sampang.json');
 		$data['kecamatan'] = json_decode($json,true);
@@ -128,6 +140,7 @@ class User extends CI_Controller {
 		$data['nama'] = '';
 		$data['lvl'] = '';
 		$data['lvlstat'] = '';
+		$data['gejala'] = '';
 		$limit = 20;
 		$query = array(
 			'limit' => $limit,
@@ -160,12 +173,17 @@ class User extends CI_Controller {
 			$query['level_status'] = $data['lvlstat'];
 			$query2['level_status'] = $data['lvlstat'];
 		}
-		
+		if($this->input->get('gejala')){
+			$data['gejala'] = $this->input->get('gejala');
+			$query['konfirmasi_gejala'] = $data['gejala'];
+			$query2['konfirmasi_gejala'] = $data['gejala'];
+		}
+
 		$data['level_status'] = array(
-			"confirm" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
-			"pdp" => ['Dirawat','Sembuh','Meninggal'],
-			"odp" => ['Dipantau','Selesai dipantau','Meninggal'],
-			"odr" => ['Dipantau','Selesai dipantau']
+			"konfirmasi" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
+			"suspek" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
+			"probable" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
+			"kontak_erat" => ["Dipantau", "Selesai dipantau"]
 		);
 		
 		$json = file_get_contents('./data-sampang.json');
@@ -200,10 +218,10 @@ class User extends CI_Controller {
 		}
 
 		$data['level_status'] = array(
-			"confirm" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
-			"pdp" => ['Dirawat','Sembuh','Meninggal'],
-			"odp" => ['Dipantau','Selesai dipantau','Meninggal'],
-			"odr" => ['Dipantau','Selesai dipantau']
+			"konfirmasi" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
+			"suspek" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
+			"probable" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
+			"kontak_erat" => ["Dipantau", "Selesai dipantau"]
 		);
 		$json = file_get_contents('data-sampang.json');
 		$data['kecamatan'] = json_decode($json,true);
@@ -228,6 +246,7 @@ class User extends CI_Controller {
 		$data['nama'] = '';
 		$data['lvl'] = '';
 		$data['lvlstat'] = '';
+		$data['gejala'] = '';
 		if($this->input->get('str')){
 			$data['str_date'] = $this->input->get('str');
 		}
@@ -272,11 +291,17 @@ class User extends CI_Controller {
 			$query2['level_status'] = $data['lvlstat'];
 		}
 
+		if($this->input->get('gejala')){
+			$data['gejala'] = $this->input->get('gejala');
+			$query['konfirmasi_gejala'] = $data['gejala'];
+			$query2['konfirmasi_gejala'] = $data['gejala'];
+		}
+
 		$data['level_status'] = array(
-			"confirm" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
-			"pdp" => ['Dirawat','Sembuh','Meninggal'],
-			"odp" => ['Dipantau','Selesai dipantau','Meninggal'],
-			"odr" => ['Dipantau','Selesai dipantau']
+			"konfirmasi" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
+			"suspek" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
+			"probable" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
+			"kontak_erat" => ["Dipantau", "Selesai dipantau"]
 		);
 		
 		$json = file_get_contents('./data-sampang.json');
@@ -311,6 +336,7 @@ class User extends CI_Controller {
 		$data['kel'] = '';
 		$data['lvl'] = '';
 		$data['lvlstat'] = '';
+		$data['gejala'] = '';
 		$limit = 200;
 		$query = array(
 			'status_pantau' => 1,
@@ -339,12 +365,17 @@ class User extends CI_Controller {
 			$query['level_status'] = $data['lvlstat'];
 			$query2['level_status'] = $data['lvlstat'];
 		}
-		
+		if($this->input->get('gejala')){
+			$data['gejala'] = $this->input->get('gejala');
+			$query['konfirmasi_gejala'] = $data['gejala'];
+			$query2['konfirmasi_gejala'] = $data['gejala'];
+		}
+
 		$data['level_status'] = array(
-			"confirm" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
-			"pdp" => ['Dirawat','Sembuh','Meninggal'],
-			"odp" => ['Dipantau','Selesai dipantau','Meninggal'],
-			"odr" => ['Dipantau','Selesai dipantau']
+			"konfirmasi" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
+			"suspek" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
+			"probable" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
+			"kontak_erat" => ["Dipantau", "Selesai dipantau"]
 		);
 		
 		$json = file_get_contents('./data-sampang.json');
@@ -391,6 +422,9 @@ class User extends CI_Controller {
 		if($this->input->get('lvlstat')){
 			$query['level_status'] = $this->input->get('lvlstat');
 		}
+		if($this->input->get('gejala')){
+			$query['konfirmasi_gejala'] = $this->input->get('gejala');
+		}
 
 		$data['user_now'] = $this->session->userdata('covid-admin');
 		if($data['user_now']->level != 'admin' && $data['user_now']->level != 'master-admin' && $data['user_now']->level != 'pusat'){
@@ -422,6 +456,7 @@ class User extends CI_Controller {
 					'alamat' => $value->alamat,
 					'level' => $value->level,
 					'levelstat' => $lvlstat,
+					'konfirmasi_gejala' =>  $value->konfirmasi_gejala,
 					'jenis_kelamin' => $value->jenis_kelamin,
 					'kelurahan' => $value->kelurahan,
 					'kecamatan' => $value->kecamatan,

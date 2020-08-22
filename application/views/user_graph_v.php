@@ -101,11 +101,11 @@
                     <div class="card no-b">
                         <div class="card-body">
                             <div class="card-title">
-                                <h4> Trend Grafik Orang Dalam Resiko (ODR) Covid-19 <?php if($user_now->level != 'master-admin' && $user_now->level != 'admin'){ echo '- Kecamatan '.$user_now->level; } ?></h4> 
+                                <h4> Trend Grafik Kasus Kontak Erat Covid-19 <?php if($user_now->level != 'master-admin' && $user_now->level != 'admin'){ echo '- Kecamatan '.$user_now->level; } ?></h4> 
                             </div>
                             <br/>
                             <div class="row">
-                                <div  id="chart-kasus-odr" class="chart-canvas" style="width: 100%;"></div >  
+                                <div  id="chart-kasus-kontak_erat" class="chart-canvas" style="width: 100%;"></div >  
                             </div>
                         </div>
                     </div>
@@ -114,11 +114,11 @@
                     <div class="card no-b">
                         <div class="card-body">
                             <div class="card-title">
-                                <h4> Trend Grafik Orang Dalam Pengawasan (ODP) Covid-19 <?php if($user_now->level != 'master-admin' && $user_now->level != 'admin'){ echo '- Kecamatan '.$user_now->level; } ?></h4> 
+                                <h4> Trend Grafik Kasus Probable Covid-19 <?php if($user_now->level != 'master-admin' && $user_now->level != 'admin'){ echo '- Kecamatan '.$user_now->level; } ?></h4> 
                             </div>
                             <br/>
                             <div class="row">
-                                <div  id="chart-kasus-odp" class="chart-canvas" style="width: 100%;"></div >  
+                                <div  id="chart-kasus-probable" class="chart-canvas" style="width: 100%;"></div >  
                             </div>
                         </div>
                     </div>
@@ -128,11 +128,11 @@
                     <div class="card no-b">
                         <div class="card-body">
                             <div class="card-title">
-                                <h4> Trend Grafik Pasien Dalam Pengawasan (PDP) Covid-19 <?php if($user_now->level != 'master-admin' && $user_now->level != 'admin'){ echo '- Kecamatan '.$user_now->level; } ?></h4> 
+                                <h4> Trend Grafik Kasus Suspek Covid-19 <?php if($user_now->level != 'master-admin' && $user_now->level != 'admin'){ echo '- Kecamatan '.$user_now->level; } ?></h4> 
                             </div>
                             <br/>
                             <div class="row">
-                                <div  id="chart-kasus-pdp" class="chart-canvas" style="width: 100%;"></div >  
+                                <div  id="chart-kasus-suspek" class="chart-canvas" style="width: 100%;"></div >  
                             </div>
                         </div>
                     </div>
@@ -141,7 +141,7 @@
                         <div class="card no-b">
                             <div class="card-body">
                             <div class="card-title">
-                                <h4> Trend Grafik Terkonfimasi Positif Covid-19 <?php if($user_now->level != 'master-admin' && $user_now->level != 'admin'){ echo '- Kecamatan '.$user_now->level; } ?></h4> 
+                                <h4> Trend Grafik Kasus Terkonfimasi Positif Covid-19 <?php if($user_now->level != 'master-admin' && $user_now->level != 'admin'){ echo '- Kecamatan '.$user_now->level; } ?></h4> 
                             </div>
                             <br/>
                             <div class="row">
@@ -166,48 +166,52 @@
           }
          <?php  
             $hari = array(); 
-            $summary_odr = array(); $summary_odp = array(); $summary_pdp = array(); $summary_confirm = array();
-            $odr_dipantau = array(); $odr_selesai_dipantau = array();
-            $odp_dipantau = array(); $odp_selesai_dipantau = array(); $odp_meninggal = array();
-            $pdp_dirawat = array(); $pdp_sembuh = array(); $pdp_meninggal = array();
-            $confirm_dirawat = array(); $confirm_sembuh = array(); $confirm_pengawasan = array();  $confirm_meninggal = array();
+            $summary_kontak_erat = array(); $summary_probable = array(); $summary_suspek = array(); $summary_konfirmasi = array();
+            $kontak_erat_dipantau = array(); $kontak_erat_selesai_dipantau = array();
+            $probable_isolasi = array(); $probable_selesai_isolasi = array(); $probable_meninggal = array();
+            $suspek_isolasi = array(); $suspek_selesai_isolasi = array(); $suspek_meninggal = array();
+            $konfirmasi_dirawat = array(); $konfirmasi_sembuh = array(); $konfirmasi_pengawasan = array();  $konfirmasi_meninggal = array();
             foreach($dailes as $dl){
                 $hari[] = $dl->date_only;
                 if(empty($kec)){
-                    $summary_odr[] = $dl->odr->total;
-                    $summary_odp[] = $dl->odp->total;
-                    $summary_pdp[] = $dl->pdp->total;
-                    $summary_confirm[] = $dl->confirm->total;
-                    $odr_dipantau[] = $dl->odr->dipantau;
-                    $odr_selesai_dipantau[] = $dl->odr->{"selesai-dipantau"};
-                    $odp_dipantau[] = $dl->odp->dipantau;
-                    $odp_selesai_dipantau[] = $dl->odp->{"selesai-dipantau"};
-                    $odp_meninggal[] = $dl->odp->meninggal;
-                    $pdp_dirawat[] = $dl->pdp->dirawat;
-                    $pdp_sembuh[] = $dl->pdp->sembuh;
-                    $pdp_meninggal[] = $dl->pdp->meninggal;
-                    $confirm_dirawat[] = $dl->confirm->dirawat;
-                    $confirm_sembuh[] = $dl->confirm->sembuh;
-                    $confirm_meninggal[] = $dl->confirm->meninggal;
-                    $confirm_pengawasan[] = $dl->confirm->pengawasan;    
+                    $summary_kontak_erat[] = $dl->kontak_erat->total;
+                    $summary_probable[] = $dl->probable->total;
+                    $summary_suspek[] = $dl->suspek->total;
+                    $summary_konfirmasi[] = $dl->konfirmasi->total;
+                    
+                    $kontak_erat_dipantau[] = $dl->kontak_erat->dipantau;
+                    $kontak_erat_selesai_dipantau[] = $dl->kontak_erat->{"selesai-dipantau"};
+                    
+                    $probable_isolasi[] = $dl->probable->isolasi;
+                    $probable_selesai_isolasi[] = $dl->probable->{"selesai-isolasi"};
+                    $probable_meninggal[] = $dl->probable->meninggal;
+                   
+                    $suspek_isolasi[] = $dl->suspek->isolasi;
+                    $suspek_selesai_isolasi[] = $dl->suspek->{"selesai-isolasi"};
+                    $suspek_meninggal[] = $dl->suspek->meninggal;
+
+                    $konfirmasi_dirawat[] = $dl->konfirmasi->dirawat;
+                    $konfirmasi_sembuh[] = $dl->konfirmasi->sembuh;
+                    $konfirmasi_meninggal[] = $dl->konfirmasi->meninggal;
+                    $konfirmasi_pengawasan[] = $dl->konfirmasi->pengawasan;    
                 } else {
                     $dl = $dl->kecamatan->{$kec};
-                    $summary_odr[] = $dl->odr;
-                    $summary_odp[] = $dl->odp;
-                    $summary_pdp[] = $dl->pdp;
-                    $summary_confirm[] = $dl->confirm;
-                    $odr_dipantau[] = $dl->{'odr-dipantau'};
-                    $odr_selesai_dipantau[] = $dl->{"odr-selesai-dipantau"};
-                    $odp_dipantau[] = $dl->{"odp-dipantau"};
-                    $odp_selesai_dipantau[] = $dl->{"odp-selesai-dipantau"};
-                    $odp_meninggal[] = $dl->{"odp-meninggal"};
-                    $pdp_dirawat[] = $dl->{"pdp-dirawat"};
-                    $pdp_sembuh[] = $dl->{"pdp-sembuh"};
-                    $pdp_meninggal[] = $dl->{"pdp-meninggal"};
-                    $confirm_dirawat[] = $dl->{"confirm-dirawat"};
-                    $confirm_sembuh[] = $dl->{"confirm-sembuh"};
-                    $confirm_meninggal[] = $dl->{"confirm-meninggal"};
-                    $confirm_pengawasan[] = $dl->{"confirm-pengawasan"};    
+                    $summary_kontak_erat[] = $dl->kontak_erat;
+                    $summary_probable[] = $dl->probable;
+                    $summary_suspek[] = $dl->suspek;
+                    $summary_konfirmasi[] = $dl->konfirmasi;
+                    $kontak_erat_dipantau[] = $dl->{'kontak_erat-dipantau'};
+                    $kontak_erat_selesai_dipantau[] = $dl->{"kontak_erat-selesai-dipantau"};
+                    $probable_isolasi[] = $dl->{"probable-isolasi"};
+                    $probable_selesai_isolasi[] = $dl->{"probable-selesai-isolasi"};
+                    $probable_meninggal[] = $dl->{"probable-meninggal"};
+                    $suspek_isolasi[] = $dl->{"suspek-dirawat"};
+                    $suspek_selesai_isolasi[] = $dl->{"suspek-selesai-isolasi"};
+                    $suspek_meninggal[] = $dl->{"suspek-meninggal"};
+                    $konfirmasi_dirawat[] = $dl->{"konfirmasi-dirawat"};
+                    $konfirmasi_sembuh[] = $dl->{"konfirmasi-sembuh"};
+                    $konfirmasi_meninggal[] = $dl->{"konfirmasi-meninggal"};
+                    $konfirmasi_pengawasan[] = $dl->{"konfirmasi-pengawasan"};    
                 }
                 
             }
@@ -215,22 +219,22 @@
 
             var kasustotal = {
               series: [{
-                      name: 'ODR',
+                      name: 'Kontak_erat',
                       type: 'line',
-                      data: [<?= implode(',', $summary_odr); ?>]
+                      data: [<?= implode(',', $summary_kontak_erat); ?>]
                   }, {
-                      name: 'ODP',
+                      name: 'Probable',
                       type: 'line',
-                      data: [<?= implode(',', $summary_odp); ?>]
+                      data: [<?= implode(',', $summary_probable); ?>]
                   }, {
-                      name: 'PDP',
+                      name: 'Suspek',
                       type: 'line',
-                      data: [<?= implode(',', $summary_pdp); ?>]
+                      data: [<?= implode(',', $summary_suspek); ?>]
                   },
                   {
                       name: 'Postif',
                       type: 'line',
-                      data: [<?= implode(',', $summary_confirm); ?> ]
+                      data: [<?= implode(',', $summary_konfirmasi); ?> ]
                   }
               ],
               chart: {
@@ -339,19 +343,19 @@
               }
           };
 
-          var kasus_odr = {
+          var kasus_kontak_erat = {
               series: [{
-                      name: 'Kasus ODR',
+                      name: 'Kasus Kontak Erat',
                       type: 'column',
-                      data: [<?= implode(',', $summary_odr); ?>]
+                      data: [<?= implode(',', $summary_kontak_erat); ?>]
                   }, {
-                      name: 'Selesai Dipantau',
+                      name: 'Selesai Isolasi',
                       type: 'line',
-                      data: [<?= implode(',', $odr_selesai_dipantau); ?>]
+                      data: [<?= implode(',', $kontak_erat_selesai_dipantau); ?>]
                   }, {
-                      name: 'Dipantau',
+                      name: 'Isolasi',
                       type: 'line',
-                      data: [<?= implode(',', $odr_dipantau); ?>]
+                      data: [<?= implode(',', $kontak_erat_dipantau); ?>]
                   }
               ],
               chart: {
@@ -466,23 +470,23 @@
               }
           };
 
-          var kasus_odp = {
+          var kasus_probable = {
               series: [{
-                      name: 'Kasus ODP',
+                      name: 'Kasus Probable',
                       type: 'column',
-                      data: [<?= implode(',', $summary_odp); ?>]
+                      data: [<?= implode(',', $summary_probable); ?>]
                   }, {
-                      name: 'Selesai Dipantau',
+                      name: 'Selesai Isolasi',
                       type: 'line',
-                      data: [<?= implode(',', $odp_selesai_dipantau); ?>]
+                      data: [<?= implode(',', $probable_selesai_isolasi); ?>]
                   }, {
-                      name: 'Dipantau',
+                      name: 'Isolasi',
                       type: 'line',
-                      data: [<?= implode(',', $odp_dipantau); ?>]
+                      data: [<?= implode(',', $probable_isolasi); ?>]
                   }, {
                       name: 'Meninggal',
                       type: 'line',
-                      data: [<?= implode(',', $odp_meninggal); ?>]
+                      data: [<?= implode(',', $probable_meninggal); ?>]
                   }
               ],
               chart: {
@@ -597,23 +601,23 @@
               }
           };
 
-          var kasus_pdp = {
+          var kasus_suspek = {
               series: [{
-                      name: 'Kasus PDP',
+                      name: 'Kasus Suspek',
                       type: 'column',
-                      data: [<?= implode(',', $summary_odp); ?>]
+                      data: [<?= implode(',', $summary_probable); ?>]
                   }, {
-                      name: 'Selesai Dipantau',
+                      name: 'Selesai Isolasi',
                       type: 'line',
-                      data: [<?= implode(',', $odp_selesai_dipantau); ?>]
+                      data: [<?= implode(',', $probable_selesai_isolasi); ?>]
                   }, {
-                      name: 'Dipantau',
+                      name: 'Isolasi',
                       type: 'line',
-                      data: [<?= implode(',', $odp_dipantau); ?>]
+                      data: [<?= implode(',', $probable_isolasi); ?>]
                   }, {
                       name: 'Meninggal',
                       type: 'line',
-                      data: [<?= implode(',', $odp_meninggal); ?>]
+                      data: [<?= implode(',', $probable_meninggal); ?>]
                   }
               ],
               chart: {
@@ -728,27 +732,27 @@
               }
           };
 
-          var kasus_confirm = {
+          var kasus_konfirmasi = {
               series: [{
-                      name: 'Positif COVID-19',
+                      name: 'Konfirmasi Positif COVID-19',
                       type: 'column',
-                      data: [<?= implode(',', $summary_confirm); ?>]
+                      data: [<?= implode(',', $summary_konfirmasi); ?>]
                   }, {
                       name: 'Sembuh',
                       type: 'line',
-                      data: [<?= implode(',', $confirm_sembuh); ?>]
+                      data: [<?= implode(',', $konfirmasi_sembuh); ?>]
                   }, {
                       name: 'Pengawasan',
                       type: 'line',
-                      data: [<?= implode(',', $confirm_pengawasan); ?>]
+                      data: [<?= implode(',', $konfirmasi_pengawasan); ?>]
                   }, {
                       name: 'Meninggal',
                       type: 'line',
-                      data: [<?= implode(',', $odp_meninggal); ?>]
+                      data: [<?= implode(',', $probable_meninggal); ?>]
                   }, {
                       name: 'Dalam Perawatan',
                       type: 'line',
-                      data: [<?= implode(',', $confirm_dirawat); ?>]
+                      data: [<?= implode(',', $konfirmasi_dirawat); ?>]
                   }
               ],
               chart: {
@@ -867,16 +871,16 @@
           var chart = new ApexCharts(document.querySelector("#chart-kasus"), kasustotal);
           chart.render();
 
-          var chart2 = new ApexCharts(document.querySelector("#chart-kasus-odr"), kasus_odr);
+          var chart2 = new ApexCharts(document.querySelector("#chart-kasus-kontak_erat"), kasus_kontak_erat);
           chart2.render();
 
-          var chart = new ApexCharts(document.querySelector("#chart-kasus-odp"), kasus_odp);
+          var chart = new ApexCharts(document.querySelector("#chart-kasus-probable"), kasus_probable);
           chart.render();
 
-          var chart2 = new ApexCharts(document.querySelector("#chart-kasus-pdp"), kasus_pdp);
+          var chart2 = new ApexCharts(document.querySelector("#chart-kasus-suspek"), kasus_suspek);
           chart2.render();
 
-          var chart2 = new ApexCharts(document.querySelector("#chart-kasus-positif"), kasus_confirm);
+          var chart2 = new ApexCharts(document.querySelector("#chart-kasus-positif"), kasus_konfirmasi);
           chart2.render();
             
     });

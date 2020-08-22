@@ -182,7 +182,7 @@ class dashboard extends CI_Controller {
 	        $low_kec=''; $low_val = 100000;
 	        foreach($data->kecamatan as $kec_key => $kec_value){
 
-	         	$confirm = (int)$kec_value->confirm;
+	         	$confirm = (int)$kec_value->konfirmasi;
 	          	if($up_val<$confirm){
 	          		$up_kec = $kec_key;
 	          		$up_val = $confirm;

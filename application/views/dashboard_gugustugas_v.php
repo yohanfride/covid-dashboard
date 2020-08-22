@@ -41,14 +41,14 @@
                      data-loop="true">
                     <div class="p-5 bg-primary red lighten-1 text-white">
                         <h5 class="font-weight-normal s-14">Positif<br/>Covid-19</h5>
-                        <span class="s-48 font-weight-lighter text-primary"><?= $new->confirm;?></span>
+                        <span class="s-48 font-weight-lighter text-primary"><?= $new->konfirmasi;?></span>
                         <div> Kasus &nbsp;&nbsp;
                             <?php 
                                 $old_data = 0;
                                 if($old){
-                                    $old_data = $old->confirm;
+                                    $old_data = $old->konfirmasi;
                                 }
-                                $jarak = $new->confirm- - $old_data ;
+                                $jarak = $new->konfirmasi- - $old_data ;
                                 if($jarak==0)
                                     $icon = "icon-arrows-h";
                                 else if($jarak>0)
@@ -62,14 +62,14 @@
                     </div>
                     <div class="p-5 ">
                         <h5 class="font-weight-normal s-14">Positif -<br/>Sembuh</h5>
-                        <span class="s-48 font-weight-lighter light-green-text"><?= $new->{'confirm-sembuh'};?></span>
+                        <span class="s-48 font-weight-lighter light-green-text"><?= $new->{'konfirmasi-sembuh'};?></span>
                         <div> Kasus &nbsp;&nbsp;
                             <?php 
                                 $old_data = 0;
                                 if($old){
-                                    $old_data = $old->{ 'confirm-sembuh' };
+                                    $old_data = $old->{ 'konfirmasi-sembuh' };
                                 }
-                                $jarak = $new->{'confirm-sembuh'} - $old_data ;
+                                $jarak = $new->{'konfirmasi-sembuh'} - $old_data ;
                                 if($jarak==0)
                                     $icon = "icon-arrows-h";
                                 else if($jarak>0)
@@ -83,14 +83,14 @@
                     </div>
                     <div class="p-5 light">
                         <h5 class="font-weight-normal s-14">Positif -<br/>Meninggal</h5>
-                        <span class="s-48 font-weight-lighter light-red-text"><?= $new->{ 'confirm-meninggal' }?></span>
+                        <span class="s-48 font-weight-lighter light-red-text"><?= $new->{ 'konfirmasi-meninggal' }?></span>
                         <div> Kasus &nbsp;&nbsp;
                             <?php 
                                 $old_data = 0;
                                 if($old){
-                                    $old_data = $old->{'confirm-meninggal'};
+                                    $old_data = $old->{'konfirmasi-meninggal'};
                                 }
-                                $jarak = $new->{'confirm-meninggal'} - $old_data ;
+                                $jarak = $new->{'konfirmasi-meninggal'} - $old_data ;
                                 if($jarak==0)
                                     $icon = "icon-arrows-h";
                                 else if($jarak>0)
@@ -104,15 +104,15 @@
                     </div>
 
                     <div class="p-5 bg-primary amber darken-2  text-white">
-                        <h5 class="font-weight-normal s-14">PDP<br/>&nbsp;</h5>
-                        <span class="s-48 font-weight-lighter text-primary"><?= $new->pdp;?></span>
+                        <h5 class="font-weight-normal s-14">Suspek<br/>&nbsp;</h5>
+                        <span class="s-48 font-weight-lighter text-primary"><?= $new->suspek;?></span>
                         <div> Kasus &nbsp;&nbsp;
                             <?php 
                                 $old_data = 0;
                                 if($old){
-                                    $old_data = $old->pdp;
+                                    $old_data = $old->suspek;
                                 }
-                                $jarak = $new->pdp - $old_data ;
+                                $jarak = $new->suspek - $old_data ;
                                 if($jarak==0)
                                     $icon = "icon-arrows-h";
                                 else if($jarak>0)
@@ -125,15 +125,15 @@
                         </div>
                     </div>
                     <div class="p-5 ">
-                        <h5 class="font-weight-normal s-14">ODP<br/>&nbsp;</h5>
-                        <span class="s-48 font-weight-lighter yellow-text"><?= $new->odp;?></span>
+                        <h5 class="font-weight-normal s-14">Probable<br/>&nbsp;</h5>
+                        <span class="s-48 font-weight-lighter yellow-text"><?= $new->probable;?></span>
                         <div> Kasus &nbsp;&nbsp;
                             <?php 
                                 $old_data = 0;
                                 if($old){
-                                    $old_data = $old->odp;
+                                    $old_data = $old->probable;
                                 }
-                                $jarak = $new->odp - $old_data ;
+                                $jarak = $new->probable - $old_data ;
                                 if($jarak==0)
                                     $icon = "icon-arrows-h";
                                 else if($jarak>0)
@@ -146,15 +146,57 @@
                         </div>
                     </div>
                     <div class="p-5 light">
-                        <h5 class="font-weight-normal s-14">ODR<br/>&nbsp;</h5>
-                        <span class="s-48 font-weight-lighter text-primary"><?= $new->odr;?></span>
+                        <h5 class="font-weight-normal s-14">Kontak Erat<br/>&nbsp;</h5>
+                        <span class="s-48 font-weight-lighter text-primary"><?= $new->kontak_erat;?></span>
                         <div> Kasus &nbsp;&nbsp;
                             <?php 
                                 $old_data = 0;
                                 if($old){
-                                    $old_data = $old->odr;
+                                    $old_data = $old->kontak_erat;
                                 }
-                                $jarak = $new->odr - $old_data ;
+                                $jarak = $new->kontak_erat - $old_data ;
+                                if($jarak==0)
+                                    $icon = "icon-arrows-h";
+                                else if($jarak>0)
+                                    $icon = "icon-arrow_upward";
+                                else if($jarak<0)
+                                    $icon = "icon-arrow_downward";
+                                $jarak = abs($jarak)  
+                            ?>
+                            <span class="text-primary"><i class="icon <?= $icon;?>"></i> <?= $jarak;?></span>
+                        </div>
+                    </div>
+                    <div class="p-5 bg-primary red darken-2 text-white">
+                        <h5 class="font-weight-normal s-14">Positif Dengan Gejala<br/>&nbsp;</h5>
+                        <span class="s-48 font-weight-lighter yellow-text"><?= $new->{"konfirmasi-dengan-gejala"};?></span>
+                        <div> Kasus &nbsp;&nbsp;
+                            <?php 
+                                $old_data = 0;
+                                if($old){
+                                    $old_data = $old->{"konfirmasi-dengan-gejala"};
+                                }
+                                $jarak = $new->{"konfirmasi-dengan-gejala"} - $old_data ;
+                                if($jarak==0)
+                                    $icon = "icon-arrows-h";
+                                else if($jarak>0)
+                                    $icon = "icon-arrow_upward";
+                                else if($jarak<0)
+                                    $icon = "icon-arrow_downward";
+                                $jarak = abs($jarak)  
+                            ?>
+                            <span class="yellow-text"><i class="icon <?= $icon;?>"></i> <?= $jarak;?></span>
+                        </div>
+                    </div>
+                    <div class="p-5 bg-primary red darken-1 text-white">
+                        <h5 class="font-weight-normal s-14">Positif Tanpa Gejala<br/>&nbsp;</h5>
+                        <span class="s-48 font-weight-lighter text-primary"><?= $new->{"konfirmasi-tanpa-gejala"};?></span>
+                        <div> Kasus &nbsp;&nbsp;
+                            <?php 
+                                $old_data = 0;
+                                if($old){
+                                    $old_data = $old->{"konfirmasi-tanpa-gejala"};
+                                }
+                                $jarak = $new->{"konfirmasi-tanpa-gejala"} - $old_data ;
                                 if($jarak==0)
                                     $icon = "icon-arrows-h";
                                 else if($jarak>0)
@@ -286,14 +328,14 @@
                                                     </td>
                                                     <td><?= date( "H:i:s", strtotime( $s->date_add)) ?></td>
                                                     <td>
-                                                        <?php if(strtoupper($s->level) == "CONFIRM"){ ?>
-                                                        <span class="badge badge-primary red lighten-1 r-20" style="font-size: 12px;">CONFIRM</span>
-                                                        <?php } else if(strtoupper($s->level) == "PDP"){ ?>
-                                                        <span class="badge badge-primary purple darken-1 r-20" style="font-size: 12px;">PDP</span>
-                                                        <?php } else if(strtoupper($s->level) == "ODP"){ ?>
-                                                        <span class="badge badge-primary blue lighten-1 r-20" style="font-size: 12px;">ODP</span>
-                                                        <?php } else if(strtoupper($s->level) == "ODR"){ ?>
-                                                        <span class="badge badge-primary amber darken-2 r-20" style="font-size: 12px;">ODR</span>
+                                                        <?php if(strtoupper($s->level) == "konfirmasi"){ ?>
+                                                        <span class="badge badge-primary red lighten-1 r-20" style="font-size: 12px;">konfirmasi</span>
+                                                        <?php } else if(strtoupper($s->level) == "suspek"){ ?>
+                                                        <span class="badge badge-primary purple darken-1 r-20" style="font-size: 12px;">suspek</span>
+                                                        <?php } else if(strtoupper($s->level) == "probable"){ ?>
+                                                        <span class="badge badge-primary blue lighten-1 r-20" style="font-size: 12px;">probable</span>
+                                                        <?php } else if(strtoupper($s->level) == "kontak_erat"){ ?>
+                                                        <span class="badge badge-primary amber darken-2 r-20" style="font-size: 12px;">kontak_erat</span>
                                                         <?php } ?>
                                                     </td>
                                                 </tr>

@@ -165,14 +165,14 @@
       // Maps 
       var maps = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', { 
       //var maps = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
-            attribution: 'Data © <a href="http://sampangkab.go.id">SIM PUPR Kabupaten sampang</a>',
+            //attribution: 'Data © <a href="http://sampangkab.go.id">SIM PUPR Kabupaten sampang</a>',
             maxZoom: 18,
             minZoom: 10,
             id: 'mapbox.streets',
             accessToken: 'pk.eyJ1IjoiYWRlc3VsYWltYW4iLCJhIjoiY2prcWFqcW85MW00YzNsbW54ZThscmpvdSJ9.ai7YM6Pj5ayquazYjHnOCA'
           }),
         satelit = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}', { 
-            attribution: 'Data © <a href="http://sampangkab.go.id">SIM PUPR Kabupaten sampang</a>',
+            //attribution: 'Data © <a href="http://sampangkab.go.id">SIM PUPR Kabupaten sampang</a>',
             maxZoom: 18,
             minZoom: 10,
             accessToken: 'pk.eyJ1IjoiYWRlc3VsYWltYW4iLCJhIjoiY2prcWFqcW85MW00YzNsbW54ZThscmpvdSJ9.ai7YM6Pj5ayquazYjHnOCA'
@@ -182,9 +182,9 @@
 
       var map = L.map('map',  {
         editable: true,
-        center: [-7.07336, 113.2487],
-        zoom: 11,
-        scrollWheelZoom: false,
+        center: [-9.107193,124.8882573],
+        zoom: 12,
+        //scrollWheelZoom: false,
         zoomControl: true,
         layers: [maps, bounds_group]
       });

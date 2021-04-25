@@ -74,9 +74,11 @@
                                         <div class="form-group">
                                             <label for="inputName" class="col-form-label">Kondisi</label>
                                             <select  class="form-control" name="level" id="level" required disabled >
-                                                <option value="confirm" <?= (strtoupper($data->level) == "CONFIRM")?"selected":""; ?> >Confirm</option>
-                                                <option value="pdp" <?= (strtoupper($data->level) == "PDP")?"selected":""; ?> >PDP (Pasien Dalam Perawatan)</option>
-                                                <option value="odp" <?= (strtoupper($data->level) == "ODP")?"selected":""; ?> >ODP (Orang Dalam Pengawasan)</option>
+                                                <option value="konfirmasi" <?= (strtoupper($data->level) == "TERKONFIRMASI")?"selected":""; ?> >Terkonfirmasi</option>
+                                                <option value="suspek" <?= (strtoupper($data->level) == "SUSPEK")?"selected":""; ?> >Suspek</option>
+                                                <option value="probable" <?= (strtoupper($data->level) == "PROBABLE")?"selected":""; ?> >Probable</option>
+                                                <option value="kontak_erat" <?= (strtoupper($data->level) == "KONTAK_ERAT")?"selected":""; ?> >Kontak Erat</option>
+                                                <option value="pelaku_perjalanan" <?= (strtoupper($data->level) == "PELAKU_PERJALANAN")?"selected":""; ?> >Pelaku Perjalanan</option>
                                             </select>
                                         </div>
                                         <div class="form-group">

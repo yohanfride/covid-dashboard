@@ -71,7 +71,7 @@
                                     <div class="form-group">
                                         <label for="inputName" class="col-form-label">Kondisi</label>
                                         <select  class="form-control" name="level" id="level" required>
-                                            <option value="konfirmasi" <?= (strtoupper($data->level) == "TERKONFIRMASI")?"selected":""; ?> >Konfirmasi</option>
+                                            <option value="konfirmasi" <?= (strtoupper($data->level) == "TERKONFIRMASI")?"selected":""; ?> >Terkonfirmasi</option>
                                             <option value="suspek" <?= (strtoupper($data->level) == "SUSPEK")?"selected":""; ?> >Suspek</option>
                                             <option value="probable" <?= (strtoupper($data->level) == "PROBABLE")?"selected":""; ?> >Probable</option>
                                             <option value="kontak_erat" <?= (strtoupper($data->level) == "KONTAK_ERAT")?"selected":""; ?> >Kontak Erat</option>

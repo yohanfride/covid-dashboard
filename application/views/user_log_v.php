@@ -67,10 +67,11 @@
                                                 <label for="inputName" class="col-form-label">Kondisi</label>
                                                 <select  class="form-control" name="lvl" id="level" >
                                                     <option value="" >-- Semua --</option>
-                                                    <option value="konfirmasi" <?= (strtoupper($lvl) == "KONFIRMASI")?"selected":""; ?> >Konfirmasi</option>
+                                                    <option value="konfirmasi" <?= (strtoupper($lvl) == "TERKONFIRMASI")?"selected":""; ?> >Terkonfirmasi</option>
                                                     <option value="suspek" <?= (strtoupper($lvl) == "SUSPEK")?"selected":""; ?> >Suspek</option>
                                                     <option value="probable" <?= (strtoupper($lvl) == "PROBABLE")?"selected":""; ?> >Probable</option>
                                                     <option value="kontak_erat" <?= (strtoupper($lvl) == "KONTAK_ERAT")?"selected":""; ?> >Kontak Erat</option>
+                                                    <option value="pelaku_perjalanan" <?= (strtoupper($lvl) == "PELAKU_PERJALANAN")?"selected":""; ?> >Pelaku Perjalanan</option>
                                                 </select>
                                             </div> 
                                         </div>
@@ -81,7 +82,7 @@
                                                 <option value="" >-- Semua --</option>
                                                 <?php 
                                                     $list = array();
-                                                    if((strtoupper($lvl) == "KONFIRMASI"))
+                                                    if((strtoupper($lvl) == "TERKONFIRMASI"))
                                                         $list = $level_status['konfirmasi'];   
                                                     if((strtoupper($lvl) == "SUSPEK"))
                                                         $list = $level_status['suspek'];
@@ -89,6 +90,8 @@
                                                         $list = $level_status['probable'];
                                                     if((strtoupper($lvl) == "KONTAK_ERAT"))
                                                         $list = $level_status['kontak_erat'];
+                                                    if((strtoupper($lvl) == "PELAKU_PERJALANAN"))
+                                                        $list = $level_status['pelaku_perjalanan'];
                                                     foreach($list as $l){ ?>
                                                     <option value="<?= $l?>" <?= ( $lvlstat == $l )?"selected":""; ?>><?= $l?></option>
                                                 <?php } ?>
@@ -208,14 +211,16 @@
                                                 <td><?= $s->nama ?></td>
                                                 <td><?= $s->lokasi->coordinates[1].' , '.$s->lokasi->coordinates[0] ?></td>
                                                 <td style="text-align: center;">
-                                                    <?php if(strtoupper($s->level) == "KONFIRMASI"){ ?>
-                                                    <span class="badge badge-primary red lighten-1 r-20" style="font-size: 12px;">KONFIRMASI</span>
+                                                    <?php if(strtoupper($s->level) == "TERKONFIRMASI"){ ?>
+                                                    <span class="badge badge-primary red lighten-1 r-20" style="font-size: 12px;">TERKONFIRMASI</span>
                                                     <?php } else if(strtoupper($s->level) == "SUSPEK"){ ?>
                                                     <span class="badge badge-primary amber darken-2 r-20" style="font-size: 12px;">SUSPEK</span>
                                                     <?php } else if(strtoupper($s->level) == "PROBABLE"){ ?>
                                                     <span class="badge badge-primary yellow darken-1 r-20" style="font-size: 12px;">PROBABLE</span>
                                                     <?php } else if(strtoupper($s->level) == "KONTAK_ERAT"){ ?>
-                                                    <span class="badge badge-primary blue lighten-1 r-20" style="font-size: 12px;">KONTAK_ERAT</span>
+                                                    <span class="badge badge-primary blue lighten-1 r-20" style="font-size: 12px;">KONTAK ERAT</span>
+                                                    <?php } else if(strtoupper($s->level) == "PELAKU_PERJALANAN"){ ?>
+                                                    <span class="badge badge-primary purple lighten-1 r-20" style="font-size: 12px;">PELAKU PERJALANAN</span>
                                                     <?php } ?>
                                                 </td>
                                                 <td><?= $s->level_status ?></td>

@@ -110,6 +110,21 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-6 col-md-12 mb-4">
+                    <div class="card no-b">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h4> Trend Grafik Kasus Pelaku Perjalanan Covid-19 <?php if($user_now->level != 'master-admin' && $user_now->level != 'admin'){ echo '- Kecamatan '.$user_now->level; } ?></h4> 
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div  id="chart-kasus-perlaku_perjalanan" class="chart-canvas" style="width: 100%;"></div >  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-lg-6 col-md-12 mb-4">
                     <div class="card no-b">
                         <div class="card-body">
@@ -137,7 +152,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 mb-4">
+                <div class="col-lg-12 col-md-12 mb-4">
                         <div class="card no-b">
                             <div class="card-body">
                             <div class="card-title">
@@ -159,9 +174,9 @@
 <script type="text/javascript">
     jQuery(function($){
         var chartColors ={
-            orange:"#ffa000",
-            blue:"#42a5f5",
-            purple:"#8e24aa",
+            orange:"#42a5f5",
+            blue:"#fdd835",
+            purple:"#ffa000",
             red:"#ef5350",
           }
          <?php  
@@ -177,10 +192,14 @@
                     $summary_kontak_erat[] = $dl->kontak_erat->total;
                     $summary_probable[] = $dl->probable->total;
                     $summary_suspek[] = $dl->suspek->total;
-                    $summary_konfirmasi[] = $dl->konfirmasi->total;
+                    $summary_konfirmasi[] = $dl->terkonfirmasi->total;
+                    $summary_pelaku_perjalanan[] = $dl->pelaku_perjalanan->total;
                     
-                    $kontak_erat_dipantau[] = $dl->kontak_erat->dipantau;
-                    $kontak_erat_selesai_dipantau[] = $dl->kontak_erat->{"selesai-dipantau"};
+                    $kontak_erat_dipantau[] = $dl->kontak_erat->isolasi;
+                    $kontak_erat_selesai_dipantau[] = $dl->kontak_erat->{"selesai-isolasi"};
+                    
+                    $pelaku_perjalanan_isolasi[] = $dl->pelaku_perjalanan->isolasi;
+                    $pelaku_perjalanan_selesai_isolasi[] = $dl->pelaku_perjalanan->{"selesai-isolasi"};
                     
                     $probable_isolasi[] = $dl->probable->isolasi;
                     $probable_selesai_isolasi[] = $dl->probable->{"selesai-isolasi"};
@@ -190,18 +209,24 @@
                     $suspek_selesai_isolasi[] = $dl->suspek->{"selesai-isolasi"};
                     $suspek_meninggal[] = $dl->suspek->meninggal;
 
-                    $konfirmasi_dirawat[] = $dl->konfirmasi->dirawat;
-                    $konfirmasi_sembuh[] = $dl->konfirmasi->sembuh;
-                    $konfirmasi_meninggal[] = $dl->konfirmasi->meninggal;
-                    $konfirmasi_pengawasan[] = $dl->konfirmasi->pengawasan;    
+                    $pelaku_perjalanan_isolasi[] = $dl->pelaku_perjalanan->isolasi;
+                    $pelaku_perjalanan_selesai_isolasi[] = $dl->pelaku_perjalanan->{"selesai-isolasi"};
+
+                    $konfirmasi_dirawat[] = $dl->terkonfirmasi->dirawat;
+                    $konfirmasi_sembuh[] = $dl->terkonfirmasi->sembuh;
+                    $konfirmasi_meninggal[] = $dl->terkonfirmasi->meninggal;
+                    $konfirmasi_pengawasan[] = $dl->terkonfirmasi->pengawasan;    
                 } else {
                     $dl = $dl->kecamatan->{$kec};
                     $summary_kontak_erat[] = $dl->kontak_erat;
                     $summary_probable[] = $dl->probable;
                     $summary_suspek[] = $dl->suspek;
-                    $summary_konfirmasi[] = $dl->konfirmasi;
-                    $kontak_erat_dipantau[] = $dl->{'kontak_erat-dipantau'};
-                    $kontak_erat_selesai_dipantau[] = $dl->{"kontak_erat-selesai-dipantau"};
+                    $summary_konfirmasi[] = $dl->terkonfirmasi;
+                    $summary_pelaku_perjalanan[] = $dl->pelaku_perjalanan;
+                    $kontak_erat_dipantau[] = $dl->{'kontak_erat-isolasi'};
+                    $kontak_erat_selesai_dipantau[] = $dl->{"kontak_erat-selesai-isolasi"};
+                    $pelaku_perjalanan_isolasi[] = $dl->{'pelaku_perjalanan-isolasi'};
+                    $pelaku_perjalanan_selesai_isolasi[] = $dl->{"pelaku_perjalanan-selesai-isolasi"};
                     $probable_isolasi[] = $dl->{"probable-isolasi"};
                     $probable_selesai_isolasi[] = $dl->{"probable-selesai-isolasi"};
                     $probable_meninggal[] = $dl->{"probable-meninggal"};
@@ -211,7 +236,8 @@
                     $konfirmasi_dirawat[] = $dl->{"konfirmasi-dirawat"};
                     $konfirmasi_sembuh[] = $dl->{"konfirmasi-sembuh"};
                     $konfirmasi_meninggal[] = $dl->{"konfirmasi-meninggal"};
-                    $konfirmasi_pengawasan[] = $dl->{"konfirmasi-pengawasan"};    
+                    $konfirmasi_pengawasan[] = $dl->{"konfirmasi-pengawasan"};  
+
                 }
                 
             }
@@ -219,10 +245,14 @@
 
             var kasustotal = {
               series: [{
-                      name: 'Kontak_erat',
+                      name: 'Kontak Erat',
                       type: 'line',
                       data: [<?= implode(',', $summary_kontak_erat); ?>]
                   }, {
+                      name: 'Pelaku Perjalanan',
+                      type: 'line',
+                      data: [<?= implode(',', $summary_kontak_erat); ?>]
+                  },{
                       name: 'Probable',
                       type: 'line',
                       data: [<?= implode(',', $summary_probable); ?>]
@@ -289,7 +319,7 @@
                       height: 12,
                       strokeWidth: 0,
                       //strokeColor: '#fff',
-                      fillColors: [chartColors.orange, chartColors.blue, chartColors.purple, chartColors.red],
+                      fillColors: [chartColors.orange, '#ab47bc', chartColors.blue, chartColors.purple, chartColors.red],
                       radius: 12,
                       customHTML: undefined,
                       onClick: undefined,
@@ -605,19 +635,19 @@
               series: [{
                       name: 'Kasus Suspek',
                       type: 'column',
-                      data: [<?= implode(',', $summary_probable); ?>]
+                      data: [<?= implode(',', $summary_suspek); ?>]
                   }, {
                       name: 'Selesai Isolasi',
                       type: 'line',
-                      data: [<?= implode(',', $probable_selesai_isolasi); ?>]
+                      data: [<?= implode(',', $suspek_selesai_isolasi); ?>]
                   }, {
                       name: 'Isolasi',
                       type: 'line',
-                      data: [<?= implode(',', $probable_isolasi); ?>]
+                      data: [<?= implode(',', $suspek_isolasi); ?>]
                   }, {
                       name: 'Meninggal',
                       type: 'line',
-                      data: [<?= implode(',', $probable_meninggal); ?>]
+                      data: [<?= implode(',', $suspek_meninggal); ?>]
                   }
               ],
               chart: {
@@ -867,11 +897,140 @@
               }
           };
 
+          var kasus_perlaku_perjalanan =  {
+              series: [{
+                      name: 'Kasus Suspek',
+                      type: 'column',
+                      data: [<?= implode(',', $summary_probable); ?>]
+                  }, {
+                      name: 'Selesai Isolasi',
+                      type: 'line',
+                      data: [<?= implode(',', $probable_selesai_isolasi); ?>]
+                  }, {
+                      name: 'Isolasi',
+                      type: 'line',
+                      data: [<?= implode(',', $probable_isolasi); ?>]
+                  }
+              ],
+              chart: {
+                  height: 350,
+                  type: 'line',
+                  stacked: false,
+              },
+              colors: ['#ab47bc', '#35FD0B', '#f2f700', '#000000'],
+              stroke: {
+                  width: [0, 5, 5, 5],
+                  colors: ['#000000', '#2Cff00', '#04A7FF'],
+                  curve: 'smooth',
+                  // colors:['']
+              },
+              plotOptions: {
+                  bar: {
+                      columnWidth: '50%'
+                  }
+              },
+
+              fill: {
+                  colors: ['#ab47bc', '#35FD0B', '#f2f700', '#000000'],
+                  opacity: [0.85, 0.25, 1],
+                  gradient: {
+                      inverseColors: false,
+                      // shade: 'light',
+                      type: "vertical",
+                      // opacityFrom: 0.85,
+                      // opacityTo: 0.55,
+                      stops: [0, 100, 100, 100]
+                  }
+              },
+              labels: ['<?= implode("','", $hari); ?>'],
+              legend: {
+                  show: true,
+                  showForSingleSeries: false,
+                  showForNullSeries: true,
+                  showForZeroSeries: true,
+                  position: 'bottom',
+                  horizontalAlign: 'center',
+                  floating: false,
+                  fontSize: '14px',
+                  fontFamily: 'Helvetica, Arial',
+                  fontWeight: 400,
+                  formatter: undefined,
+                  inverseOrder: false,
+                  width: undefined,
+                  height: undefined,
+                  tooltipHoverFormatter: undefined,
+                  offsetX: 0,
+                  offsetY: 0,
+                  labels: {
+                      colors: ['#000000'],
+                      useSeriesColors: false
+                  },
+                  markers: {
+                      width: 12,
+                      height: 12,
+                      strokeWidth: 0,
+                      strokeColor: '#fff',
+                      fillColors: ['#ab47bc', '#35FD0B', '#f2f700', '#000000'],
+                      radius: 12,
+                      customHTML: undefined,
+                      onClick: undefined,
+                      offsetX: 0,
+                      offsetY: 0
+                  },
+                  itemMargin: {
+                      horizontal: 5,
+                      vertical: 0
+                  },
+                  onItemClick: {
+                      toggleDataSeries: true
+                  },
+                  onItemHover: {
+                      highlightDataSeries: true
+                  },
+              },
+              markers: {
+
+                  size: 5,
+                  hover: {
+                      size: 9
+                  }
+              },
+              xaxis: {
+                  // type: 'datetime'
+              },
+              yaxis: {
+                  title: {
+                      text: 'Orang',
+                  },
+                  labels: {
+                      formatter: function(val) {
+                          return val.toFixed(0)
+                      }
+                  },
+                  min: 0
+              },
+              tooltip: {
+                  shared: true,
+                  intersect: false,
+                  y: {
+                      formatter: function(y) {
+                          if (typeof y !== "undefined") {
+                              return y.toFixed(0) + " Orang";
+                          }
+                          return y;
+
+                      }
+                  }
+              }
+          };
 
           var chart = new ApexCharts(document.querySelector("#chart-kasus"), kasustotal);
           chart.render();
 
           var chart2 = new ApexCharts(document.querySelector("#chart-kasus-kontak_erat"), kasus_kontak_erat);
+          chart2.render();
+
+          var chart2 = new ApexCharts(document.querySelector("#chart-kasus-perlaku_perjalanan"), kasus_perlaku_perjalanan);
           chart2.render();
 
           var chart = new ApexCharts(document.querySelector("#chart-kasus-probable"), kasus_probable);

@@ -56,10 +56,11 @@ class User extends CI_Controller {
 		    }
 		}	
 		$data['level_status'] = array(
-			"konfirmasi" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
-			"suspek" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
-			"probable" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
-			"kontak_erat" => ["Dipantau", "Selesai dipantau"]
+			"terkonfirmasi" => ["Dirawat", "Pengawasan" ,"Sembuh", "Meninggal","Dengan Gejala", "Tanpa Gejala"],
+			"suspek" => ["Isolasi", "Selesai Isolasi", "Meninggal"],
+			"probable" => ["Isolasi", "Selesai Isolasi", "Meninggal"],
+			"kontak_erat" => ["Isolasi", "Selesai Isolasi"],
+			"pelaku_perjalanan" => ["Isolasi", "Selesai Isolasi"]
 		);
 		$json = file_get_contents('data-sampang.json');
 		$data['kecamatan'] = json_decode($json,true);
@@ -114,10 +115,11 @@ class User extends CI_Controller {
 			$data['error']='Tidak ada data';
 		}	
 		$data['level_status'] = array(
-			"konfirmasi" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
-			"suspek" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
-			"probable" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
-			"kontak_erat" => ["Dipantau", "Selesai dipantau"]
+			"terkonfirmasi" => ["Dirawat", "Pengawasan" ,"Sembuh", "Meninggal","Dengan Gejala", "Tanpa Gejala"],
+			"suspek" => ["Isolasi", "Selesai Isolasi", "Meninggal"],
+			"probable" => ["Isolasi", "Selesai Isolasi", "Meninggal"],
+			"kontak_erat" => ["Isolasi", "Selesai Isolasi"],
+			"pelaku_perjalanan" => ["Isolasi", "Selesai Isolasi"]
 		);
 		$json = file_get_contents('data-sampang.json');
 		$data['kecamatan'] = json_decode($json,true);
@@ -180,10 +182,11 @@ class User extends CI_Controller {
 		}
 
 		$data['level_status'] = array(
-			"konfirmasi" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
-			"suspek" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
-			"probable" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
-			"kontak_erat" => ["Dipantau", "Selesai dipantau"]
+			"terkonfirmasi" => ["Dirawat", "Pengawasan" ,"Sembuh", "Meninggal","Dengan Gejala", "Tanpa Gejala"],
+			"suspek" => ["Isolasi", "Selesai Isolasi", "Meninggal"],
+			"probable" => ["Isolasi", "Selesai Isolasi", "Meninggal"],
+			"kontak_erat" => ["Isolasi", "Selesai Isolasi"],
+			"pelaku_perjalanan" => ["Isolasi", "Selesai Isolasi"]
 		);
 		
 		$json = file_get_contents('./data-sampang.json');
@@ -218,10 +221,11 @@ class User extends CI_Controller {
 		}
 
 		$data['level_status'] = array(
-			"konfirmasi" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
-			"suspek" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
-			"probable" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
-			"kontak_erat" => ["Dipantau", "Selesai dipantau"]
+			"terkonfirmasi" => ["Dirawat", "Pengawasan" ,"Sembuh", "Meninggal","Dengan Gejala", "Tanpa Gejala"],
+			"suspek" => ["Isolasi", "Selesai Isolasi", "Meninggal"],
+			"probable" => ["Isolasi", "Selesai Isolasi", "Meninggal"],
+			"kontak_erat" => ["Isolasi", "Selesai Isolasi"],
+			"pelaku_perjalanan" => ["Isolasi", "Selesai Isolasi"]
 		);
 		$json = file_get_contents('data-sampang.json');
 		$data['kecamatan'] = json_decode($json,true);
@@ -298,10 +302,11 @@ class User extends CI_Controller {
 		}
 
 		$data['level_status'] = array(
-			"konfirmasi" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
-			"suspek" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
-			"probable" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
-			"kontak_erat" => ["Dipantau", "Selesai dipantau"]
+			"terkonfirmasi" => ["Dirawat", "Pengawasan" ,"Sembuh", "Meninggal","Dengan Gejala", "Tanpa Gejala"],
+			"suspek" => ["Isolasi", "Selesai Isolasi", "Meninggal"],
+			"probable" => ["Isolasi", "Selesai Isolasi", "Meninggal"],
+			"kontak_erat" => ["Isolasi", "Selesai Isolasi"],
+			"pelaku_perjalanan" => ["Isolasi", "Selesai Isolasi"]
 		);
 		
 		$json = file_get_contents('./data-sampang.json');
@@ -372,10 +377,11 @@ class User extends CI_Controller {
 		}
 
 		$data['level_status'] = array(
-			"konfirmasi" => ['Dirawat', 'Pengawasan' ,'Sembuh', 'Meninggal'],
-			"suspek" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
-			"probable" => ["Isolasi,", "Selesai Isolasi", "Meninggal"],
-			"kontak_erat" => ["Dipantau", "Selesai dipantau"]
+			"terkonfirmasi" => ["Dirawat", "Pengawasan" ,"Sembuh", "Meninggal","Dengan Gejala", "Tanpa Gejala"],
+			"suspek" => ["Isolasi", "Selesai Isolasi", "Meninggal"],
+			"probable" => ["Isolasi", "Selesai Isolasi", "Meninggal"],
+			"kontak_erat" => ["Isolasi", "Selesai Isolasi"],
+			"pelaku_perjalanan" => ["Isolasi", "Selesai Isolasi"]
 		);
 		
 		$json = file_get_contents('./data-sampang.json');
@@ -508,7 +514,10 @@ class User extends CI_Controller {
 		}
 		$json = file_get_contents('./data-sampang.json');
 		$data['kecamatan'] = json_decode($json,true);	
-
+		// echo "<pre>";
+		// print_r($data);
+		// echo "</pre>";
+		// exit();
 		$this->load->view('user_graph_v', $data);
 	}
 
@@ -613,6 +622,15 @@ class User extends CI_Controller {
 	function excel_format($sheet, $kecamatan, $start_row, $end_row, $kode_import,$loc,$lng){
 		$data_excel = array();
 	    $numrow = 1;
+	    /*
+		$data['level_status'] = array(
+			"terkonfirmasi" => ["Dirawat", "Pengawasan" ,"Sembuh", "Meninggal","Dengan Gejala", "Tanpa Gejala"],
+			"suspek" => ["Isolasi", "Selesai Isolasi", "Meninggal"],
+			"probable" => ["Isolasi", "Selesai Isolasi", "Meninggal"],
+			"kontak_erat" => ["Isolasi", "Selesai Isolasi"],
+			"pelaku_perjalanan" => ["Isolasi", "Selesai Isolasi"]
+		);
+	    */
 		foreach($sheet as $row){
             if($numrow >= $start_row){
 				$item['level'] = strtolower($row['P']) ;
@@ -661,23 +679,29 @@ class User extends CI_Controller {
 		foreach($sheet as $row){
             if($numrow >= $start_row){
 				$item['level'] = strtolower($row['P']) ;
-
-				if($item['level'] == 'odp' || $item['level'] == 'pdp'){
-					if($row['T']){
+				$item['level_status'] = $row['S'];
+				if($item['level_status']){
+					if($item['level_status'] == 'Selesai Isolasi' || $row['T']){
 						$item['status'] = 0;
-						$item['level_status'] = 'Selesai dipantau';
 					} else {
-						$item['level_status'] = 'Dipantau';
 						$item['status'] = 1;
-					}	
+					}
 				} else {
-					$item['status'] = 1;
+					if($item['level'] == 'probable' || $item['level'] == 'kontak erat' || $item['level'] == 'pelaku perjalanan'|| $item['level'] == 'suspek'){
+						if($row['T']){
+							$item['status'] = 0;
+							$item['level_status'] = 'Selesai Isolasi';
+						} else {
+							$item['level_status'] = 'Isolasi';
+							$item['status'] = 1;
+						}	
+					} else {
+						$item['status'] = 1;
+					}
+
+					if($item['level'] == 'terkonfirmasi')
+						$item['level_status'] = 'Dirawat';	
 				}
-
-				if($item['level'] == 'confirm')
-					$item['level_status'] = 'Dirawat';
-
-				
 
 				$item['nama'] = $row['C'] ;
 				if($row['E'] == 'L')
@@ -708,6 +732,11 @@ class User extends CI_Controller {
 					$item['date_add'] = '';
 
 				$item['keluhan'] = $row['O'];
+				if(!$item['keluhan']){
+					$item['konfirmasi_gejala'] == 'Tanpa Gejala';
+				} else {
+					$item['konfirmasi_gejala'] == 'Dengan Gejala';
+				}
 				$item['kode_import'] = $kode_import ;
                 array_push($data_excel,$item);
     		}

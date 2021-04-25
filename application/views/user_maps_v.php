@@ -39,10 +39,11 @@
                                             <label for="inputName" class="col-form-label">Kondisi</label>
                                             <select  class="form-control" name="lvl" id="level" >
                                                 <option value="" >-- Semua --</option>
-                                                <option value="konfirmasi" <?= (strtoupper($lvl) == "KONFIRMASI")?"selected":""; ?> >Konfirmasi</option>
+                                                <option value="konfirmasi" <?= (strtoupper($lvl) == "TERKONFIRMASI")?"selected":""; ?> >Terkonfirmasi</option>
                                                 <option value="suspek" <?= (strtoupper($lvl) == "SUSPEK")?"selected":""; ?> >Suspek</option>
                                                 <option value="probable" <?= (strtoupper($lvl) == "PROBABLE")?"selected":""; ?> >Probable</option>
                                                 <option value="kontak_erat" <?= (strtoupper($lvl) == "KONTAK_ERAT")?"selected":""; ?> >Kontak Erat</option>
+                                                <option value="pelaku_perjalanan" <?= (strtoupper($lvl) == "PELAKU_PERJALANAN")?"selected":""; ?> >Pelaku Perjalanan</option>
                                             </select>
                                         </div> 
                                     </div>
@@ -61,6 +62,8 @@
                                                     $list = $level_status['probable'];
                                                 if((strtoupper($lvl) == "KONTAK_ERAT"))
                                                     $list = $level_status['kontak_erat'];
+                                                if((strtoupper($lvl) == "PELAKU_PERJALANAN"))
+                                                    $list = $level_status['pelaku_perjalanan'];
 
                                                 foreach($list as $l){ ?>
                                                 <option value="<?= $l?>" <?= ( $lvlstat == $l )?"selected":""; ?>><?= $l?></option>
@@ -142,6 +145,7 @@
                                 <h4>Data Covid-19 <?php if($user_now->level != 'master-admin' && $user_now->level != 'admin'){ echo '- Kecamatan '.$user_now->level; } ?></h4> 
                             </div>
                             <div class="" bis_skin_checked="1" style="text-align: center;">
+                              <span class="info-peta bg-ppicon"></span> Kasus Pelaku Perjalanan &nbsp;&nbsp;
                               <span class="info-peta bg-odricon"></span> Kasus Kontak Erat &nbsp;&nbsp;
                               <span class="info-peta bg-odpicon"></span> Kasus Probable &nbsp;&nbsp;
                               <span class="info-peta bg-pdpicon"></span> Kasus Suspek &nbsp;&nbsp;
@@ -275,11 +279,12 @@
             var pdpIcon = L.divIcon({ className: 'circle bg-pdpicon shadow', iconSize: [12, 12]});
             var odpIcon = L.divIcon({ className: 'circle bg-odpicon shadow', iconSize: [12, 12]});
             var odrIcon = L.divIcon({ className: 'circle bg-odricon shadow', iconSize: [12, 12]});
+            var ppIcon = L.divIcon({ className: 'circle bg-ppicon shadow', iconSize: [12, 12]});
 
-            if(level == 'konfirmasi'){
-                var stat = "Konfirmasi Positif Covid-19";
+            if(level == 'terkonfirmasi'){
+                var stat = "Terkonfirmasi Positif Covid-19";
                 var greenIcon = confirmIcon;
-                var levelname = 'Konfirmasi';
+                var levelname = 'Terkonfirmasi';
             } else if(level == 'suspek'){
                 var stat = "Suspek";
                 var levelname = 'Suspek';
@@ -288,6 +293,10 @@
                 var stat = "Probable";
                 var levelname = 'Probable';
                 var greenIcon = odpIcon;
+            } else if(level == 'pelaku_perjalanan'){
+                var stat = "Pelaku Perjalanan";
+                var levelname = 'Pelaku Perjalanan';
+                var greenIcon = ppIcon;
             } else {
                 var stat = "Kontak Erat";
                 var levelname = 'Kontak Erat';
@@ -304,7 +313,7 @@
                   +"<span>Kecamatan: <b>"+kec_user+"</b></span><br>"
                   +"<span>Update Terakhir: <b>"+updated+"</b></span><br>"
               ;
-            if(level == 'konfirmasi'){
+            if(level == 'terkonfirmasi'){
               customPopup+="<span>Konfirmasi Gejala : <b>"+konfirmasi_gejala+"</b></span><br>"
             }
               console.log(greenIcon);

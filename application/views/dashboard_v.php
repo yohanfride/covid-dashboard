@@ -41,14 +41,14 @@
                      data-loop="true">
                     <div class="p-5 bg-primary red lighten-1 text-white">
                         <h5 class="font-weight-normal s-14">Positif<br/>Covid-19</h5>
-                        <span class="s-48 font-weight-lighter text-primary"><?= $new->konfirmasi->total;?></span>
+                        <span class="s-48 font-weight-lighter text-primary"><?= $new->terkonfirmasi->total;?></span>
                         <div> Kasus &nbsp;&nbsp;
                             <?php 
                                 $old_data = 0;
                                 if($old){
-                                    $old_data = $old->konfirmasi->total;
+                                    $old_data = $old->terkonfirmasi->total;
                                 }
-                                $jarak = $new->konfirmasi->total - $old_data ;
+                                $jarak = $new->terkonfirmasi->total - $old_data ;
                                 if($jarak==0)
                                     $icon = "icon-arrows-h";
                                 else if($jarak>0)
@@ -62,14 +62,14 @@
                     </div>
                     <div class="p-5 ">
                         <h5 class="font-weight-normal s-14">Positif -<br/>Sembuh</h5>
-                        <span class="s-48 font-weight-lighter light-green-text"><?= $new->konfirmasi->sembuh;?></span>
+                        <span class="s-48 font-weight-lighter light-green-text"><?= $new->terkonfirmasi->sembuh;?></span>
                         <div> Kasus &nbsp;&nbsp;
                             <?php 
                                 $old_data = 0;
                                 if($old){
-                                    $old_data = $old->konfirmasi->sembuh;
+                                    $old_data = $old->terkonfirmasi->sembuh;
                                 }
-                                $jarak = $new->konfirmasi->sembuh - $old_data ;
+                                $jarak = $new->terkonfirmasi->sembuh - $old_data ;
                                 if($jarak==0)
                                     $icon = "icon-arrows-h";
                                 else if($jarak>0)
@@ -83,14 +83,14 @@
                     </div>
                     <div class="p-5 light">
                         <h5 class="font-weight-normal s-14">Positif -<br/>Meninggal</h5>
-                        <span class="s-48 font-weight-lighter light-red-text"><?= $new->konfirmasi->meninggal;?></span>
+                        <span class="s-48 font-weight-lighter light-red-text"><?= $new->terkonfirmasi->meninggal;?></span>
                         <div> Kasus &nbsp;&nbsp;
                             <?php 
                                 $old_data = 0;
                                 if($old){
-                                    $old_data = $old->konfirmasi->meninggal;
+                                    $old_data = $old->terkonfirmasi->meninggal;
                                 }
-                                $jarak = $new->konfirmasi->meninggal - $old_data ;
+                                $jarak = $new->terkonfirmasi->meninggal - $old_data ;
                                 if($jarak==0)
                                     $icon = "icon-arrows-h";
                                 else if($jarak>0)
@@ -166,16 +166,37 @@
                             <span class="text-primary"><i class="icon <?= $icon;?>"></i> <?= $jarak;?></span>
                         </div>
                     </div>
-                    <div class="p-5 bg-primary red darken-2 text-white">
-                        <h5 class="font-weight-normal s-14">Positif Dengan Gejala<br/>&nbsp;</h5>
-                        <span class="s-48 font-weight-lighter yellow-text"><?= $new->konfirmasi->{"dengan-gejala"};?></span>
+                    <div class="p-5 light">
+                        <h5 class="font-weight-normal s-14">Pelaku Perjalanan<br/>&nbsp;</h5>
+                        <span class="s-48 font-weight-lighter text-primary"><?= $new->pelaku_perjalanan->total;?></span>
                         <div> Kasus &nbsp;&nbsp;
                             <?php 
                                 $old_data = 0;
                                 if($old){
-                                    $old_data = $old->konfirmasi->{"dengan-gejala"};
+                                    $old_data = $old->kontak_erat->total;
                                 }
-                                $jarak = $new->konfirmasi->{"dengan-gejala"} - $old_data ;
+                                $jarak = $new->kontak_erat->total - $old_data ;
+                                if($jarak==0)
+                                    $icon = "icon-arrows-h";
+                                else if($jarak>0)
+                                    $icon = "icon-arrow_upward";
+                                else if($jarak<0)
+                                    $icon = "icon-arrow_downward";
+                                $jarak = abs($jarak)  
+                            ?>
+                            <span class="text-primary"><i class="icon <?= $icon;?>"></i> <?= $jarak;?></span>
+                        </div>
+                    </div>
+                    <div class="p-5 bg-primary red darken-2 text-white">
+                        <h5 class="font-weight-normal s-14">Positif Dengan Gejala<br/>&nbsp;</h5>
+                        <span class="s-48 font-weight-lighter yellow-text"><?= $new->terkonfirmasi->{"dengan-gejala"};?></span>
+                        <div> Kasus &nbsp;&nbsp;
+                            <?php 
+                                $old_data = 0;
+                                if($old){
+                                    $old_data = $old->terkonfirmasi->{"dengan-gejala"};
+                                }
+                                $jarak = $new->terkonfirmasi->{"dengan-gejala"} - $old_data ;
                                 if($jarak==0)
                                     $icon = "icon-arrows-h";
                                 else if($jarak>0)
@@ -189,14 +210,14 @@
                     </div>
                     <div class="p-5 bg-primary red darken-1 text-white">
                         <h5 class="font-weight-normal s-14">Positif Tanpa Gejala<br/>&nbsp;</h5>
-                        <span class="s-48 font-weight-lighter text-primary"><?= $new->konfirmasi->{"tanpa-gejala"};?></span>
+                        <span class="s-48 font-weight-lighter text-primary"><?= $new->terkonfirmasi->{"tanpa-gejala"};?></span>
                         <div> Kasus &nbsp;&nbsp;
                             <?php 
                                 $old_data = 0;
                                 if($old){
-                                    $old_data = $old->konfirmasi->{"tanpa-gejala"};
+                                    $old_data = $old->terkonfirmasi->{"tanpa-gejala"};
                                 }
-                                $jarak = $new->konfirmasi->{"tanpa-gejala"} - $old_data ;
+                                $jarak = $new->terkonfirmasi->{"tanpa-gejala"} - $old_data ;
                                 if($jarak==0)
                                     $icon = "icon-arrows-h";
                                 else if($jarak>0)
@@ -227,7 +248,7 @@
                                             <div class="pt-5 pb-5 pl-5 pr-5">
                                                 <h5 class="font-weight-normal s-18">Kecamatan <?= $most_kec?></h5>
                                                 <span class="s-48 font-weight-lighter text-primary">
-                                                <?= $new->kecamatan->{$most_kec}->konfirmasi; ?>&nbsp;&nbsp;&nbsp;</span>
+                                                <?= $new->kecamatan->{$most_kec}->terkonfirmasi; ?>&nbsp;&nbsp;&nbsp;</span>
                                                 <div class="float-right">
                                                     <span class="icon icon-people s-48"></span>
                                                 </div>
@@ -253,7 +274,7 @@
                                             <div class="pt-5 pb-5 pl-5 pr-5">
                                                 <h5 class="font-weight-normal s-18">Kecamatan <?= $most_kec2?></h5>
                                                 <span class="s-48 font-weight-lighter text-primary">
-                                                <?= $new->kecamatan->{$most_kec2}->konfirmasi; ?>&nbsp;&nbsp;&nbsp;</span>
+                                                <?= $new->kecamatan->{$most_kec2}->terkonfirmasi; ?>&nbsp;&nbsp;&nbsp;</span>
                                                 <div class="float-right">
                                                     <span class="icon icon-people s-48"></span>
                                                 </div>
@@ -379,8 +400,8 @@
                                                     </td>
                                                     <td><?= date( "H:i:s", strtotime( $s->date_add)) ?></td>
                                                     <td>
-                                                        <?php if(strtoupper($s->level) == "konfirmasi"){ ?>
-                                                        <span class="badge badge-primary red lighten-1 r-20" style="font-size: 12px;">konfirmasi</span>
+                                                        <?php if(strtoupper($s->level) == "terkonfirmasi"){ ?>
+                                                        <span class="badge badge-primary red lighten-1 r-20" style="font-size: 12px;">terkonfirmasi</span>
                                                         <?php } else if(strtoupper($s->level) == "suspek"){ ?>
                                                         <span class="badge badge-primary purple darken-1 r-20" style="font-size: 12px;">suspek</span>
                                                         <?php } else if(strtoupper($s->level) == "probable"){ ?>
@@ -436,13 +457,13 @@
       }
       <?php  
         $kecamatan = array(); 
-        $kec_kontak_erat = array(); $kec_probable = array(); $kec_suspek = array(); $kec_konfirmasi = array();
+        $kec_kontak_erat = array(); $kec_probable = array(); $kec_suspek = array(); $kec_terkonfirmasi = array();
         foreach($new->kecamatan as $kec_key => $kec_value){
           $kecamatan[] = $kec_key;
           $kec_kontak_erat[] = $kec_value->kontak_erat;
           $kec_probable[] = $kec_value->probable;
           $kec_suspek[] = $kec_value->suspek;
-          $kec_konfirmasi[] = $kec_value->konfirmasi;
+          $kec_terkonfirmasi[] = $kec_value->terkonfirmasi;
         }
       ?> 
       
@@ -451,7 +472,7 @@
           { name: 'Kasus Kontak Erat',data: [<?= implode(',', $kec_kontak_erat); ?>]}, 
           { name: 'Kasus Probable',data: [<?= implode(',', $kec_probable); ?>]},
           { name: 'Kasus Suspek',data: [<?= implode(',', $kec_suspek); ?>]}, 
-          { name: 'Kasus Konfirmasi Positif',data: [<?= implode(',', $kec_konfirmasi); ?>]}
+          { name: 'Kasus terkonfirmasi Positif',data: [<?= implode(',', $kec_terkonfirmasi); ?>]}
         ],
         colors:[chartColors.orange,chartColors.blue,chartColors.purple,chartColors.red],
         chart: {

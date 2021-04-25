@@ -71,17 +71,18 @@
                                     <div class="form-group">
                                         <label for="inputName" class="col-form-label">Kondisi</label>
                                         <select  class="form-control" name="level" id="level" required>
-                                            <option value="konfirmasi"  >Konfirmasi</option>
+                                            <option value="terkonfirmasi"  >Terkonfirmasi</option>
                                             <option value="suspek"  >Suspek</option>
                                             <option value="probable" >Probable</option>
                                             <option value="kontak_erat" >Kontak Erat</option>
+                                            <option value="pelaku_perjalanan" >Pelaku Perjalanan</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPhone" class="col-form-label">Status</label>
                                         <select class="form-control" name="level_status" id="level_status" required>
                                         <?php 
-                                            $list = $level_status['konfirmasi'];  
+                                            $list = $level_status['terkonfirmasi'];  
                                             foreach($list as $l){ ?>
                                             <option value="<?= $l?>"><?= $l?></option>
                                         <?php } ?>
@@ -195,7 +196,7 @@
           text += '<option value="'+level_item[i]+'" >'+level_item[i]+'</option>';
         }
         $("#level_status").html(text);
-        if(level == 'konfirmasi'){
+        if(level == 'terkonfirmasi'){
             $("#form_gejala").show();
         } else {
             $("#form_gejala").hide();

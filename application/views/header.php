@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="<?=base_url();?>assets/img/logo-lambang.ico" type="image/x-icon">
+    <link rel="icon" href="<?=base_url();?>assets/img/logo-lambang.png" type="image/x-icon">
     <title> <?= $title?> - Halaman Dashboard</title>
     <!-- CSS -->
     <link rel="stylesheet" href="<?=base_url();?>assets/css/app.css">
@@ -61,6 +61,12 @@
             -webkit-box-shadow:0 0 10px #42a5f5 !important; 
             -moz-box-shadow: 0 0 10px #42a5f5 !important; 
             box-shadow:0 0 10px #42a5f5;
+        }
+        .bg-ppicon{
+            background-color: #ab47bc   !important;
+            -webkit-box-shadow:0 0 10px #ab47bc !important; 
+            -moz-box-shadow: 0 0 10px #ab47bc !important; 
+            box-shadow:0 0 10px #ab47bc;
         }
         .info-peta{
             height: 18px;

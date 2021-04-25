@@ -71,24 +71,27 @@
                                     <div class="form-group">
                                         <label for="inputName" class="col-form-label">Kondisi</label>
                                         <select  class="form-control" name="level" id="level" required>
-                                            <option value="konfirmasi" <?= (strtoupper($data->level) == "KONFIRMASI")?"selected":""; ?> >Konfirmasi</option>
+                                            <option value="konfirmasi" <?= (strtoupper($data->level) == "TERKONFIRMASI")?"selected":""; ?> >Konfirmasi</option>
                                             <option value="suspek" <?= (strtoupper($data->level) == "SUSPEK")?"selected":""; ?> >Suspek</option>
                                             <option value="probable" <?= (strtoupper($data->level) == "PROBABLE")?"selected":""; ?> >Probable</option>
                                             <option value="kontak_erat" <?= (strtoupper($data->level) == "KONTAK_ERAT")?"selected":""; ?> >Kontak Erat</option>
+                                            <option value="pelaku_perjalanan" <?= (strtoupper($data->level) == "PELAKU_PERJALANAN")?"selected":""; ?> >Pelaku Perjalanan</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPhone" class="col-form-label">Status</label>
                                         <select class="form-control" name="level_status" id="level_status" required>
                                         <?php 
-                                            if((strtoupper($data->level) == "KONFIRMASI"))
-                                                $list = $level_status['konfirmasi'];   
+                                            if((strtoupper($data->level) == "TERKONFIRMASI"))
+                                                $list = $level_status['terkonfirmasi'];   
                                             if((strtoupper($data->level) == "SUSPEK"))
                                                 $list = $level_status['suspek'];
                                             if((strtoupper($data->level) == "PROBABLE"))
                                                 $list = $level_status['probable'];
                                             if((strtoupper($data->level) == "KONTAK_ERAT"))
                                                 $list = $level_status['kontak_erat'];
+                                            if((strtoupper($data->level) == "PELAKU_PERJALANAN"))
+                                                $list = $level_status['pelaku_perjalanan'];
                                             foreach($list as $l){ ?>
                                             <option value="<?= $l?>" <?= ( $data->level_status == $l )?"selected":""; ?>><?= $l?></option>
                                         <?php } ?>
@@ -229,7 +232,7 @@
     // console.log(kecamatan);
 
     <?php
-        if((strtoupper($data->level) != "KONFIRMASI")){
+        if((strtoupper($data->level) != "TERKONFIRMASI")){
             echo '$("#form_gejala").hide();';
         }
     ?>

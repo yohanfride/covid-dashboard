@@ -679,7 +679,7 @@ class User extends CI_Controller {
 		foreach($sheet as $row){
             if($numrow >= $start_row){
 				$item['level'] = strtolower($row['P']) ;
-				$item['level_status'] = $row['S'];
+				$item['level_status'] = $row['U'];
 				if($item['level_status']){
 					if($item['level_status'] == 'Selesai Isolasi' || $row['T']){
 						$item['status'] = 0;
@@ -703,10 +703,18 @@ class User extends CI_Controller {
 						$item['level_status'] = 'Dirawat';	
 				}
 
+				if( $item['level'] == 'pelaku perjalanan' ){
+					$item['level'] = 'pelaku_perjalanan';
+				}
+
+				if( $item['level'] == 'kontak erat' ){
+					$item['level'] = 'kontak_erat';
+				}
+
 				$item['nama'] = $row['C'] ;
-				if($row['E'] == 'L')
+				if($row['E'] == 'L' || $row['E'] == 'Laki-laki' || $row['E'] == 'Laki-Laki'  || $row['E'] == 'Laki-Laki' || $row['E'] == 'pria')
 					$item['jenis_kelamin'] = 'Laki-laki';
-				else if($row['E'] == 'P')
+				else if($row['E'] == 'P' || $row['E'] == 'Perempuan' || $row['E'] == 'perempuan' || $row['E'] == 'wanita')
 					$item['jenis_kelamin'] = 'Perempuan';
 				else 
 					$item['jenis_kelamin'] = '-';
@@ -719,23 +727,23 @@ class User extends CI_Controller {
 				$item['umur'] =  strtolower($row['D']);
 				$item['phone'] = '-';
 				$item['riwayat_perjalanan'] = ($row['M'] != '')?$row['M']:$row['N'];
-				$item['loc_lat'] = $row['Q'];
-				$item['loc_long'] = $row['R'];
-				if($row['K'])
+				$item['loc_lat'] = $row['S'];
+				$item['loc_long'] = $row['T'];
+				// if($row['K'])
 					$item['date_add'] = date("Y-m-d",strtotime(str_replace('/', '-', $row['K'])));
-				else 
-					$item['date_add'] = '';
+				// else 
+				// 	$item['date_add'] = '';
 
-				if($row['U'])
+				// if($row['U'])
 					$item['date_end'] = date("Y-m-d",strtotime(str_replace("'","", $row['U'])));
-				else 
-					$item['date_add'] = '';
-
+				// else 
+				// 	$item['date_add'] = '';
+				$item['status'] = 1;
 				$item['keluhan'] = $row['O'];
 				if(!$item['keluhan']){
-					$item['konfirmasi_gejala'] == 'Tanpa Gejala';
+					$item['konfirmasi_gejala'] = 'Tanpa Gejala';
 				} else {
-					$item['konfirmasi_gejala'] == 'Dengan Gejala';
+					$item['konfirmasi_gejala'] = 'Dengan Gejala';
 				}
 				$item['kode_import'] = $kode_import ;
                 array_push($data_excel,$item);

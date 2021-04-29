@@ -39,7 +39,7 @@
                                             <label for="inputName" class="col-form-label">Kondisi</label>
                                             <select  class="form-control" name="lvl" id="level" >
                                                 <option value="" >-- Semua --</option>
-                                                <option value="konfirmasi" <?= (strtoupper($lvl) == "TERKONFIRMASI")?"selected":""; ?> >Terkonfirmasi</option>
+                                                <option value="terkonfirmasi" <?= (strtoupper($lvl) == "TERKONFIRMASI")?"selected":""; ?> >Terkonfirmasi</option>
                                                 <option value="suspek" <?= (strtoupper($lvl) == "SUSPEK")?"selected":""; ?> >Suspek</option>
                                                 <option value="probable" <?= (strtoupper($lvl) == "PROBABLE")?"selected":""; ?> >Probable</option>
                                                 <option value="kontak_erat" <?= (strtoupper($lvl) == "KONTAK_ERAT")?"selected":""; ?> >Kontak Erat</option>
@@ -54,8 +54,8 @@
                                             <option value="" >-- Semua --</option>
                                             <?php 
                                                 $list = array();
-                                                if((strtoupper($lvl) == "KONFIRMASI"))
-                                                    $list = $level_status['konfirmasi'];   
+                                                if((strtoupper($lvl) == "TERKONFIRMASI"))
+                                                    $list = $level_status['terkonfirmasi'];   
                                                 if((strtoupper($lvl) == "SUSPEK"))
                                                     $list = $level_status['suspek'];
                                                 if((strtoupper($lvl) == "PROBABLE"))

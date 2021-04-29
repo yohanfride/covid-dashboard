@@ -32,7 +32,7 @@
                     <div class="card">
                         <div class="card-body b-b">
                             <form method="post" enctype="multipart/form-data">
-                                <h4>Form Tambah Infografis</h4>
+                                <h4>Form Import Data</h4>
                                 <?php if($error){ ?>
                                     <div class="alert alert-danger alert-dismissible" role="alert">
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" style="font-size: 14px;">&#10006;</span>
